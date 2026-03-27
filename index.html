@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Learning — JC Castillo</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:    #2563EB;
+  --blue-lt: #EFF6FF;
+  --blue-md: #BFDBFE;
+  --teal:    #0D9488;
+  --teal-lt: #F0FDFA;
+  --teal-md: #99F6E4;
+  --violet:  #7C3AED;
+  --violet-lt:#F5F3FF;
+  --violet-md:#DDD6FE;
+  --amber:   #D97706;
+  --amber-lt:#FFFBEB;
+  --green:   #059669;
+  --green-lt:#ECFDF5;
+  --rose:    #E11D48;
+  --rose-lt: #FFF1F2;
+  --slate:   #475569;
+  --slate-lt:#F8FAFC;
+  --border:  #E2E8F0;
+  --text:    #1E293B;
+  --text2:   #64748B;
+  --text3:   #94A3B8;
+  --bg:      #F8FAFC;
+  --surface: #FFFFFF;
+  --r:       8px;
+  --rlg:     14px;
+  --sh:      0 1px 3px rgba(0,0,0,.06), 0 4px 12px rgba(0,0,0,.04);
+  --shmd:    0 2px 8px rgba(0,0,0,.08), 0 8px 24px rgba(0,0,0,.06);
+}
+
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6}
+
+/* ── HEADER ── */
+.hdr{background:var(--surface);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;box-shadow:var(--sh)}
+.hdr-brand{display:flex;align-items:center;gap:10px}
+.hdr-logo{width:36px;height:36px;background:linear-gradient(135deg,#2563EB,#7C3AED);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:13px;font-weight:600;color:#fff;letter-spacing:.5px}
+.hdr-title{font-family:'Lora',serif;font-size:17px;font-weight:600;color:var(--text)}
+.hdr-sub{font-size:11px;color:var(--text3);margin-top:1px}
+.hdr-tag{background:var(--blue-lt);color:var(--blue);font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase}
+
+/* ── TABS ── */
+.tab-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 32px;display:flex;gap:4px}
+.tab-btn{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:500;padding:14px 20px;border:none;background:none;color:var(--text2);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px;transition:all .2s;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active-pm{color:var(--blue);border-bottom-color:var(--blue)}
+.tab-btn.active-em{color:var(--teal);border-bottom-color:var(--teal)}
+.tab-btn.active-ai{color:var(--violet);border-bottom-color:var(--violet)}
+.tab-icon{width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:10px}
+.tab-icon-pm{background:var(--blue-lt)}
+.tab-icon-em{background:var(--teal-lt)}
+.tab-icon-ai{background:var(--violet-lt)}
+
+/* ── LAYOUT ── */
+.page{display:none;max-width:1000px;margin:0 auto;padding:32px 24px}
+.page.active{display:block;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── HERO SECTION ── */
+.hero{border-radius:var(--rlg);padding:32px 36px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero-pm{background:linear-gradient(135deg,#EFF6FF 0%,#E0F2FE 100%);border:1px solid #BFDBFE}
+.hero-em{background:linear-gradient(135deg,#F0FDFA 0%,#E0F7FA 100%);border:1px solid #99F6E4}
+.hero-ai{background:linear-gradient(135deg,#F5F3FF 0%,#EDE9FE 100%);border:1px solid #DDD6FE}
+.hero-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.hero-label-pm{color:var(--blue)}
+.hero-label-em{color:var(--teal)}
+.hero-label-ai{color:var(--violet)}
+.hero h1{font-family:'Lora',serif;font-size:28px;font-weight:600;margin-bottom:8px;line-height:1.3}
+.hero p{font-size:14px;color:var(--text2);max-width:600px;line-height:1.7}
+.hero-pattern{position:absolute;right:-20px;top:-20px;width:180px;height:180px;opacity:.06;pointer-events:none}
+
+/* ── SECTION ── */
+.section{margin-bottom:32px}
+.section-title{font-family:'Lora',serif;font-size:18px;font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.section-title .num{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;flex-shrink:0}
+.num-pm{background:var(--blue-lt);color:var(--blue)}
+.num-em{background:var(--teal-lt);color:var(--teal)}
+.num-ai{background:var(--violet-lt);color:var(--violet)}
+.section-desc{font-size:13px;color:var(--text2);margin-bottom:16px;margin-left:34px}
+.section-divider{height:1px;background:var(--border);margin-bottom:20px}
+
+/* ── SUBSECTION ── */
+.sub{margin-bottom:20px;margin-left:34px}
+.sub h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+
+/* ── CARDS GRID ── */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:12px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;box-shadow:var(--sh)}
+.card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.card-label-pm{color:var(--blue)}
+.card-label-em{color:var(--teal)}
+.card-label-ai{color:var(--violet)}
+.card-value{font-size:13px;color:var(--text);line-height:1.5}
+
+/* ── BADGE ROW ── */
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.badge{display:flex;align-items:flex-start;gap:8px;padding:10px 14px;border-radius:var(--r);border:1px solid var(--border);background:var(--surface);flex:1;min-width:140px}
+.badge-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.badge-label{font-size:11px;font-weight:700;display:block;margin-bottom:2px}
+.badge-desc{font-size:11px;color:var(--text2);line-height:1.4}
+.badge-label-pm{color:var(--blue)}
+.badge-label-em{color:var(--teal)}
+.badge-label-ai{color:var(--violet)}
+
+/* ── TABLE ── */
+.tbl-wrap{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);margin-bottom:14px;box-shadow:var(--sh)}
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead th{padding:10px 14px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--text3);background:var(--slate-lt);border-bottom:1px solid var(--border)}
+tbody tr{border-bottom:1px solid var(--border)}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:#FAFBFC}
+td{padding:10px 14px;vertical-align:top;color:var(--text)}
+td:first-child{font-weight:600;color:var(--text);white-space:nowrap}
+td:last-child{color:var(--text2)}
+
+/* ── FORMULA BOX ── */
+.formula-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.formula{background:var(--slate-lt);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px}
+.formula code{font-family:monospace;font-size:12px;font-weight:700;display:block;margin-bottom:4px}
+.formula-pm code{color:var(--blue)}
+.formula-em code{color:var(--teal)}
+.formula-ai code{color:var(--violet)}
+.formula span{font-size:11px;color:var(--text2)}
+
+/* ── BULLET LIST ── */
+.blist{list-style:none;margin-bottom:12px}
+.blist li{font-size:13px;color:var(--text2);padding:5px 0 5px 20px;position:relative;line-height:1.5}
+.blist li::before{content:'•';position:absolute;left:4px;font-size:14px}
+.blist-pm li::before{color:var(--blue)}
+.blist-em li::before{color:var(--teal)}
+.blist-ai li::before{color:var(--violet)}
+.blist li strong{color:var(--text);font-weight:600}
+.blist.sub-list{margin-left:16px}
+.blist.sub-list li::before{content:'◦';font-size:12px}
+
+/* ── CALLOUT ── */
+.callout{border-radius:var(--r);padding:14px 18px;margin-bottom:14px;font-size:13px;line-height:1.6}
+.callout-pm{background:var(--blue-lt);border-left:3px solid var(--blue);color:#1E3A5F}
+.callout-em{background:var(--teal-lt);border-left:3px solid var(--teal);color:#134E48}
+.callout-ai{background:var(--violet-lt);border-left:3px solid var(--violet);color:#3B1F7A}
+.callout strong{font-weight:700}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .hdr{padding:12px 16px}
+  .tab-bar{padding:0 8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .tab-bar::-webkit-scrollbar{display:none}
+  .page{padding:20px 16px}
+  .hero{padding:22px 20px}
+  .formula-grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  .sub{margin-left:0}
+  .section-desc{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-brand">
+    <div class="hdr-logo">JC</div>
+    <div>
+      <div class="hdr-title">Personal Learning</div>
+      <div class="hdr-sub">Knowledge reference · Juan Carlos Castillo</div>
+    </div>
+  </div>
+  <div class="hdr-tag">Reference Guide</div>
+</div>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab-btn active-pm" onclick="switchTab('pm',this)" id="btn-pm">
+    <div class="tab-icon tab-icon-pm">📋</div>Project Manager
+  </button>
+  <button class="tab-btn" onclick="switchTab('em',this)" id="btn-em">
+    <div class="tab-icon tab-icon-em">🤝</div>Engagement Manager
+  </button>
+  <button class="tab-btn" onclick="switchTab('ai',this)" id="btn-ai">
+    <div class="tab-icon tab-icon-ai">🤖</div>AI Architect
+  </button>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB: PROJECT MANAGER
+══════════════════════════════════════════════════════════ -->
+<div class="page active" id="page-pm">
+
+  <div class="hero hero-pm">
+    <div class="hero-label hero-label-pm">Knowledge Track</div>
+    <h1>Project Manager</h1>
+    <p>Core frameworks, methodologies, planning tools and governance concepts for enterprise project delivery. Use this as a quick reference before interviews or when refreshing key concepts.</p>
+  </div>
+
+  <!-- 1. FOUNDATIONS -->
+  <div class="section">
+    <div class="section-title"><span class="num num-pm">1</span> Foundations</div>
+    <div class="section-desc">What a project is, its lifecycle and key constraints.</div>
+    <div class="section-divider"></div>
+
+    <div class="sub">
+      <h3>Project Lifecycle</h3>
+      <div class="badges">
+        <div class="badge"><div class="badge-icon">🚀</div><div><span class="badge-label badge-label-pm">Initiation</span><span class="badge-desc">Define purpose, stakeholders, feasibility</span></div></div>
+        <div class="badge"><div class="badge-icon">📐</div><div><span class="badge-label badge-label-pm">Planning</span><span class="badge-desc">Scope, schedule, budget, risk, resources</span></div></div>
+        <div class="badge"><div class="badge-icon">⚙️</div><div><span class="badge-label badge-label-pm">Execution</span><span class="badge-desc">Deliver work according to the plan</span></div></div>
+        <div class="badge"><div class="badge-icon">📊</div><div><span class="badge-label badge-label-pm">Monitoring</span><span class="badge-desc">Track, review and regulate progress</span></div></div>
+        <div class="badge"><div class="badge-icon">✅</div><div><span class="badge-label badge-label-pm">Closure</span><span class="badge-desc">Formalise completion and lessons learned</span></div></div>
+      </div>
+
+      <h3>Triple Constraint</h3>
+      <div class="cards">
+        <div class="card"><div class="card-label card-label-pm">Scope</div><div class="card-value">What work is included and excluded. Changes must go through formal change control.</div></div>
+        <div class="card"><div class="card-label card-label-pm">Time</div><div class="card-value">Deadlines, milestones and schedule. Delay on critical path = project delay.</div></div>
+        <div class="card"><div class="card-label card-label-pm">Cost</div><div class="card-value">Budget, resources and financial limits. Tracked via EVM (see section 3).</div></div>
+      </div>
+
+      <h3>Project vs Programme vs Portfolio</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Level</th><th>Definition</th></tr></thead>
+        <tbody>
+          <tr><td>Project</td><td>A single temporary endeavour delivering a defined output</td></tr>
+          <tr><td>Programme</td><td>A group of related projects managed together to obtain benefits not available from individual management</td></tr>
+          <tr><td>Portfolio</td><td>A collection of projects, programmes and operations managed to achieve strategic objectives</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- 2. METHODOLOGIES -->
+  <div class="section">
+    <div class="section-title"><span class="num num-pm">2</span> Methodologies</div>
+    <div class="section-desc">Waterfall, Agile, Scrum, SAP Activate, PRINCE2, ITIL.</div>
+    <div class="section-divider"></div>
+
+    <div class="sub">
+      <h3>Waterfall vs Agile</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Dimension</th><th>Waterfall</th><th>Agile</th></tr></thead>
+        <tbody>
+          <tr><td>Approach</td><td>Sequential, linear phases</td><td>Iterative, incremental sprints</td></tr>
+          <tr><td>Requirements</td><td>Fixed upfront</td><td>Evolve throughout</td></tr>
+          <tr><td>Change</td><td>Expensive, formal</td><td>Expected, embraced</td></tr>
+          <tr><td>Delivery</td><td>Single release at end</td><td>Frequent releases each sprint</td></tr>
+          <tr><td>Best for</td><td>Fixed scope, regulatory projects</td><td>Complex, evolving products</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Scrum Key Concepts</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Concept</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Sprint</td><td>Time-boxed iteration (1–4 weeks) delivering a potentially shippable increment</td></tr>
+          <tr><td>Product Backlog</td><td>Prioritised list of all work to be done</td></tr>
+          <tr><td>Sprint Backlog</td><td>Subset of backlog selected for the current sprint</td></tr>
+          <tr><td>Daily Standup</td><td>15-min sync: what did I do, what will I do, blockers</td></tr>
+          <tr><td>Sprint Review</td><td>Demo to stakeholders at end of sprint</td></tr>
+          <tr><td>Retrospective</td><td>Team reflection on process improvements</td></tr>
+          <tr><td>Product Owner</td><td>Owns backlog and priorities. Represents stakeholders</td></tr>
+          <tr><td>Scrum Master</td><td>Facilitates the process and removes impediments</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>SAP Activate</h3>
+      <div class="badges">
+        <div class="badge"><div class="badge-icon">🔍</div><div><span class="badge-label badge-label-pm">Discover</span><span class="badge-desc">Validate scope and business case</span></div></div>
+        <div class="badge"><div class="badge-icon">🛠</div><div><span class="badge-label badge-label-pm">Prepare</span><span class="badge-desc">Set up project and environment</span></div></div>
+        <div class="badge"><div class="badge-icon">🗺</div><div><span class="badge-label badge-label-pm">Explore</span><span class="badge-desc">Fit-to-standard workshops</span></div></div>
+        <div class="badge"><div class="badge-icon">⚙️</div><div><span class="badge-label badge-label-pm">Realise</span><span class="badge-desc">Configure and build</span></div></div>
+        <div class="badge"><div class="badge-icon">🚀</div><div><span class="badge-label badge-label-pm">Deploy</span><span class="badge-desc">Cutover and go-live</span></div></div>
+        <div class="badge"><div class="badge-icon">🔄</div><div><span class="badge-label badge-label-pm">Run</span><span class="badge-desc">Operations and hypercare</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. EVM -->
+  <div class="section">
+    <div class="section-title"><span class="num num-pm">3</span> Earned Value Management (EVM)</div>
+    <div class="section-desc">The standard method to measure project performance objectively.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="callout callout-pm"><strong>Remember:</strong> CPI and SPI above 1.0 = good. Below 1.0 = problem. EVM integrates scope, schedule and cost into a single performance picture.</div>
+      <div class="formula-grid">
+        <div class="formula formula-pm"><code>CV = EV − AC</code><span>Cost Variance. Positive = under budget</span></div>
+        <div class="formula formula-pm"><code>SV = EV − PV</code><span>Schedule Variance. Positive = ahead of schedule</span></div>
+        <div class="formula formula-pm"><code>CPI = EV / AC</code><span>Cost Performance Index. &gt;1 = under budget</span></div>
+        <div class="formula formula-pm"><code>SPI = EV / PV</code><span>Schedule Performance Index. &gt;1 = ahead</span></div>
+        <div class="formula formula-pm"><code>EAC = BAC / CPI</code><span>Estimate at Completion (projected total cost)</span></div>
+        <div class="formula formula-pm"><code>VAC = BAC − EAC</code><span>Variance at Completion. Positive = under budget</span></div>
+      </div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>PV (Planned Value)</td><td>Budgeted cost of work scheduled at this point in time</td></tr>
+          <tr><td>EV (Earned Value)</td><td>Budgeted cost of work actually performed</td></tr>
+          <tr><td>AC (Actual Cost)</td><td>Actual cost of work performed to date</td></tr>
+          <tr><td>BAC</td><td>Budget at Completion — the total approved budget</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- 4. PLANNING -->
+  <div class="section">
+    <div class="section-title"><span class="num num-pm">4</span> Planning Essentials</div>
+    <div class="section-desc">Scope, schedule, requirements, change control.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <h3>Scope Management</h3>
+      <ul class="blist blist-pm">
+        <li><strong>WBS (Work Breakdown Structure):</strong> Hierarchical decomposition of all project work into manageable components</li>
+        <li><strong>Scope Baseline:</strong> Approved scope statement + WBS + WBS dictionary</li>
+        <li><strong>Scope Creep:</strong> Uncontrolled expansion of scope. Managed through formal change control</li>
+        <li><strong>Gold Plating:</strong> Adding unrequested features. Equally dangerous — avoid it</li>
+        <li><strong>MoSCoW:</strong> Must have / Should have / Could have / Won't have — prioritisation method</li>
+      </ul>
+      <h3>Schedule Management</h3>
+      <ul class="blist blist-pm">
+        <li><strong>Critical Path Method (CPM):</strong> Longest sequence of dependent tasks. Delay here = project delay</li>
+        <li><strong>Float / Slack:</strong> Time a task can delay without affecting the end date</li>
+        <li><strong>Fast Tracking:</strong> Tasks in parallel to compress schedule. Increases risk</li>
+        <li><strong>Crashing:</strong> Adding resources to compress schedule. Increases cost</li>
+      </ul>
+      <h3>Change Control</h3>
+      <ul class="blist blist-pm">
+        <li><strong>Change Request (CR):</strong> Formal document describing the proposed change</li>
+        <li><strong>CCB (Change Control Board):</strong> Group responsible for reviewing and approving changes</li>
+        <li><strong>Impact Analysis:</strong> Always assess effect on scope, schedule, cost and risk before approving</li>
+        <li><strong>Golden rule:</strong> No change is free. Every change has cost, schedule or risk implications</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5. RISK -->
+  <div class="section">
+    <div class="section-title"><span class="num num-pm">5</span> Risk Management</div>
+    <div class="section-desc">Identify, analyse, respond and monitor project risks.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Strategy</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Avoid</td><td>Eliminate the threat by changing the plan</td></tr>
+          <tr><td>Mitigate</td><td>Reduce probability or impact to acceptable levels</td></tr>
+          <tr><td>Transfer</td><td>Shift risk to a third party (insurance, contract)</td></tr>
+          <tr><td>Accept</td><td>Acknowledge the risk and prepare a contingency plan</td></tr>
+          <tr><td>Escalate</td><td>Escalate to programme/sponsor if outside PM authority</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout callout-pm"><strong>Risk vs Issue:</strong> A risk is a potential future event. An issue is a risk that has already materialised. Both require an owner and a log entry.</div>
+    </div>
+  </div>
+
+  <!-- 6. GOVERNANCE -->
+  <div class="section">
+    <div class="section-title"><span class="num num-pm">6</span> Governance & Tools</div>
+    <div class="section-desc">Roles, meetings, metrics and project management tools.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <h3>Governance Roles</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Role</th><th>Responsibility</th></tr></thead>
+        <tbody>
+          <tr><td>Project Sponsor</td><td>Business owner. Approves budget, resolves escalations, champions the project</td></tr>
+          <tr><td>Steering Committee</td><td>Senior stakeholders. Strategic decisions, approves major changes</td></tr>
+          <tr><td>Project Manager</td><td>Day-to-day management. Owns delivery, risk and stakeholder communication</td></tr>
+          <tr><td>Workstream Lead</td><td>Leads a specific track of work</td></tr>
+          <tr><td>PMO</td><td>Standards, governance, reporting, tools across the programme</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Key Metrics</h3>
+      <div class="cards">
+        <div class="card"><div class="card-label card-label-pm">SPI / CPI</div><div class="card-value">Schedule and cost performance. Target &gt;1.0</div></div>
+        <div class="card"><div class="card-label card-label-pm">Milestone Adherence</div><div class="card-value">% of milestones delivered on original committed date</div></div>
+        <div class="card"><div class="card-label card-label-pm">Scope Change Rate</div><div class="card-value">Number/value of approved CRs vs original scope</div></div>
+        <div class="card"><div class="card-label card-label-pm">CSAT / NPS</div><div class="card-value">Customer satisfaction and net promoter score</div></div>
+      </div>
+      <h3>Key Terms</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+        <tbody>
+          <tr><td>RAID</td><td>Risks, Assumptions, Issues, Dependencies — review in every status meeting</td></tr>
+          <tr><td>RACI</td><td>Responsible, Accountable, Consulted, Informed — defines decision-making roles</td></tr>
+          <tr><td>WBS</td><td>Work Breakdown Structure — hierarchical decomposition of all project work</td></tr>
+          <tr><td>UAT</td><td>User Acceptance Testing — client testing to validate deliverables</td></tr>
+          <tr><td>Baseline</td><td>Approved plan (scope, schedule, cost) against which progress is measured</td></tr>
+          <tr><td>Hypercare</td><td>Elevated support period immediately after go-live</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- 7. CERTS -->
+  <div class="section">
+    <div class="section-title"><span class="num num-pm">7</span> Certifications</div>
+    <div class="section-desc">The main credentials for Project Manager roles.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="cards">
+        <div class="card"><div class="card-label card-label-pm">PMP</div><div class="card-value">PMI. Most globally recognised. 180 questions. Requires 36+ months PM experience. ~$555</div></div>
+        <div class="card"><div class="card-label card-label-pm">PRINCE2</div><div class="card-value">UK-based, widely used in Europe. Foundation + Practitioner levels. Strong in public sector</div></div>
+        <div class="card"><div class="card-label card-label-pm">PMI-ACP</div><div class="card-value">PMI's Agile credential. Covers Scrum, Kanban, Lean, XP</div></div>
+        <div class="card"><div class="card-label card-label-pm">ITIL 4</div><div class="card-value">IT Service Management. Highly relevant for SaaS and technology operations</div></div>
+        <div class="card"><div class="card-label card-label-pm">SAFe</div><div class="card-value">Scaled Agile Framework. Relevant for large enterprise Agile programmes</div></div>
+        <div class="card"><div class="card-label card-label-pm">CSM</div><div class="card-value">Certified Scrum Master — Scrum Alliance. Entry-level Scrum facilitation</div></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end page-pm -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB: ENGAGEMENT MANAGER
+══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-em">
+
+  <div class="hero hero-em">
+    <div class="hero-label hero-label-em">Knowledge Track</div>
+    <h1>Engagement Manager</h1>
+    <p>Strategic client leadership, commercial awareness, SaaS delivery and the competencies that distinguish an EM from a classic PM. Focused on EMEA enterprise SaaS and consulting contexts.</p>
+  </div>
+
+  <!-- 1. PM vs EM -->
+  <div class="section">
+    <div class="section-title"><span class="num num-em">1</span> PM vs Engagement Manager</div>
+    <div class="section-desc">Understanding the key shift in focus, scope and accountability.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Dimension</th><th>Project Manager</th><th>Engagement Manager</th></tr></thead>
+        <tbody>
+          <tr><td>Focus</td><td>Delivery execution</td><td>Business outcomes and client success</td></tr>
+          <tr><td>Relationship</td><td>Project team</td><td>C-suite and executive sponsors</td></tr>
+          <tr><td>Scope</td><td>Single project</td><td>Multiple workstreams or full programme</td></tr>
+          <tr><td>Commercial</td><td>Budget control</td><td>Revenue, upsell, contract management</td></tr>
+          <tr><td>Communication</td><td>Status updates</td><td>Strategic narrative and value articulation</td></tr>
+          <tr><td>Risk</td><td>Project risk</td><td>Commercial, reputational and strategic risk</td></tr>
+          <tr><td>Pre-sales</td><td>Rarely involved</td><td>Core part of the role — scope and estimate</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout callout-em"><strong>Key insight:</strong> An EM is not just a senior PM. The role requires commercial ownership, executive relationship management and the ability to grow the account — not just deliver the project.</div>
+    </div>
+  </div>
+
+  <!-- 2. CORE COMPETENCIES -->
+  <div class="section">
+    <div class="section-title"><span class="num num-em">2</span> Core EM Competencies</div>
+    <div class="section-desc">The six capabilities that define a strong Engagement Manager.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="cards">
+        <div class="card"><div class="card-label card-label-em">Executive Presence</div><div class="card-value">Engage confidently with C-level stakeholders. Adapt communication style. Build trust quickly in high-pressure situations.</div></div>
+        <div class="card"><div class="card-label card-label-em">Value Articulation</div><div class="card-value">Translate technical delivery into business outcomes — ROI, efficiency gains, risk reduction. Speak the client's language.</div></div>
+        <div class="card"><div class="card-label card-label-em">Commercial Acumen</div><div class="card-value">Understand SOW, contract terms, billing milestones. Know when to raise a change request. Protect margin.</div></div>
+        <div class="card"><div class="card-label card-label-em">Escalation Management</div><div class="card-value">Own difficult situations. De-escalate under pressure. Know when to involve leadership without losing client trust.</div></div>
+        <div class="card"><div class="card-label card-label-em">Pre-Sales Support</div><div class="card-value">Work alongside sales to scope engagements, estimate effort and build customer confidence during the sales cycle.</div></div>
+        <div class="card"><div class="card-label card-label-em">Account Growth</div><div class="card-value">Identify expansion opportunities organically during delivery. Turn delivery success into commercial opportunity.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. CLIENT RELATIONSHIP -->
+  <div class="section">
+    <div class="section-title"><span class="num num-em">3</span> Client Relationship Management</div>
+    <div class="section-desc">From project contact to trusted advisor.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <h3>Trusted Advisor Model</h3>
+      <ul class="blist blist-em">
+        <li><strong>Move beyond transactional PM:</strong> Clients should see you as a strategic partner, not just a delivery manager</li>
+        <li><strong>Proactive communication:</strong> Share bad news early, with a plan. Never let the client find out first</li>
+        <li><strong>QBR (Quarterly Business Review):</strong> Structured review of value delivered, roadmap and relationship health</li>
+        <li><strong>Success Criteria definition:</strong> Agree upfront how success will be measured — before work begins</li>
+        <li><strong>Executive Sponsor management:</strong> Regular touchpoints with senior client leadership separate from operational meetings</li>
+      </ul>
+      <h3>CSAT and NPS</h3>
+      <div class="cards">
+        <div class="card"><div class="card-label card-label-em">CSAT</div><div class="card-value">Customer Satisfaction Score. Typically 1–5 or 1–10. Measured per milestone or delivery phase.</div></div>
+        <div class="card"><div class="card-label card-label-em">NPS</div><div class="card-value">Net Promoter Score. 0–10 scale. 9–10 = Promoters, 7–8 = Passives, 0–6 = Detractors.</div></div>
+        <div class="card"><div class="card-label card-label-em">Health Score</div><div class="card-value">Composite metric combining CSAT, adoption, support tickets and engagement activity.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. SAAS DELIVERY -->
+  <div class="section">
+    <div class="section-title"><span class="num num-em">4</span> SaaS Implementation Delivery</div>
+    <div class="section-desc">The standard lifecycle for enterprise SaaS deployments.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="badges">
+        <div class="badge"><div class="badge-icon">🔍</div><div><span class="badge-label badge-label-em">Discovery</span><span class="badge-desc">Understand requirements and current state</span></div></div>
+        <div class="badge"><div class="badge-icon">📐</div><div><span class="badge-label badge-label-em">Design</span><span class="badge-desc">Solution architecture and blueprinting</span></div></div>
+        <div class="badge"><div class="badge-icon">⚙️</div><div><span class="badge-label badge-label-em">Configure</span><span class="badge-desc">Build and configure the solution</span></div></div>
+        <div class="badge"><div class="badge-icon">🧪</div><div><span class="badge-label badge-label-em">Test (UAT)</span><span class="badge-desc">Client validation against acceptance criteria</span></div></div>
+        <div class="badge"><div class="badge-icon">🎓</div><div><span class="badge-label badge-label-em">Train</span><span class="badge-desc">End-user enablement and change management</span></div></div>
+        <div class="badge"><div class="badge-icon">🚀</div><div><span class="badge-label badge-label-em">Go-Live</span><span class="badge-desc">Cutover, hypercare and stabilisation</span></div></div>
+      </div>
+      <h3>Critical Go-Live Elements</h3>
+      <ul class="blist blist-em">
+        <li><strong>Go-live criteria:</strong> Define acceptance criteria, rollback plan and hypercare period in advance</li>
+        <li><strong>Data migration:</strong> Extract, Transform, Load (ETL). Validate data quality before migration. Never skip dry runs</li>
+        <li><strong>Hypercare:</strong> Elevated support period post go-live — typically 2–4 weeks with dedicated resources</li>
+        <li><strong>Change management:</strong> Managing the human side of adoption. Training, communications, resistance management</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5. COMMERCIAL -->
+  <div class="section">
+    <div class="section-title"><span class="num num-em">5</span> Commercial Awareness</div>
+    <div class="section-desc">Contract types, SOW management and overrun prevention.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <h3>Contract Types</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Type</th><th>Description</th><th>Risk</th></tr></thead>
+        <tbody>
+          <tr><td>Fixed Price (FP)</td><td>Agreed price regardless of actual cost</td><td>Low for client, high for vendor</td></tr>
+          <tr><td>Time & Materials (T&M)</td><td>Client pays actual hours + materials</td><td>Low for vendor, high for client</td></tr>
+          <tr><td>Fixed Price + Incentives</td><td>Fixed base with bonus for performance</td><td>Shared risk model</td></tr>
+          <tr><td>Cost Plus</td><td>Actual costs + agreed profit margin</td><td>Common in government / large programmes</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Managing Overrun — Lessons from Practice</h3>
+      <ul class="blist blist-em">
+        <li><strong>Track weekly, not monthly:</strong> Budget overruns compound quickly. Catch them early</li>
+        <li><strong>Scope creep is the #1 cause:</strong> Enforce change control from day one, without exception</li>
+        <li><strong>Undocumented requests:</strong> Every verbal agreement must be confirmed in writing. "I'll just do it quickly" is how projects overrun</li>
+        <li><strong>Time tracking tools:</strong> Enable early detection of effort vs estimate divergence</li>
+        <li><strong>Requirements matrix:</strong> Links each requirement to its source, design, test and delivery confirmation</li>
+        <li><strong>Lessons learned:</strong> Capture what drove overrun in retrospectives — prevent recurrence on the next programme</li>
+      </ul>
+      <div class="callout callout-em"><strong>Key rule:</strong> Read the SOW before every change conversation. Any work outside the SOW requires a formal Change Request. Acceptance criteria define when payment milestones are triggered.</div>
+    </div>
+  </div>
+
+  <!-- 6. STAKEHOLDERS -->
+  <div class="section">
+    <div class="section-title"><span class="num num-em">6</span> Stakeholder & Communication Management</div>
+    <div class="section-desc">Mapping, engaging and communicating with complex stakeholder landscapes.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <h3>Power / Interest Grid</h3>
+      <div class="cards">
+        <div class="card"><div class="card-label card-label-em">High Power · High Interest</div><div class="card-value">Manage closely. Regular updates, involve in key decisions, address concerns proactively.</div></div>
+        <div class="card"><div class="card-label card-label-em">High Power · Low Interest</div><div class="card-value">Keep satisfied. Brief updates at milestones. Avoid overwhelming with detail.</div></div>
+        <div class="card"><div class="card-label card-label-em">Low Power · High Interest</div><div class="card-value">Keep informed. They are often the day-to-day users — their adoption matters.</div></div>
+        <div class="card"><div class="card-label card-label-em">Low Power · Low Interest</div><div class="card-value">Monitor. Minimal engagement unless their status changes.</div></div>
+      </div>
+      <h3>Executive Communication</h3>
+      <ul class="blist blist-em">
+        <li><strong>Focus on impact, not detail:</strong> Summarise in 3 bullets — status, issues, next actions</li>
+        <li><strong>Channels formula:</strong> n(n-1)/2 — with 10 stakeholders there are 45 communication channels</li>
+        <li><strong>RAID log:</strong> Risks, Assumptions, Issues, Dependencies — review in every status meeting</li>
+        <li><strong>Escalation protocol:</strong> Define clear escalation paths before they are needed, not during a crisis</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 7. LEADERSHIP -->
+  <div class="section">
+    <div class="section-title"><span class="num num-em">7</span> Leadership & Soft Skills</div>
+    <div class="section-desc">The human skills that determine EM success.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Leadership Style</th><th>When to use</th></tr></thead>
+        <tbody>
+          <tr><td>Directive</td><td>Crisis situations, new team members, tight deadlines</td></tr>
+          <tr><td>Coaching</td><td>Developing team capability, motivating high performers</td></tr>
+          <tr><td>Facilitative</td><td>Collaborative decisions, experienced cross-functional teams</td></tr>
+          <tr><td>Servant Leadership</td><td>Agile environments, removing blockers, empowering the team</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Negotiation: BATNA</h3>
+      <div class="callout callout-em"><strong>BATNA (Best Alternative to a Negotiated Agreement):</strong> Know your walk-away point before entering any negotiation. The first number stated sets the reference point (anchoring) — use it deliberately. Separate people from the problem: negotiate on merits, not emotions.</div>
+    </div>
+  </div>
+
+</div><!-- end page-em -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB: AI ARCHITECT
+══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-ai">
+
+  <div class="hero hero-ai">
+    <div class="hero-label hero-label-ai">Knowledge Track</div>
+    <h1>AI Architect</h1>
+    <p>Foundations of AI, machine learning, large language models, agentic systems and enterprise AI architecture. A practical reference for professionals who need to understand, govern and lead AI-powered transformation programmes.</p>
+  </div>
+
+  <!-- 1. FOUNDATIONS -->
+  <div class="section">
+    <div class="section-title"><span class="num num-ai">1</span> AI Foundations</div>
+    <div class="section-desc">Core concepts every AI-adjacent professional must understand.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <h3>Key Definitions</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+        <tbody>
+          <tr><td>Artificial Intelligence (AI)</td><td>Systems that simulate human intelligence — reasoning, learning, problem-solving, perception</td></tr>
+          <tr><td>Machine Learning (ML)</td><td>Subset of AI where systems learn from data without being explicitly programmed</td></tr>
+          <tr><td>Deep Learning</td><td>ML using multi-layer neural networks. Powers most modern AI applications</td></tr>
+          <tr><td>LLM</td><td>Large Language Model. AI trained on massive text datasets to understand and generate language (GPT, Claude, Gemini)</td></tr>
+          <tr><td>Foundation Model</td><td>A large, pre-trained model that can be fine-tuned for multiple downstream tasks</td></tr>
+          <tr><td>Generative AI</td><td>AI that creates new content (text, images, code, audio) based on patterns learned from training data</td></tr>
+          <tr><td>Inference</td><td>The process of running a trained model to generate predictions or outputs</td></tr>
+          <tr><td>Training</td><td>The process of teaching a model by exposing it to data and adjusting its parameters</td></tr>
+          <tr><td>Fine-tuning</td><td>Further training a pre-trained model on domain-specific data to specialise its capabilities</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- 2. ML TYPES -->
+  <div class="section">
+    <div class="section-title"><span class="num num-ai">2</span> Types of Machine Learning</div>
+    <div class="section-desc">The three paradigms and when each is used.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="cards">
+        <div class="card"><div class="card-label card-label-ai">Supervised Learning</div><div class="card-value">Learns from labelled data (input → output pairs). Used for classification and regression. Example: spam detection, credit scoring.</div></div>
+        <div class="card"><div class="card-label card-label-ai">Unsupervised Learning</div><div class="card-value">Finds patterns in unlabelled data. Used for clustering, anomaly detection. Example: customer segmentation.</div></div>
+        <div class="card"><div class="card-label card-label-ai">Reinforcement Learning</div><div class="card-value">Agent learns by interacting with an environment and receiving rewards/penalties. Used in robotics, game-playing, recommendation systems.</div></div>
+        <div class="card"><div class="card-label card-label-ai">Semi-supervised</div><div class="card-value">Combines small labelled dataset with large unlabelled dataset. Common when labelling is expensive.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. LLMs -->
+  <div class="section">
+    <div class="section-title"><span class="num num-ai">3</span> Large Language Models (LLMs)</div>
+    <div class="section-desc">How they work, key concepts and enterprise applications.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <h3>How LLMs Work</h3>
+      <ul class="blist blist-ai">
+        <li><strong>Transformer architecture:</strong> The underlying neural network design powering most modern LLMs (introduced in "Attention is All You Need", 2017)</li>
+        <li><strong>Tokens:</strong> LLMs process text as tokens (roughly 3/4 of a word). Context window = max tokens the model can process at once</li>
+        <li><strong>Temperature:</strong> Controls randomness of output. Low (0.1) = deterministic, High (0.9) = creative and varied</li>
+        <li><strong>Parameters:</strong> The learned weights of the model. GPT-4 has ~1.8 trillion; more parameters ≠ always better</li>
+        <li><strong>RLHF:</strong> Reinforcement Learning from Human Feedback — used to align models with human preferences and safety guidelines</li>
+      </ul>
+      <h3>Key LLM Concepts for Enterprise</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Concept</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Prompt Engineering</td><td>Crafting inputs to elicit optimal outputs. Includes system prompts, few-shot examples and chain-of-thought instructions</td></tr>
+          <tr><td>RAG (Retrieval Augmented Generation)</td><td>Augments LLM responses with real-time retrieval from a knowledge base. Reduces hallucinations, keeps answers current</td></tr>
+          <tr><td>Fine-tuning</td><td>Training a base model on proprietary data to specialise it for a specific domain or task</td></tr>
+          <tr><td>Hallucination</td><td>When an LLM generates confident but factually incorrect information. A key risk to manage in enterprise deployments</td></tr>
+          <tr><td>Context Window</td><td>Maximum amount of text the model can process in a single call. Ranges from 4K to 1M+ tokens</td></tr>
+          <tr><td>Embeddings</td><td>Numerical vector representations of text. Used for semantic search, similarity matching and RAG systems</td></tr>
+          <tr><td>Vector Database</td><td>Stores embeddings for fast similarity search. Examples: Pinecone, Weaviate, pgvector</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- 4. AGENTIC AI -->
+  <div class="section">
+    <div class="section-title"><span class="num num-ai">4</span> Agentic AI & Orchestration</div>
+    <div class="section-desc">The next evolution — AI systems that plan, act and use tools autonomously.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="callout callout-ai"><strong>Agentic AI</strong> refers to AI systems that can autonomously perform multi-step tasks, use tools, call APIs, browse the web, write and execute code, and coordinate with other agents — with minimal human intervention at each step.</div>
+      <div class="cards">
+        <div class="card"><div class="card-label card-label-ai">AI Agent</div><div class="card-value">An LLM combined with tools and memory that can take actions in the world. Plans a sequence of steps to achieve a goal.</div></div>
+        <div class="card"><div class="card-label card-label-ai">Tool Use</div><div class="card-value">Agents call external tools: search, code execution, APIs, databases, file systems. The LLM decides when and how to use each tool.</div></div>
+        <div class="card"><div class="card-label card-label-ai">Multi-Agent</div><div class="card-value">Multiple specialised agents coordinating to complete complex tasks. One orchestrator delegates to specialist sub-agents.</div></div>
+        <div class="card"><div class="card-label card-label-ai">Memory</div><div class="card-value">Short-term (context window), long-term (vector DB) and episodic (conversation history). Enables agents to maintain state.</div></div>
+      </div>
+      <h3>Enterprise Agentic Platforms</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Platform</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Salesforce Agentforce</td><td>Autonomous AI agents embedded in Salesforce CRM. Sales, service and marketing agents</td></tr>
+          <tr><td>ServiceNow AI Agents</td><td>Agents that handle IT workflows, approvals and service desk tasks autonomously</td></tr>
+          <tr><td>SAP Joule</td><td>SAP's generative AI assistant embedded across the SAP portfolio</td></tr>
+          <tr><td>Microsoft Copilot</td><td>AI agents integrated into Microsoft 365, Dynamics and Azure</td></tr>
+          <tr><td>LangChain / LangGraph</td><td>Open-source frameworks for building custom LLM applications and agent workflows</td></tr>
+          <tr><td>AutoGen / CrewAI</td><td>Multi-agent orchestration frameworks for complex autonomous workflows</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- 5. ARCHITECTURE -->
+  <div class="section">
+    <div class="section-title"><span class="num num-ai">5</span> Enterprise AI Architecture</div>
+    <div class="section-desc">How AI systems are designed and integrated in enterprise environments.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <h3>Common Architecture Patterns</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Pattern</th><th>Description</th><th>Use Case</th></tr></thead>
+        <tbody>
+          <tr><td>RAG Pipeline</td><td>Retrieve relevant documents → augment prompt → generate response</td><td>Internal knowledge base Q&A, support bots</td></tr>
+          <tr><td>LLM + API</td><td>LLM calls external APIs to retrieve or act on real-time data</td><td>Booking, CRM updates, live data retrieval</td></tr>
+          <tr><td>Fine-tuned Model</td><td>Base model trained on proprietary domain data</td><td>Legal, medical, financial document analysis</td></tr>
+          <tr><td>Orchestration Layer</td><td>Middleware that routes queries to appropriate models/agents</td><td>Complex enterprise AI products</td></tr>
+          <tr><td>Semantic Cache</td><td>Cache LLM responses based on semantic similarity to avoid redundant API calls</td><td>Cost reduction at scale</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Key Infrastructure Components</h3>
+      <ul class="blist blist-ai">
+        <li><strong>LLM Provider:</strong> OpenAI (GPT-4), Anthropic (Claude), Google (Gemini), Meta (Llama), Mistral</li>
+        <li><strong>Vector Database:</strong> Pinecone, Weaviate, Qdrant, pgvector (PostgreSQL extension)</li>
+        <li><strong>Orchestration Framework:</strong> LangChain, LangGraph, AutoGen, CrewAI, Semantic Kernel</li>
+        <li><strong>Embedding Model:</strong> Converts text to vectors. OpenAI text-embedding-3, Cohere, sentence-transformers</li>
+        <li><strong>Observability:</strong> LangSmith, Helicone, Arize — monitoring LLM calls, latency and costs</li>
+        <li><strong>Cloud AI Services:</strong> Azure OpenAI, AWS Bedrock, Google Vertex AI — enterprise-grade LLM hosting</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6. GOVERNANCE -->
+  <div class="section">
+    <div class="section-title"><span class="num num-ai">6</span> AI Governance & Ethics</div>
+    <div class="section-desc">Responsible AI deployment in enterprise contexts.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="cards">
+        <div class="card"><div class="card-label card-label-ai">EU AI Act</div><div class="card-value">EU regulation (2024) classifying AI systems by risk level. High-risk systems require documentation, human oversight and conformity assessment.</div></div>
+        <div class="card"><div class="card-label card-label-ai">Trustworthy AI</div><div class="card-value">Principles: Lawful, Ethical, Robust. Includes transparency, fairness, privacy, accountability (EU AI HLEG framework).</div></div>
+        <div class="card"><div class="card-label card-label-ai">AI Risk</div><div class="card-value">Hallucination, bias, data leakage, prompt injection, model drift, over-reliance. Each requires specific mitigation.</div></div>
+        <div class="card"><div class="card-label card-label-ai">Human-in-the-Loop</div><div class="card-value">Keeping humans as decision points for high-stakes AI outputs. Critical in healthcare, legal, financial and HR applications.</div></div>
+      </div>
+      <h3>Data Privacy in AI</h3>
+      <ul class="blist blist-ai">
+        <li><strong>GDPR:</strong> Personal data must not be sent to third-party LLMs without appropriate safeguards. Use on-premise or private cloud models for sensitive data</li>
+        <li><strong>Data residency:</strong> Ensure AI infrastructure complies with data sovereignty requirements</li>
+        <li><strong>PII handling:</strong> Implement data masking or anonymisation before sending to external models</li>
+        <li><strong>Model cards:</strong> Documentation describing a model's training data, intended use, performance and limitations</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 7. AI IN PM/EM -->
+  <div class="section">
+    <div class="section-title"><span class="num num-ai">7</span> AI Applied to PM & Engagement Management</div>
+    <div class="section-desc">How AI is changing the PM and EM role in practice.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="callout callout-ai"><strong>The shift:</strong> AI does not replace the PM or EM. It eliminates the administrative burden, surfaces risks earlier and accelerates reporting — freeing the human to focus on judgement, relationships and strategy.</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>PM/EM Task</th><th>AI Application</th></tr></thead>
+        <tbody>
+          <tr><td>Status reporting</td><td>AI drafts weekly reports from project data, Jira tickets and meeting notes</td></tr>
+          <tr><td>Risk identification</td><td>ML models analyse historical project data to flag early warning indicators</td></tr>
+          <tr><td>Meeting summaries</td><td>AI transcribes, summarises and extracts action items from calls</td></tr>
+          <tr><td>Document analysis</td><td>LLMs review SOWs, contracts and requirements documents to extract key obligations</td></tr>
+          <tr><td>Resource planning</td><td>AI optimises resource allocation across projects based on skills, availability and priority</td></tr>
+          <tr><td>Client communication</td><td>AI drafts escalation emails, status updates and executive summaries</td></tr>
+          <tr><td>Knowledge management</td><td>RAG systems make lessons learned and best practices searchable and actionable</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Key Tools for AI-Augmented Delivery</h3>
+      <ul class="blist blist-ai">
+        <li><strong>n8n / Zapier:</strong> Workflow automation connecting AI models with project management tools</li>
+        <li><strong>Notion AI / Confluence AI:</strong> AI-assisted documentation and knowledge management</li>
+        <li><strong>GitHub Copilot / Cursor:</strong> AI code generation for technical PMs and solution architects</li>
+        <li><strong>Otter.ai / Fireflies:</strong> AI meeting transcription and action item extraction</li>
+        <li><strong>Anthropic Claude / OpenAI GPT-4:</strong> General-purpose LLMs for drafting, analysis and research</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 8. GLOSSARY AI -->
+  <div class="section">
+    <div class="section-title"><span class="num num-ai">8</span> AI Glossary</div>
+    <div class="section-desc">Key terms every AI-aware professional should know.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+        <tbody>
+          <tr><td>Attention Mechanism</td><td>Core component of Transformers allowing the model to weigh the importance of different tokens</td></tr>
+          <tr><td>Chain-of-Thought</td><td>Prompting technique asking the model to reason step-by-step before answering</td></tr>
+          <tr><td>Embedding</td><td>Numerical vector representing text, images or data in a high-dimensional space</td></tr>
+          <tr><td>Grounding</td><td>Connecting AI outputs to verified real-world information to reduce hallucinations</td></tr>
+          <tr><td>Hallucination</td><td>AI generating confident but factually incorrect information</td></tr>
+          <tr><td>MCP</td><td>Model Context Protocol — standard for connecting AI models to external tools and data sources</td></tr>
+          <tr><td>Multimodal</td><td>AI that processes multiple input types: text, images, audio, video</td></tr>
+          <tr><td>Prompt Injection</td><td>Attack where malicious instructions in input override system instructions</td></tr>
+          <tr><td>RAG</td><td>Retrieval Augmented Generation — retrieving relevant context before generating a response</td></tr>
+          <tr><td>System Prompt</td><td>Instructions given to an LLM before the user conversation, defining its behaviour and constraints</td></tr>
+          <tr><td>Token</td><td>Smallest unit of text processed by an LLM. Roughly 3/4 of an English word</td></tr>
+          <tr><td>Tool Use / Function Calling</td><td>Ability of an LLM to call external APIs or functions to retrieve or act on information</td></tr>
+          <tr><td>Vector Database</td><td>Database optimised for storing and searching embeddings by semantic similarity</td></tr>
+          <tr><td>Zero-shot</td><td>Asking an LLM to perform a task with no examples. Few-shot = providing 1–5 examples</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+</div><!-- end page-ai -->
+
+<script>
+function switchTab(id, btn) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // Remove active class from all buttons
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('active-pm','active-em','active-ai');
+  });
+  // Show selected page
+  document.getElementById('page-' + id).classList.add('active');
+  // Activate button
+  btn.classList.add('active-' + id);
+}
+</script>
+</body>
+</html>
