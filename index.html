@@ -19,6 +19,7 @@
   --violet-md:#DDD6FE;
   --amber:   #D97706;
   --amber-lt:#FFFBEB;
+  --amber-md:#FDE68A;
   --green:   #059669;
   --green-lt:#ECFDF5;
   --rose:    #E11D48;
@@ -47,17 +48,36 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 .hdr-sub{font-size:11px;color:var(--text3);margin-top:1px}
 .hdr-tag{background:var(--blue-lt);color:var(--blue);font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase}
 
-/* ── TABS ── */
+/* ── MAIN TABS ── */
 .tab-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 32px;display:flex;gap:4px}
 .tab-btn{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:500;padding:14px 20px;border:none;background:none;color:var(--text2);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px;transition:all .2s;display:flex;align-items:center;gap:7px;white-space:nowrap}
 .tab-btn:hover{color:var(--text)}
 .tab-btn.active-pm{color:var(--blue);border-bottom-color:var(--blue)}
 .tab-btn.active-em{color:var(--teal);border-bottom-color:var(--teal)}
 .tab-btn.active-ai{color:var(--violet);border-bottom-color:var(--violet)}
+.tab-btn.active-metrics{color:var(--amber);border-bottom-color:var(--amber)}
 .tab-icon{width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:10px}
 .tab-icon-pm{background:var(--blue-lt)}
 .tab-icon-em{background:var(--teal-lt)}
 .tab-icon-ai{background:var(--violet-lt)}
+.tab-icon-metrics{background:var(--amber-lt)}
+
+/* ── METHODOLOGY SUB-TABS ── */
+.subtab-bar{background:#F1F5F9;border-bottom:1px solid var(--border);padding:0 32px;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.subtab-bar::-webkit-scrollbar{display:none}
+.subtab-btn{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;padding:10px 16px;border:none;background:none;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.subtab-btn:hover{color:var(--text);background:rgba(255,255,255,.6)}
+.subtab-btn.active-sub{color:var(--blue);border-bottom-color:var(--blue);background:var(--surface);font-weight:600}
+.subpage{display:none}
+.subpage.active{display:block;animation:fadeUp .25s ease}
+.method-tag{font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
+.mtag-waterfall{background:#EFF6FF;color:#1D4ED8}
+.mtag-agile{background:#F0FDF4;color:#166534}
+.mtag-scrum{background:#FFF7ED;color:#C2410C}
+.mtag-kanban{background:#FDF4FF;color:#7E22CE}
+.mtag-sap{background:#FFF1F2;color:#BE123C}
+.mtag-prince2{background:#FFFBEB;color:#92400E}
+.mtag-itil{background:#F0FDFA;color:#115E59}
 
 /* ── LAYOUT ── */
 .page{display:none;max-width:1000px;margin:0 auto;padding:32px 24px}
@@ -69,13 +89,26 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 .hero-pm{background:linear-gradient(135deg,#EFF6FF 0%,#E0F2FE 100%);border:1px solid #BFDBFE}
 .hero-em{background:linear-gradient(135deg,#F0FDFA 0%,#E0F7FA 100%);border:1px solid #99F6E4}
 .hero-ai{background:linear-gradient(135deg,#F5F3FF 0%,#EDE9FE 100%);border:1px solid #DDD6FE}
+.hero-metrics{background:linear-gradient(135deg,#FFFBEB 0%,#FEF3C7 100%);border:1px solid #FDE68A}
 .hero-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
 .hero-label-pm{color:var(--blue)}
 .hero-label-em{color:var(--teal)}
 .hero-label-ai{color:var(--violet)}
+.hero-label-metrics{color:var(--amber)}
 .hero h1{font-family:'Lora',serif;font-size:28px;font-weight:600;margin-bottom:8px;line-height:1.3}
 .hero p{font-size:14px;color:var(--text2);max-width:600px;line-height:1.7}
 .hero-pattern{position:absolute;right:-20px;top:-20px;width:180px;height:180px;opacity:.06;pointer-events:none}
+
+/* ── COMPARISON TABLE (hero) ── */
+.hero-table-wrap{margin-top:24px;border-radius:var(--r);overflow:hidden;border:1px solid rgba(37,99,235,.2);box-shadow:0 1px 4px rgba(37,99,235,.07)}
+.hero-table-wrap table{width:100%;border-collapse:collapse;font-size:11px;background:rgba(255,255,255,.85)}
+.hero-table-wrap thead th{padding:8px 10px;text-align:left;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--blue);background:rgba(239,246,255,.9);border-bottom:1px solid #BFDBFE}
+.hero-table-wrap tbody tr{border-bottom:1px solid #EFF6FF}
+.hero-table-wrap tbody tr:last-child{border-bottom:none}
+.hero-table-wrap tbody tr:hover{background:rgba(239,246,255,.5)}
+.hero-table-wrap td{padding:8px 10px;vertical-align:top}
+.hero-table-wrap td:first-child{font-weight:700;color:var(--text);white-space:nowrap}
+.hero-table-wrap td{color:var(--text2);font-size:11px}
 
 /* ── SECTION ── */
 .section{margin-bottom:32px}
@@ -84,6 +117,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 .num-pm{background:var(--blue-lt);color:var(--blue)}
 .num-em{background:var(--teal-lt);color:var(--teal)}
 .num-ai{background:var(--violet-lt);color:var(--violet)}
+.num-metrics{background:var(--amber-lt);color:var(--amber)}
 .section-desc{font-size:13px;color:var(--text2);margin-bottom:16px;margin-left:34px}
 .section-divider{height:1px;background:var(--border);margin-bottom:20px}
 
@@ -98,6 +132,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 .card-label-pm{color:var(--blue)}
 .card-label-em{color:var(--teal)}
 .card-label-ai{color:var(--violet)}
+.card-label-metrics{color:var(--amber)}
 .card-value{font-size:13px;color:var(--text);line-height:1.5}
 
 /* ── BADGE ROW ── */
@@ -109,6 +144,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 .badge-label-pm{color:var(--blue)}
 .badge-label-em{color:var(--teal)}
 .badge-label-ai{color:var(--violet)}
+.badge-label-metrics{color:var(--amber)}
 
 /* ── TABLE ── */
 .tbl-wrap{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);margin-bottom:14px;box-shadow:var(--sh)}
@@ -128,6 +164,7 @@ td:last-child{color:var(--text2)}
 .formula-pm code{color:var(--blue)}
 .formula-em code{color:var(--teal)}
 .formula-ai code{color:var(--violet)}
+.formula-metrics code{color:var(--amber)}
 .formula span{font-size:11px;color:var(--text2)}
 
 /* ── BULLET LIST ── */
@@ -137,6 +174,7 @@ td:last-child{color:var(--text2)}
 .blist-pm li::before{color:var(--blue)}
 .blist-em li::before{color:var(--teal)}
 .blist-ai li::before{color:var(--violet)}
+.blist-metrics li::before{color:var(--amber)}
 .blist li strong{color:var(--text);font-weight:600}
 .blist.sub-list{margin-left:16px}
 .blist.sub-list li::before{content:'◦';font-size:12px}
@@ -146,19 +184,44 @@ td:last-child{color:var(--text2)}
 .callout-pm{background:var(--blue-lt);border-left:3px solid var(--blue);color:#1E3A5F}
 .callout-em{background:var(--teal-lt);border-left:3px solid var(--teal);color:#134E48}
 .callout-ai{background:var(--violet-lt);border-left:3px solid var(--violet);color:#3B1F7A}
+.callout-metrics{background:var(--amber-lt);border-left:3px solid var(--amber);color:#78350F}
 .callout strong{font-weight:700}
+
+/* ── METRIC CARD ── */
+.metric-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:16px}
+.metric-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px;box-shadow:var(--sh);position:relative;overflow:hidden}
+.metric-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.metric-card-pm::before{background:var(--blue)}
+.metric-card-em::before{background:var(--teal)}
+.metric-name{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
+.metric-name-pm{color:var(--blue)}
+.metric-name-em{color:var(--teal)}
+.metric-formula{font-family:monospace;font-size:12px;background:var(--slate-lt);padding:4px 8px;border-radius:4px;margin-bottom:6px;display:inline-block}
+.metric-desc{font-size:12px;color:var(--text2);line-height:1.5}
+.metric-target{font-size:10px;font-weight:600;margin-top:6px;padding:2px 8px;border-radius:20px;display:inline-block}
+.mt-pm{background:var(--blue-lt);color:var(--blue)}
+.mt-em{background:var(--teal-lt);color:var(--teal)}
+
+/* ── METHOD OVERVIEW BOX ── */
+.method-overview{background:var(--surface);border:1px solid var(--border);border-radius:var(--rlg);padding:20px 24px;margin-bottom:20px;box-shadow:var(--sh)}
+.method-overview h2{font-family:'Lora',serif;font-size:20px;font-weight:600;margin-bottom:6px}
+.method-overview .mo-desc{font-size:13px;color:var(--text2);margin-bottom:16px;line-height:1.7}
+.mo-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.mo-pill{font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid var(--border)}
 
 /* ── RESPONSIVE ── */
 @media(max-width:640px){
   .hdr{padding:12px 16px}
   .tab-bar{padding:0 8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .tab-bar::-webkit-scrollbar{display:none}
+  .subtab-bar{padding:0 8px}
   .page{padding:20px 16px}
   .hero{padding:22px 20px}
   .formula-grid{grid-template-columns:1fr}
   .cards{grid-template-columns:1fr 1fr}
   .sub{margin-left:0}
   .section-desc{margin-left:0}
+  .metric-cards{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -176,7 +239,7 @@ td:last-child{color:var(--text2)}
   <div class="hdr-tag">Reference Guide</div>
 </div>
 
-<!-- TAB BAR -->
+<!-- MAIN TAB BAR -->
 <div class="tab-bar">
   <button class="tab-btn active-pm" onclick="switchTab('pm',this)" id="btn-pm">
     <div class="tab-icon tab-icon-pm">📋</div>Project Manager
@@ -187,233 +250,807 @@ td:last-child{color:var(--text2)}
   <button class="tab-btn" onclick="switchTab('ai',this)" id="btn-ai">
     <div class="tab-icon tab-icon-ai">🤖</div>AI Architect
   </button>
+  <button class="tab-btn" onclick="switchTab('metrics',this)" id="btn-metrics">
+    <div class="tab-icon tab-icon-metrics">📊</div>Métricas
+  </button>
 </div>
+
+<!-- METHODOLOGY SUB-TAB BAR (only visible on PM tab) -->
+<div class="subtab-bar" id="subtab-bar-pm">
+  <button class="subtab-btn active-sub" onclick="switchSubTab('pm-overview',this)" id="sbtn-pm-overview">
+    🗂 Fundamentos
+  </button>
+  <button class="subtab-btn" onclick="switchSubTab('pm-waterfall',this)" id="sbtn-pm-waterfall">
+    <span class="method-tag mtag-waterfall">Waterfall</span>
+  </button>
+  <button class="subtab-btn" onclick="switchSubTab('pm-agile',this)" id="sbtn-pm-agile">
+    <span class="method-tag mtag-agile">Agile</span>
+  </button>
+  <button class="subtab-btn" onclick="switchSubTab('pm-scrum',this)" id="sbtn-pm-scrum">
+    <span class="method-tag mtag-scrum">Scrum</span>
+  </button>
+  <button class="subtab-btn" onclick="switchSubTab('pm-kanban',this)" id="sbtn-pm-kanban">
+    <span class="method-tag mtag-kanban">Kanban</span>
+  </button>
+  <button class="subtab-btn" onclick="switchSubTab('pm-sap',this)" id="sbtn-pm-sap">
+    <span class="method-tag mtag-sap">SAP Activate</span>
+  </button>
+  <button class="subtab-btn" onclick="switchSubTab('pm-prince2',this)" id="sbtn-pm-prince2">
+    <span class="method-tag mtag-prince2">PRINCE2</span>
+  </button>
+  <button class="subtab-btn" onclick="switchSubTab('pm-itil',this)" id="sbtn-pm-itil">
+    <span class="method-tag mtag-itil">ITIL 4</span>
+  </button>
+</div>
+
 
 <!-- ══════════════════════════════════════════════════════════
      TAB: PROJECT MANAGER
 ══════════════════════════════════════════════════════════ -->
 <div class="page active" id="page-pm">
 
+  <!-- HERO with comparison table -->
   <div class="hero hero-pm">
     <div class="hero-label hero-label-pm">Knowledge Track</div>
     <h1>Project Manager</h1>
-    <p>Core frameworks, methodologies, planning tools and governance concepts for enterprise project delivery. Use this as a quick reference before interviews or when refreshing key concepts.</p>
-  </div>
+    <p>Core frameworks, methodologies, planning tools and governance concepts for enterprise project delivery. Selecciona una metodología en las sub-pestañas para profundizar en cada una.</p>
 
-  <!-- 1. FOUNDATIONS -->
-  <div class="section">
-    <div class="section-title"><span class="num num-pm">1</span> Foundations</div>
-    <div class="section-desc">What a project is, its lifecycle and key constraints.</div>
-    <div class="section-divider"></div>
-
-    <div class="sub">
-      <h3>Project Lifecycle</h3>
-      <div class="badges">
-        <div class="badge"><div class="badge-icon">🚀</div><div><span class="badge-label badge-label-pm">Initiation</span><span class="badge-desc">Define purpose, stakeholders, feasibility</span></div></div>
-        <div class="badge"><div class="badge-icon">📐</div><div><span class="badge-label badge-label-pm">Planning</span><span class="badge-desc">Scope, schedule, budget, risk, resources</span></div></div>
-        <div class="badge"><div class="badge-icon">⚙️</div><div><span class="badge-label badge-label-pm">Execution</span><span class="badge-desc">Deliver work according to the plan</span></div></div>
-        <div class="badge"><div class="badge-icon">📊</div><div><span class="badge-label badge-label-pm">Monitoring</span><span class="badge-desc">Track, review and regulate progress</span></div></div>
-        <div class="badge"><div class="badge-icon">✅</div><div><span class="badge-label badge-label-pm">Closure</span><span class="badge-desc">Formalise completion and lessons learned</span></div></div>
-      </div>
-
-      <h3>Triple Constraint</h3>
-      <div class="cards">
-        <div class="card"><div class="card-label card-label-pm">Scope</div><div class="card-value">What work is included and excluded. Changes must go through formal change control.</div></div>
-        <div class="card"><div class="card-label card-label-pm">Time</div><div class="card-value">Deadlines, milestones and schedule. Delay on critical path = project delay.</div></div>
-        <div class="card"><div class="card-label card-label-pm">Cost</div><div class="card-value">Budget, resources and financial limits. Tracked via EVM (see section 3).</div></div>
-      </div>
-
-      <h3>Project vs Programme vs Portfolio</h3>
-      <div class="tbl-wrap"><table>
-        <thead><tr><th>Level</th><th>Definition</th></tr></thead>
+    <!-- METHODOLOGY COMPARISON TABLE -->
+    <div class="hero-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metodología</th>
+            <th>Enfoque</th>
+            <th>Requisitos</th>
+            <th>Cambios</th>
+            <th>Entrega</th>
+            <th>Ideal para</th>
+            <th>Certificación</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td>Project</td><td>A single temporary endeavour delivering a defined output</td></tr>
-          <tr><td>Programme</td><td>A group of related projects managed together to obtain benefits not available from individual management</td></tr>
-          <tr><td>Portfolio</td><td>A collection of projects, programmes and operations managed to achieve strategic objectives</td></tr>
+          <tr>
+            <td><span class="method-tag mtag-waterfall">Waterfall</span></td>
+            <td>Secuencial, fases lineales</td>
+            <td>Fijos desde el inicio</td>
+            <td>Costoso y formal</td>
+            <td>Única entrega al final</td>
+            <td>Proyectos con alcance fijo, regulatorios</td>
+            <td>PMP, PRINCE2</td>
+          </tr>
+          <tr>
+            <td><span class="method-tag mtag-agile">Agile</span></td>
+            <td>Iterativo e incremental</td>
+            <td>Evolucionan continuamente</td>
+            <td>Esperado y bienvenido</td>
+            <td>Entregas frecuentes por sprint</td>
+            <td>Productos complejos y en evolución</td>
+            <td>PMI-ACP, SAFe</td>
+          </tr>
+          <tr>
+            <td><span class="method-tag mtag-scrum">Scrum</span></td>
+            <td>Framework Agile con sprints</td>
+            <td>Backlog priorizado</td>
+            <td>Gestionado vía backlog</td>
+            <td>Incremento al final de cada sprint</td>
+            <td>Desarrollo de producto, equipos pequeños</td>
+            <td>CSM, PSM, SAFe</td>
+          </tr>
+          <tr>
+            <td><span class="method-tag mtag-kanban">Kanban</span></td>
+            <td>Flujo continuo, visual</td>
+            <td>Se añaden cuando hay capacidad</td>
+            <td>En cualquier momento</td>
+            <td>Continua, sin sprints</td>
+            <td>Operaciones, soporte, mantenimiento</td>
+            <td>KMP (Kanban University)</td>
+          </tr>
+          <tr>
+            <td><span class="method-tag mtag-sap">SAP Activate</span></td>
+            <td>Híbrido Agile + SAP Best Practices</td>
+            <td>Fit-to-standard + gaps</td>
+            <td>Gestión formal de CR</td>
+            <td>Hitos por fase, go-live final</td>
+            <td>Implementaciones SAP S/4HANA</td>
+            <td>SAP Certified Associate</td>
+          </tr>
+          <tr>
+            <td><span class="method-tag mtag-prince2">PRINCE2</span></td>
+            <td>Basado en procesos y principios</td>
+            <td>Business case como base</td>
+            <td>Change Authority formal</td>
+            <td>Gestión por etapas (stages)</td>
+            <td>Proyectos UK/EU, sector público</td>
+            <td>PRINCE2 Foundation/Practitioner</td>
+          </tr>
+          <tr>
+            <td><span class="method-tag mtag-itil">ITIL 4</span></td>
+            <td>Gestión de servicios de TI</td>
+            <td>Demanda del servicio</td>
+            <td>Change enablement</td>
+            <td>Servicios continuos</td>
+            <td>Operaciones TI, SaaS, service desk</td>
+            <td>ITIL 4 Foundation / MP / SL</td>
+          </tr>
         </tbody>
-      </table></div>
+      </table>
     </div>
   </div>
 
-  <!-- 2. METHODOLOGIES -->
-  <div class="section">
-    <div class="section-title"><span class="num num-pm">2</span> Methodologies</div>
-    <div class="section-desc">Waterfall, Agile, Scrum, SAP Activate, PRINCE2, ITIL.</div>
-    <div class="section-divider"></div>
+  <!-- ─── SUB-PAGE: FUNDAMENTOS (overview) ─── -->
+  <div class="subpage active" id="page-pm-overview">
 
-    <div class="sub">
-      <h3>Waterfall vs Agile</h3>
-      <div class="tbl-wrap"><table>
-        <thead><tr><th>Dimension</th><th>Waterfall</th><th>Agile</th></tr></thead>
-        <tbody>
-          <tr><td>Approach</td><td>Sequential, linear phases</td><td>Iterative, incremental sprints</td></tr>
-          <tr><td>Requirements</td><td>Fixed upfront</td><td>Evolve throughout</td></tr>
-          <tr><td>Change</td><td>Expensive, formal</td><td>Expected, embraced</td></tr>
-          <tr><td>Delivery</td><td>Single release at end</td><td>Frequent releases each sprint</td></tr>
-          <tr><td>Best for</td><td>Fixed scope, regulatory projects</td><td>Complex, evolving products</td></tr>
-        </tbody>
-      </table></div>
+    <!-- 1. FOUNDATIONS -->
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">1</span> Foundations</div>
+      <div class="section-desc">What a project is, its lifecycle and key constraints.</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <h3>Project Lifecycle</h3>
+        <div class="badges">
+          <div class="badge"><div class="badge-icon">🚀</div><div><span class="badge-label badge-label-pm">Initiation</span><span class="badge-desc">Define purpose, stakeholders, feasibility</span></div></div>
+          <div class="badge"><div class="badge-icon">📐</div><div><span class="badge-label badge-label-pm">Planning</span><span class="badge-desc">Scope, schedule, budget, risk, resources</span></div></div>
+          <div class="badge"><div class="badge-icon">⚙️</div><div><span class="badge-label badge-label-pm">Execution</span><span class="badge-desc">Deliver work according to the plan</span></div></div>
+          <div class="badge"><div class="badge-icon">📊</div><div><span class="badge-label badge-label-pm">Monitoring</span><span class="badge-desc">Track, review and regulate progress</span></div></div>
+          <div class="badge"><div class="badge-icon">✅</div><div><span class="badge-label badge-label-pm">Closure</span><span class="badge-desc">Formalise completion and lessons learned</span></div></div>
+        </div>
 
-      <h3>Scrum Key Concepts</h3>
-      <div class="tbl-wrap"><table>
-        <thead><tr><th>Concept</th><th>Description</th></tr></thead>
-        <tbody>
-          <tr><td>Sprint</td><td>Time-boxed iteration (1–4 weeks) delivering a potentially shippable increment</td></tr>
-          <tr><td>Product Backlog</td><td>Prioritised list of all work to be done</td></tr>
-          <tr><td>Sprint Backlog</td><td>Subset of backlog selected for the current sprint</td></tr>
-          <tr><td>Daily Standup</td><td>15-min sync: what did I do, what will I do, blockers</td></tr>
-          <tr><td>Sprint Review</td><td>Demo to stakeholders at end of sprint</td></tr>
-          <tr><td>Retrospective</td><td>Team reflection on process improvements</td></tr>
-          <tr><td>Product Owner</td><td>Owns backlog and priorities. Represents stakeholders</td></tr>
-          <tr><td>Scrum Master</td><td>Facilitates the process and removes impediments</td></tr>
-        </tbody>
-      </table></div>
+        <h3>Triple Constraint</h3>
+        <div class="cards">
+          <div class="card"><div class="card-label card-label-pm">Scope</div><div class="card-value">What work is included and excluded. Changes must go through formal change control.</div></div>
+          <div class="card"><div class="card-label card-label-pm">Time</div><div class="card-value">Deadlines, milestones and schedule. Delay on critical path = project delay.</div></div>
+          <div class="card"><div class="card-label card-label-pm">Cost</div><div class="card-value">Budget, resources and financial limits. Tracked via EVM (see section 3).</div></div>
+        </div>
 
-      <h3>SAP Activate</h3>
-      <div class="badges">
-        <div class="badge"><div class="badge-icon">🔍</div><div><span class="badge-label badge-label-pm">Discover</span><span class="badge-desc">Validate scope and business case</span></div></div>
-        <div class="badge"><div class="badge-icon">🛠</div><div><span class="badge-label badge-label-pm">Prepare</span><span class="badge-desc">Set up project and environment</span></div></div>
-        <div class="badge"><div class="badge-icon">🗺</div><div><span class="badge-label badge-label-pm">Explore</span><span class="badge-desc">Fit-to-standard workshops</span></div></div>
-        <div class="badge"><div class="badge-icon">⚙️</div><div><span class="badge-label badge-label-pm">Realise</span><span class="badge-desc">Configure and build</span></div></div>
-        <div class="badge"><div class="badge-icon">🚀</div><div><span class="badge-label badge-label-pm">Deploy</span><span class="badge-desc">Cutover and go-live</span></div></div>
-        <div class="badge"><div class="badge-icon">🔄</div><div><span class="badge-label badge-label-pm">Run</span><span class="badge-desc">Operations and hypercare</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3. EVM -->
-  <div class="section">
-    <div class="section-title"><span class="num num-pm">3</span> Earned Value Management (EVM)</div>
-    <div class="section-desc">The standard method to measure project performance objectively.</div>
-    <div class="section-divider"></div>
-    <div class="sub">
-      <div class="callout callout-pm"><strong>Remember:</strong> CPI and SPI above 1.0 = good. Below 1.0 = problem. EVM integrates scope, schedule and cost into a single performance picture.</div>
-      <div class="formula-grid">
-        <div class="formula formula-pm"><code>CV = EV − AC</code><span>Cost Variance. Positive = under budget</span></div>
-        <div class="formula formula-pm"><code>SV = EV − PV</code><span>Schedule Variance. Positive = ahead of schedule</span></div>
-        <div class="formula formula-pm"><code>CPI = EV / AC</code><span>Cost Performance Index. &gt;1 = under budget</span></div>
-        <div class="formula formula-pm"><code>SPI = EV / PV</code><span>Schedule Performance Index. &gt;1 = ahead</span></div>
-        <div class="formula formula-pm"><code>EAC = BAC / CPI</code><span>Estimate at Completion (projected total cost)</span></div>
-        <div class="formula formula-pm"><code>VAC = BAC − EAC</code><span>Variance at Completion. Positive = under budget</span></div>
-      </div>
-      <div class="tbl-wrap"><table>
-        <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
-        <tbody>
-          <tr><td>PV (Planned Value)</td><td>Budgeted cost of work scheduled at this point in time</td></tr>
-          <tr><td>EV (Earned Value)</td><td>Budgeted cost of work actually performed</td></tr>
-          <tr><td>AC (Actual Cost)</td><td>Actual cost of work performed to date</td></tr>
-          <tr><td>BAC</td><td>Budget at Completion — the total approved budget</td></tr>
-        </tbody>
-      </table></div>
-    </div>
-  </div>
-
-  <!-- 4. PLANNING -->
-  <div class="section">
-    <div class="section-title"><span class="num num-pm">4</span> Planning Essentials</div>
-    <div class="section-desc">Scope, schedule, requirements, change control.</div>
-    <div class="section-divider"></div>
-    <div class="sub">
-      <h3>Scope Management</h3>
-      <ul class="blist blist-pm">
-        <li><strong>WBS (Work Breakdown Structure):</strong> Hierarchical decomposition of all project work into manageable components</li>
-        <li><strong>Scope Baseline:</strong> Approved scope statement + WBS + WBS dictionary</li>
-        <li><strong>Scope Creep:</strong> Uncontrolled expansion of scope. Managed through formal change control</li>
-        <li><strong>Gold Plating:</strong> Adding unrequested features. Equally dangerous — avoid it</li>
-        <li><strong>MoSCoW:</strong> Must have / Should have / Could have / Won't have — prioritisation method</li>
-      </ul>
-      <h3>Schedule Management</h3>
-      <ul class="blist blist-pm">
-        <li><strong>Critical Path Method (CPM):</strong> Longest sequence of dependent tasks. Delay here = project delay</li>
-        <li><strong>Float / Slack:</strong> Time a task can delay without affecting the end date</li>
-        <li><strong>Fast Tracking:</strong> Tasks in parallel to compress schedule. Increases risk</li>
-        <li><strong>Crashing:</strong> Adding resources to compress schedule. Increases cost</li>
-      </ul>
-      <h3>Change Control</h3>
-      <ul class="blist blist-pm">
-        <li><strong>Change Request (CR):</strong> Formal document describing the proposed change</li>
-        <li><strong>CCB (Change Control Board):</strong> Group responsible for reviewing and approving changes</li>
-        <li><strong>Impact Analysis:</strong> Always assess effect on scope, schedule, cost and risk before approving</li>
-        <li><strong>Golden rule:</strong> No change is free. Every change has cost, schedule or risk implications</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- 5. RISK -->
-  <div class="section">
-    <div class="section-title"><span class="num num-pm">5</span> Risk Management</div>
-    <div class="section-desc">Identify, analyse, respond and monitor project risks.</div>
-    <div class="section-divider"></div>
-    <div class="sub">
-      <div class="tbl-wrap"><table>
-        <thead><tr><th>Strategy</th><th>Description</th></tr></thead>
-        <tbody>
-          <tr><td>Avoid</td><td>Eliminate the threat by changing the plan</td></tr>
-          <tr><td>Mitigate</td><td>Reduce probability or impact to acceptable levels</td></tr>
-          <tr><td>Transfer</td><td>Shift risk to a third party (insurance, contract)</td></tr>
-          <tr><td>Accept</td><td>Acknowledge the risk and prepare a contingency plan</td></tr>
-          <tr><td>Escalate</td><td>Escalate to programme/sponsor if outside PM authority</td></tr>
-        </tbody>
-      </table></div>
-      <div class="callout callout-pm"><strong>Risk vs Issue:</strong> A risk is a potential future event. An issue is a risk that has already materialised. Both require an owner and a log entry.</div>
-    </div>
-  </div>
-
-  <!-- 6. GOVERNANCE -->
-  <div class="section">
-    <div class="section-title"><span class="num num-pm">6</span> Governance & Tools</div>
-    <div class="section-desc">Roles, meetings, metrics and project management tools.</div>
-    <div class="section-divider"></div>
-    <div class="sub">
-      <h3>Governance Roles</h3>
-      <div class="tbl-wrap"><table>
-        <thead><tr><th>Role</th><th>Responsibility</th></tr></thead>
-        <tbody>
-          <tr><td>Project Sponsor</td><td>Business owner. Approves budget, resolves escalations, champions the project</td></tr>
-          <tr><td>Steering Committee</td><td>Senior stakeholders. Strategic decisions, approves major changes</td></tr>
-          <tr><td>Project Manager</td><td>Day-to-day management. Owns delivery, risk and stakeholder communication</td></tr>
-          <tr><td>Workstream Lead</td><td>Leads a specific track of work</td></tr>
-          <tr><td>PMO</td><td>Standards, governance, reporting, tools across the programme</td></tr>
-        </tbody>
-      </table></div>
-      <h3>Key Metrics</h3>
-      <div class="cards">
-        <div class="card"><div class="card-label card-label-pm">SPI / CPI</div><div class="card-value">Schedule and cost performance. Target &gt;1.0</div></div>
-        <div class="card"><div class="card-label card-label-pm">Milestone Adherence</div><div class="card-value">% of milestones delivered on original committed date</div></div>
-        <div class="card"><div class="card-label card-label-pm">Scope Change Rate</div><div class="card-value">Number/value of approved CRs vs original scope</div></div>
-        <div class="card"><div class="card-label card-label-pm">CSAT / NPS</div><div class="card-value">Customer satisfaction and net promoter score</div></div>
-      </div>
-      <h3>Key Terms</h3>
-      <div class="tbl-wrap"><table>
-        <thead><tr><th>Term</th><th>Definition</th></tr></thead>
-        <tbody>
-          <tr><td>RAID</td><td>Risks, Assumptions, Issues, Dependencies — review in every status meeting</td></tr>
-          <tr><td>RACI</td><td>Responsible, Accountable, Consulted, Informed — defines decision-making roles</td></tr>
-          <tr><td>WBS</td><td>Work Breakdown Structure — hierarchical decomposition of all project work</td></tr>
-          <tr><td>UAT</td><td>User Acceptance Testing — client testing to validate deliverables</td></tr>
-          <tr><td>Baseline</td><td>Approved plan (scope, schedule, cost) against which progress is measured</td></tr>
-          <tr><td>Hypercare</td><td>Elevated support period immediately after go-live</td></tr>
-        </tbody>
-      </table></div>
-    </div>
-  </div>
-
-  <!-- 7. CERTS -->
-  <div class="section">
-    <div class="section-title"><span class="num num-pm">7</span> Certifications</div>
-    <div class="section-desc">The main credentials for Project Manager roles.</div>
-    <div class="section-divider"></div>
-    <div class="sub">
-      <div class="cards">
-        <div class="card"><div class="card-label card-label-pm">PMP</div><div class="card-value">PMI. Most globally recognised. 180 questions. Requires 36+ months PM experience. ~$555</div></div>
-        <div class="card"><div class="card-label card-label-pm">PRINCE2</div><div class="card-value">UK-based, widely used in Europe. Foundation + Practitioner levels. Strong in public sector</div></div>
-        <div class="card"><div class="card-label card-label-pm">PMI-ACP</div><div class="card-value">PMI's Agile credential. Covers Scrum, Kanban, Lean, XP</div></div>
-        <div class="card"><div class="card-label card-label-pm">ITIL 4</div><div class="card-value">IT Service Management. Highly relevant for SaaS and technology operations</div></div>
-        <div class="card"><div class="card-label card-label-pm">SAFe</div><div class="card-value">Scaled Agile Framework. Relevant for large enterprise Agile programmes</div></div>
-        <div class="card"><div class="card-label card-label-pm">CSM</div><div class="card-value">Certified Scrum Master — Scrum Alliance. Entry-level Scrum facilitation</div></div>
+        <h3>Project vs Programme vs Portfolio</h3>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Level</th><th>Definition</th></tr></thead>
+          <tbody>
+            <tr><td>Project</td><td>A single temporary endeavour delivering a defined output</td></tr>
+            <tr><td>Programme</td><td>A group of related projects managed together to obtain benefits not available from individual management</td></tr>
+            <tr><td>Portfolio</td><td>A collection of projects, programmes and operations managed to achieve strategic objectives</td></tr>
+          </tbody>
+        </table></div>
       </div>
     </div>
-  </div>
+
+    <!-- 3. EVM -->
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">2</span> Earned Value Management (EVM)</div>
+      <div class="section-desc">The standard method to measure project performance objectively.</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="callout callout-pm"><strong>Remember:</strong> CPI and SPI above 1.0 = good. Below 1.0 = problem. EVM integrates scope, schedule and cost into a single performance picture.</div>
+        <div class="formula-grid">
+          <div class="formula formula-pm"><code>CV = EV − AC</code><span>Cost Variance. Positive = under budget</span></div>
+          <div class="formula formula-pm"><code>SV = EV − PV</code><span>Schedule Variance. Positive = ahead of schedule</span></div>
+          <div class="formula formula-pm"><code>CPI = EV / AC</code><span>Cost Performance Index. &gt;1 = under budget</span></div>
+          <div class="formula formula-pm"><code>SPI = EV / PV</code><span>Schedule Performance Index. &gt;1 = ahead</span></div>
+          <div class="formula formula-pm"><code>EAC = BAC / CPI</code><span>Estimate at Completion (projected total cost)</span></div>
+          <div class="formula formula-pm"><code>VAC = BAC − EAC</code><span>Variance at Completion. Positive = under budget</span></div>
+        </div>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td>PV (Planned Value)</td><td>Budgeted cost of work scheduled at this point in time</td></tr>
+            <tr><td>EV (Earned Value)</td><td>Budgeted cost of work actually performed</td></tr>
+            <tr><td>AC (Actual Cost)</td><td>Actual cost of work performed to date</td></tr>
+            <tr><td>BAC</td><td>Budget at Completion — the total approved budget</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <!-- 4. PLANNING -->
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">3</span> Planning Essentials</div>
+      <div class="section-desc">Scope, schedule, requirements, change control.</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <h3>Scope Management</h3>
+        <ul class="blist blist-pm">
+          <li><strong>WBS (Work Breakdown Structure):</strong> Hierarchical decomposition of all project work into manageable components</li>
+          <li><strong>Scope Baseline:</strong> Approved scope statement + WBS + WBS dictionary</li>
+          <li><strong>Scope Creep:</strong> Uncontrolled expansion of scope. Managed through formal change control</li>
+          <li><strong>Gold Plating:</strong> Adding unrequested features. Equally dangerous — avoid it</li>
+          <li><strong>MoSCoW:</strong> Must have / Should have / Could have / Won't have — prioritisation method</li>
+        </ul>
+        <h3>Schedule Management</h3>
+        <ul class="blist blist-pm">
+          <li><strong>Critical Path Method (CPM):</strong> Longest sequence of dependent tasks. Delay here = project delay</li>
+          <li><strong>Float / Slack:</strong> Time a task can delay without affecting the end date</li>
+          <li><strong>Fast Tracking:</strong> Tasks in parallel to compress schedule. Increases risk</li>
+          <li><strong>Crashing:</strong> Adding resources to compress schedule. Increases cost</li>
+        </ul>
+        <h3>Change Control</h3>
+        <ul class="blist blist-pm">
+          <li><strong>Change Request (CR):</strong> Formal document describing the proposed change</li>
+          <li><strong>CCB (Change Control Board):</strong> Group responsible for reviewing and approving changes</li>
+          <li><strong>Impact Analysis:</strong> Always assess effect on scope, schedule, cost and risk before approving</li>
+          <li><strong>Golden rule:</strong> No change is free. Every change has cost, schedule or risk implications</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5. RISK -->
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">4</span> Risk Management</div>
+      <div class="section-desc">Identify, analyse, respond and monitor project risks.</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Strategy</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Avoid</td><td>Eliminate the threat by changing the plan</td></tr>
+            <tr><td>Mitigate</td><td>Reduce probability or impact to acceptable levels</td></tr>
+            <tr><td>Transfer</td><td>Shift risk to a third party (insurance, contract)</td></tr>
+            <tr><td>Accept</td><td>Acknowledge the risk and prepare a contingency plan</td></tr>
+            <tr><td>Escalate</td><td>Escalate to programme/sponsor if outside PM authority</td></tr>
+          </tbody>
+        </table></div>
+        <div class="callout callout-pm"><strong>Risk vs Issue:</strong> A risk is a potential future event. An issue is a risk that has already materialised. Both require an owner and a log entry.</div>
+      </div>
+    </div>
+
+    <!-- 6. GOVERNANCE -->
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">5</span> Governance & Tools</div>
+      <div class="section-desc">Roles, meetings, metrics and project management tools.</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <h3>Governance Roles</h3>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Role</th><th>Responsibility</th></tr></thead>
+          <tbody>
+            <tr><td>Project Sponsor</td><td>Business owner. Approves budget, resolves escalations, champions the project</td></tr>
+            <tr><td>Steering Committee</td><td>Senior stakeholders. Strategic decisions, approves major changes</td></tr>
+            <tr><td>Project Manager</td><td>Day-to-day management. Owns delivery, risk and stakeholder communication</td></tr>
+            <tr><td>Workstream Lead</td><td>Leads a specific track of work</td></tr>
+            <tr><td>PMO</td><td>Standards, governance, reporting, tools across the programme</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Key Terms</h3>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+          <tbody>
+            <tr><td>RAID</td><td>Risks, Assumptions, Issues, Dependencies — review in every status meeting</td></tr>
+            <tr><td>RACI</td><td>Responsible, Accountable, Consulted, Informed — defines decision-making roles</td></tr>
+            <tr><td>WBS</td><td>Work Breakdown Structure — hierarchical decomposition of all project work</td></tr>
+            <tr><td>UAT</td><td>User Acceptance Testing — client testing to validate deliverables</td></tr>
+            <tr><td>Baseline</td><td>Approved plan (scope, schedule, cost) against which progress is measured</td></tr>
+            <tr><td>Hypercare</td><td>Elevated support period immediately after go-live</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <!-- 7. CERTS -->
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">6</span> Certifications</div>
+      <div class="section-desc">The main credentials for Project Manager roles.</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="cards">
+          <div class="card"><div class="card-label card-label-pm">PMP</div><div class="card-value">PMI. Most globally recognised. 180 questions. Requires 36+ months PM experience. ~$555</div></div>
+          <div class="card"><div class="card-label card-label-pm">PRINCE2</div><div class="card-value">UK-based, widely used in Europe. Foundation + Practitioner levels. Strong in public sector</div></div>
+          <div class="card"><div class="card-label card-label-pm">PMI-ACP</div><div class="card-value">PMI's Agile credential. Covers Scrum, Kanban, Lean, XP</div></div>
+          <div class="card"><div class="card-label card-label-pm">ITIL 4</div><div class="card-value">IT Service Management. Highly relevant for SaaS and technology operations</div></div>
+          <div class="card"><div class="card-label card-label-pm">SAFe</div><div class="card-value">Scaled Agile Framework. Relevant for large enterprise Agile programmes</div></div>
+          <div class="card"><div class="card-label card-label-pm">CSM</div><div class="card-value">Certified Scrum Master — Scrum Alliance. Entry-level Scrum facilitation</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end subpage overview -->
+
+
+  <!-- ─── SUB-PAGE: WATERFALL ─── -->
+  <div class="subpage" id="page-pm-waterfall">
+    <div class="method-overview">
+      <h2>Waterfall</h2>
+      <div class="mo-desc">Metodología secuencial donde cada fase debe completarse antes de iniciar la siguiente. Ideal cuando los requisitos son estables, el alcance está bien definido y los cambios son costosos o poco probables.</div>
+      <div class="mo-pills">
+        <span class="mo-pill" style="background:#EFF6FF;color:#1D4ED8;border-color:#BFDBFE">📅 Predictivo</span>
+        <span class="mo-pill" style="background:#FFF7ED;color:#C2410C;border-color:#FED7AA">🔒 Scope fijo</span>
+        <span class="mo-pill" style="background:#F0FDF4;color:#166534;border-color:#BBF7D0">📋 Documentación exhaustiva</span>
+        <span class="mo-pill" style="background:#FDF4FF;color:#7E22CE;border-color:#E9D5FF">🏛 Común en sector regulado</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">1</span> Fases de Waterfall</div>
+      <div class="section-desc">Las 5 fases se ejecutan en secuencia estricta.</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="badges">
+          <div class="badge"><div class="badge-icon">📋</div><div><span class="badge-label badge-label-pm">Requirements</span><span class="badge-desc">Recopilación y documentación completa de requisitos. Signoff antes de continuar</span></div></div>
+          <div class="badge"><div class="badge-icon">🏗</div><div><span class="badge-label badge-label-pm">System Design</span><span class="badge-desc">Arquitectura técnica y diseño de solución. HLD + LLD (High/Low Level Design)</span></div></div>
+          <div class="badge"><div class="badge-icon">⚙️</div><div><span class="badge-label badge-label-pm">Implementation</span><span class="badge-desc">Construcción según el diseño aprobado. Sin desviaciones sin CR</span></div></div>
+          <div class="badge"><div class="badge-icon">🧪</div><div><span class="badge-label badge-label-pm">Testing</span><span class="badge-desc">SIT, UAT, regression. Validación completa antes de go-live</span></div></div>
+          <div class="badge"><div class="badge-icon">🚀</div><div><span class="badge-label badge-label-pm">Deployment</span><span class="badge-desc">Release a producción + hypercare + cierre formal</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">2</span> Artefactos Clave</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Artefacto</th><th>Descripción</th><th>Fase</th></tr></thead>
+          <tbody>
+            <tr><td>BRD</td><td>Business Requirements Document — requisitos funcionales del negocio</td><td>Requirements</td></tr>
+            <tr><td>FSD / FRS</td><td>Functional Specification Document — cómo el sistema satisface los BRD</td><td>Design</td></tr>
+            <tr><td>HLD / LLD</td><td>High/Low Level Design — arquitectura y diseño técnico detallado</td><td>Design</td></tr>
+            <tr><td>Test Plan</td><td>Estrategia de pruebas, casos de test, criterios de aceptación</td><td>Testing</td></tr>
+            <tr><td>UAT Sign-off</td><td>Aceptación formal del cliente. Prerequisito para go-live</td><td>Testing</td></tr>
+            <tr><td>Project Closure Report</td><td>Lecciones aprendidas, métricas finales, entrega formal</td><td>Deployment</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">3</span> Ventajas y Limitaciones</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="cards">
+          <div class="card" style="border-top:3px solid #059669"><div class="card-label" style="color:#059669">✅ Ventajas</div><div class="card-value">Documentación clara. Fácil de gestionar y auditar. Plazos y costes predecibles. Ideal para contratos de precio fijo.</div></div>
+          <div class="card" style="border-top:3px solid #E11D48"><div class="card-label" style="color:#E11D48">⚠️ Limitaciones</div><div class="card-value">Inflexible ante cambios. El cliente no ve nada hasta el final. Los errores de requisitos se detectan tarde y son costosos de corregir.</div></div>
+          <div class="card" style="border-top:3px solid #D97706"><div class="card-label" style="color:#D97706">🎯 Cuándo usarlo</div><div class="card-value">Proyectos con requisitos fijos. Sectores regulados (farma, defensa, banca). Cuando el contrato es precio fijo y el alcance no puede variar.</div></div>
+        </div>
+        <div class="callout callout-pm"><strong>Clave en entrevistas:</strong> "Usé Waterfall en [proyecto] porque los requisitos eran estables y el cliente necesitaba previsibilidad de coste. Gestioné los cambios vía Change Control Board y mantuve el scope baseline intacto."</div>
+      </div>
+    </div>
+  </div><!-- end subpage waterfall -->
+
+
+  <!-- ─── SUB-PAGE: AGILE ─── -->
+  <div class="subpage" id="page-pm-agile">
+    <div class="method-overview">
+      <h2>Agile</h2>
+      <div class="mo-desc">Marco de trabajo iterativo e incremental basado en los 4 valores y 12 principios del Agile Manifesto (2001). No es una metodología única — es un paraguas que engloba Scrum, Kanban, SAFe, XP y otros frameworks.</div>
+      <div class="mo-pills">
+        <span class="mo-pill" style="background:#F0FDF4;color:#166534;border-color:#BBF7D0">🔄 Iterativo</span>
+        <span class="mo-pill" style="background:#EFF6FF;color:#1D4ED8;border-color:#BFDBFE">👥 Colaborativo</span>
+        <span class="mo-pill" style="background:#FFF7ED;color:#C2410C;border-color:#FED7AA">📦 Entrega continua</span>
+        <span class="mo-pill" style="background:#FDF4FF;color:#7E22CE;border-color:#E9D5FF">🔀 Adaptativo al cambio</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">1</span> Los 4 Valores del Agile Manifesto</div>
+      <div class="section-desc">Valoramos más los ítems de la izquierda, aunque los de la derecha también tienen valor.</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="cards">
+          <div class="card" style="border-left:3px solid #059669"><div class="card-label card-label-pm">Valor 1</div><div class="card-value"><strong>Individuos e interacciones</strong> sobre procesos y herramientas</div></div>
+          <div class="card" style="border-left:3px solid #059669"><div class="card-label card-label-pm">Valor 2</div><div class="card-value"><strong>Software funcionando</strong> sobre documentación extensiva</div></div>
+          <div class="card" style="border-left:3px solid #059669"><div class="card-label card-label-pm">Valor 3</div><div class="card-value"><strong>Colaboración con el cliente</strong> sobre negociación de contratos</div></div>
+          <div class="card" style="border-left:3px solid #059669"><div class="card-label card-label-pm">Valor 4</div><div class="card-value"><strong>Respuesta al cambio</strong> sobre seguir un plan rígido</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">2</span> 12 Principios Agile (resumen)</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <ul class="blist blist-pm">
+          <li>Satisfacer al cliente entregando software valioso de forma continua y temprana</li>
+          <li>Aceptar el cambio de requisitos, incluso al final del desarrollo</li>
+          <li>Entregar software funcionando con frecuencia (semanas, no meses)</li>
+          <li>Negocio y desarrollo trabajando juntos a diario</li>
+          <li>Construir proyectos alrededor de personas motivadas. Darles el entorno y soporte necesario</li>
+          <li>La conversación cara a cara es el método más eficiente de transmitir información</li>
+          <li>El software funcionando es la medida principal de progreso</li>
+          <li>Los procesos Agile promueven el desarrollo sostenible (ritmo constante)</li>
+          <li>Atención continua a la excelencia técnica y al buen diseño</li>
+          <li>La simplicidad — el arte de maximizar el trabajo no realizado — es esencial</li>
+          <li>Las mejores arquitecturas, requisitos y diseños surgen de equipos autoorganizados</li>
+          <li>El equipo reflexiona regularmente sobre cómo ser más efectivo y ajusta su comportamiento</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">3</span> Waterfall vs Agile — Comparación</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Dimensión</th><th>Waterfall</th><th>Agile</th></tr></thead>
+          <tbody>
+            <tr><td>Approach</td><td>Sequential, linear phases</td><td>Iterative, incremental sprints</td></tr>
+            <tr><td>Requirements</td><td>Fixed upfront</td><td>Evolve throughout</td></tr>
+            <tr><td>Change</td><td>Expensive, formal</td><td>Expected, embraced</td></tr>
+            <tr><td>Delivery</td><td>Single release at end</td><td>Frequent releases each sprint</td></tr>
+            <tr><td>Testing</td><td>After development complete</td><td>Continuous, each sprint</td></tr>
+            <tr><td>Customer involvement</td><td>At start and end</td><td>Continuous collaboration</td></tr>
+            <tr><td>Risk</td><td>Discovered late, expensive</td><td>Discovered early, manageable</td></tr>
+            <tr><td>Best for</td><td>Fixed scope, regulatory projects</td><td>Complex, evolving products</td></tr>
+          </tbody>
+        </table></div>
+        <div class="callout callout-pm"><strong>En la práctica:</strong> La mayoría de proyectos enterprise usan un enfoque híbrido — Agile para el desarrollo pero con governance Waterfall (presupuesto fijo, hitos contractuales, reporting formal al Steering Committee).</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">4</span> Scaling Agile</div>
+      <div class="section-desc">Frameworks para aplicar Agile a escala en grandes organizaciones.</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Framework</th><th>Descripción</th><th>Ideal para</th></tr></thead>
+          <tbody>
+            <tr><td>SAFe</td><td>Scaled Agile Framework. PI Planning, ARTs, Program Increments</td><td>Grandes empresas, 50-150+ personas</td></tr>
+            <tr><td>LeSS</td><td>Large-Scale Scrum. Scrum aplicado a múltiples equipos con un solo Product Owner</td><td>Equipos medianos, producto único</td></tr>
+            <tr><td>Spotify Model</td><td>Squads, Tribes, Chapters, Guilds. Autonomía + alineación</td><td>Empresas tech escaladas</td></tr>
+            <tr><td>Scrum@Scale</td><td>Redes de Scrum Teams. Basado en Scrum of Scrums</td><td>Organizaciones ya con Scrum</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div><!-- end subpage agile -->
+
+
+  <!-- ─── SUB-PAGE: SCRUM ─── -->
+  <div class="subpage" id="page-pm-scrum">
+    <div class="method-overview">
+      <h2>Scrum</h2>
+      <div class="mo-desc">Framework Agile ligero para gestionar trabajo complejo. Define 3 roles, 5 eventos y 3 artefactos. Los equipos trabajan en sprints de 1-4 semanas entregando un incremento potencialmente entregable al final de cada uno.</div>
+      <div class="mo-pills">
+        <span class="mo-pill" style="background:#FFF7ED;color:#C2410C;border-color:#FED7AA">⏱ Sprints 1-4 semanas</span>
+        <span class="mo-pill" style="background:#F0FDF4;color:#166534;border-color:#BBF7D0">👥 Equipo 3-9 personas</span>
+        <span class="mo-pill" style="background:#EFF6FF;color:#1D4ED8;border-color:#BFDBFE">📦 Incremento por sprint</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">1</span> Los 3 Roles de Scrum</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="cards">
+          <div class="card"><div class="card-label card-label-pm">Product Owner</div><div class="card-value">Maximiza el valor del producto. Dueño del Product Backlog. Prioriza y clarifica requisitos. Acepta o rechaza el sprint.</div></div>
+          <div class="card"><div class="card-label card-label-pm">Scrum Master</div><div class="card-value">Facilita el proceso Scrum. Elimina impedimentos. Protege al equipo. Coach de Agile para la organización.</div></div>
+          <div class="card"><div class="card-label card-label-pm">Dev Team</div><div class="card-value">Autoorganizado y multidisciplinar. 3-9 personas. Responsable de entregar el incremento. Sin roles individuales dentro del equipo.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">2</span> Los 5 Eventos de Scrum</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Evento</th><th>Objetivo</th><th>Duración (Sprint 2 sem.)</th><th>Participantes</th></tr></thead>
+          <tbody>
+            <tr><td>Sprint Planning</td><td>Seleccionar items del backlog y planificar el sprint</td><td>4 horas</td><td>Todo el equipo</td></tr>
+            <tr><td>Daily Scrum</td><td>Sincronizar y planificar las próximas 24h</td><td>15 min (timeboxed)</td><td>Dev Team (SM opcional)</td></tr>
+            <tr><td>Sprint Review</td><td>Inspeccionar el incremento y adaptar el backlog</td><td>2 horas</td><td>Todo el equipo + stakeholders</td></tr>
+            <tr><td>Retrospective</td><td>Mejorar el proceso del equipo</td><td>1,5 horas</td><td>Todo el equipo</td></tr>
+            <tr><td>Backlog Refinement</td><td>Estimar y clarificar items del backlog (no es evento oficial)</td><td>~10% del sprint</td><td>PO + Dev Team</td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Daily Scrum — Las 3 preguntas</h3>
+        <div class="cards">
+          <div class="card"><div class="card-label card-label-pm">Ayer</div><div class="card-value">¿Qué completé ayer que contribuye al Sprint Goal?</div></div>
+          <div class="card"><div class="card-label card-label-pm">Hoy</div><div class="card-value">¿Qué voy a hacer hoy para contribuir al Sprint Goal?</div></div>
+          <div class="card"><div class="card-label card-label-pm">Impedimentos</div><div class="card-value">¿Veo algún impedimento que me impida a mí o al equipo lograr el Sprint Goal?</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">3</span> Los 3 Artefactos de Scrum</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Artefacto</th><th>Definición</th><th>Owner</th></tr></thead>
+          <tbody>
+            <tr><td>Product Backlog</td><td>Lista priorizada de todo el trabajo a realizar. Vivo y en constante evolución</td><td>Product Owner</td></tr>
+            <tr><td>Sprint Backlog</td><td>Items seleccionados del Product Backlog para el sprint + plan para entregarlos</td><td>Dev Team</td></tr>
+            <tr><td>Increment</td><td>Suma de todos los Product Backlog items completados durante el sprint y sprints anteriores. Debe estar en estado "Done"</td><td>Dev Team</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">4</span> Definition of Done & Story Points</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="callout callout-pm"><strong>Definition of Done (DoD):</strong> Criterios acordados que un item debe cumplir para considerarse completado. Sin DoD no hay transparencia real. Ejemplo: código revisado + tests unitarios pasados + documentación actualizada + desplegado en staging.</div>
+        <div class="cards">
+          <div class="card"><div class="card-label card-label-pm">Story Points</div><div class="card-value">Unidad relativa de esfuerzo. Escala Fibonacci (1,2,3,5,8,13,21). No son horas — son complejidad + incertidumbre + esfuerzo.</div></div>
+          <div class="card"><div class="card-label card-label-pm">Velocity</div><div class="card-value">Story points completados por sprint. Media de los últimos 3-5 sprints. Sirve para forecasting, no para presión.</div></div>
+          <div class="card"><div class="card-label card-label-pm">Burndown Chart</div><div class="card-value">Trabajo restante vs tiempo. Línea ideal vs real. Muestra si el equipo terminará el sprint a tiempo.</div></div>
+          <div class="card"><div class="card-label card-label-pm">Burnup Chart</div><div class="card-value">Trabajo completado + alcance total. Muestra el progreso y cómo el alcance ha cambiado.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">5</span> Los 5 Valores de Scrum</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="badges">
+          <div class="badge"><div class="badge-icon">💪</div><div><span class="badge-label badge-label-pm">Commitment</span><span class="badge-desc">El equipo se compromete con el Sprint Goal</span></div></div>
+          <div class="badge"><div class="badge-icon">🎯</div><div><span class="badge-label badge-label-pm">Focus</span><span class="badge-desc">Foco en el trabajo del sprint y el objetivo</span></div></div>
+          <div class="badge"><div class="badge-icon">🔓</div><div><span class="badge-label badge-label-pm">Openness</span><span class="badge-desc">Transparencia sobre el trabajo y los desafíos</span></div></div>
+          <div class="badge"><div class="badge-icon">🤝</div><div><span class="badge-label badge-label-pm">Respect</span><span class="badge-desc">Los miembros se respetan como personas capaces</span></div></div>
+          <div class="badge"><div class="badge-icon">⚡</div><div><span class="badge-label badge-label-pm">Courage</span><span class="badge-desc">Valentía para hacer lo correcto y abordar problemas difíciles</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div><!-- end subpage scrum -->
+
+
+  <!-- ─── SUB-PAGE: KANBAN ─── -->
+  <div class="subpage" id="page-pm-kanban">
+    <div class="method-overview">
+      <h2>Kanban</h2>
+      <div class="mo-desc">Método de gestión de flujo de trabajo visual. No prescribe roles, sprints ni reuniones fijas. Se centra en visualizar el trabajo, limitar el trabajo en curso (WIP) y maximizar el flujo. Ideal para equipos de operaciones, soporte y mantenimiento.</div>
+      <div class="mo-pills">
+        <span class="mo-pill" style="background:#FDF4FF;color:#7E22CE;border-color:#E9D5FF">📊 Flujo continuo</span>
+        <span class="mo-pill" style="background:#F0FDF4;color:#166534;border-color:#BBF7D0">🚦 Límites WIP</span>
+        <span class="mo-pill" style="background:#EFF6FF;color:#1D4ED8;border-color:#BFDBFE">👁 Visual management</span>
+        <span class="mo-pill" style="background:#FFF7ED;color:#C2410C;border-color:#FED7AA">⏱ Sin sprints</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">1</span> Los 6 Principios de Kanban</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Principio</th><th>Descripción</th></tr></thead>
+          <tbody>
+            <tr><td>Visualizar el flujo</td><td>Tablero Kanban con columnas que representan el estado del trabajo (To Do → In Progress → Done)</td></tr>
+            <tr><td>Limitar el WIP</td><td>Work In Progress limits: máximo de items en cada columna. Evita la multitarea y los cuellos de botella</td></tr>
+            <tr><td>Gestionar el flujo</td><td>Monitorizar y optimizar el movimiento de items a través del sistema</td></tr>
+            <tr><td>Políticas explícitas</td><td>Reglas claras sobre cómo funciona cada columna (Definition of Done por columna)</td></tr>
+            <tr><td>Feedback loops</td><td>Reuniones regulares: Daily Standup, Replenishment, Delivery Planning, Service Delivery Review</td></tr>
+            <tr><td>Mejorar colaborativamente</td><td>Kaizen: mejora continua basada en datos y experimentación científica</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">2</span> Métricas Clave de Kanban</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="formula-grid">
+          <div class="formula formula-pm"><code>Lead Time</code><span>Tiempo desde que se crea el item hasta que se entrega. Mide la velocidad de entrega al cliente.</span></div>
+          <div class="formula formula-pm"><code>Cycle Time</code><span>Tiempo desde que se empieza a trabajar hasta que se completa. Mide la eficiencia del proceso.</span></div>
+          <div class="formula formula-pm"><code>Throughput</code><span>Número de items completados por unidad de tiempo (semana/mes). Mide la capacidad.</span></div>
+          <div class="formula formula-pm"><code>WIP</code><span>Work In Progress — items activos en el sistema. Demasiado WIP = cuello de botella.</span></div>
+        </div>
+        <div class="callout callout-pm"><strong>Ley de Little:</strong> Lead Time = WIP / Throughput. Reducir el WIP es la forma más efectiva de reducir el Lead Time y mejorar la predictibilidad.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">3</span> Kanban vs Scrum</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Dimensión</th><th>Kanban</th><th>Scrum</th></tr></thead>
+          <tbody>
+            <tr><td>Cadencia</td><td>Flujo continuo, sin sprints</td><td>Sprints de 1-4 semanas</td></tr>
+            <tr><td>Roles</td><td>Sin roles prescritos</td><td>PO, SM, Dev Team</td></tr>
+            <tr><td>Cambios</td><td>En cualquier momento</td><td>Solo entre sprints</td></tr>
+            <tr><td>Métricas</td><td>Lead Time, Cycle Time, Throughput</td><td>Velocity, Burndown</td></tr>
+            <tr><td>Tablero</td><td>Persistente con límites WIP</td><td>Se resetea cada sprint</td></tr>
+            <tr><td>Ideal para</td><td>Operaciones, soporte, maintenance</td><td>Desarrollo de producto</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div><!-- end subpage kanban -->
+
+
+  <!-- ─── SUB-PAGE: SAP ACTIVATE ─── -->
+  <div class="subpage" id="page-pm-sap">
+    <div class="method-overview">
+      <h2>SAP Activate</h2>
+      <div class="mo-desc">Metodología oficial de SAP para implementaciones de S/4HANA y soluciones en la nube. Combina SAP Best Practices, Agile (sprints de configuración) y una estructura de fases predecible con hitos contractuales claros.</div>
+      <div class="mo-pills">
+        <span class="mo-pill" style="background:#FFF1F2;color:#BE123C;border-color:#FECDD3">🏢 SAP S/4HANA</span>
+        <span class="mo-pill" style="background:#F0FDF4;color:#166534;border-color:#BBF7D0">🔄 Agile + Waterfall híbrido</span>
+        <span class="mo-pill" style="background:#FFFBEB;color:#92400E;border-color:#FDE68A">✅ Best Practices</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">1</span> Las 6 Fases de SAP Activate</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="badges">
+          <div class="badge"><div class="badge-icon">🔍</div><div><span class="badge-label badge-label-pm">Discover</span><span class="badge-desc">Validar el business case. Demos de SAP Best Practices. Pre-sell y Value Assessment</span></div></div>
+          <div class="badge"><div class="badge-icon">🛠</div><div><span class="badge-label badge-label-pm">Prepare</span><span class="badge-desc">Constitución del proyecto. Setup del entorno. Formación del equipo. Project Charter</span></div></div>
+          <div class="badge"><div class="badge-icon">🗺</div><div><span class="badge-label badge-label-pm">Explore</span><span class="badge-desc">Fit-to-Standard workshops. Identificar gaps entre Best Practice y requisitos del cliente</span></div></div>
+          <div class="badge"><div class="badge-icon">⚙️</div><div><span class="badge-label badge-label-pm">Realise</span><span class="badge-desc">Configuración iterativa (sprints Agile). Desarrollo de gaps. Integración. Testing</span></div></div>
+          <div class="badge"><div class="badge-icon">🚀</div><div><span class="badge-label badge-label-pm">Deploy</span><span class="badge-desc">Cutover planning y ejecución. UAT final. Formación a usuarios. Go-live</span></div></div>
+          <div class="badge"><div class="badge-icon">🔄</div><div><span class="badge-label badge-label-pm">Run</span><span class="badge-desc">Hypercare (4-8 semanas). Estabilización. Transición a soporte. Project closure</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">2</span> Artefactos y Entregables Clave</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Artefacto</th><th>Fase</th><th>Descripción</th></tr></thead>
+          <tbody>
+            <tr><td>Project Charter</td><td>Prepare</td><td>Alcance, equipo, presupuesto, cronograma y sponsor del proyecto</td></tr>
+            <tr><td>Fit-Gap Analysis</td><td>Explore</td><td>Matriz de Best Practices vs requisitos. Identifica gaps que requieren desarrollo</td></tr>
+            <tr><td>Solution Design Document</td><td>Explore → Realise</td><td>Documentación de cómo el sistema satisface los requisitos</td></tr>
+            <tr><td>Test Plan / Scripts</td><td>Realise</td><td>Casos de prueba por proceso. SIT + UAT</td></tr>
+            <tr><td>Cutover Plan</td><td>Deploy</td><td>Plan detallado de migración de datos y actividades de go-live</td></tr>
+            <tr><td>Hypercare Plan</td><td>Run</td><td>Soporte elevado post go-live. SLAs, equipo de guardia, escalación</td></tr>
+          </tbody>
+        </table></div>
+        <div class="callout callout-pm"><strong>Fit-to-Standard:</strong> El principio central de SAP Activate es adaptar los procesos del cliente a las Best Practices de SAP, no al revés. Cada gap (desviación) tiene un coste — se debe documentar, aprobar y gestionar como cambio.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">3</span> Roles en SAP Activate</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Rol</th><th>Responsabilidad</th></tr></thead>
+          <tbody>
+            <tr><td>Project Manager (SAP)</td><td>Gestión global del proyecto. Responsable de scope, tiempo, coste y calidad</td></tr>
+            <tr><td>Solution Architect</td><td>Diseño de la solución técnica. Toma de decisiones de arquitectura</td></tr>
+            <tr><td>Business Process Expert</td><td>Experto funcional del cliente en cada módulo (FI, MM, SD, etc.)</td></tr>
+            <tr><td>Integration Consultant</td><td>Integración con sistemas terceros. APIs, middleware, IDocs</td></tr>
+            <tr><td>Change Manager</td><td>Gestión del cambio organizativo. Formación y adopción</td></tr>
+            <tr><td>Data Migration Lead</td><td>Extracción, transformación y carga de datos maestros y transaccionales</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div><!-- end subpage sap -->
+
+
+  <!-- ─── SUB-PAGE: PRINCE2 ─── -->
+  <div class="subpage" id="page-pm-prince2">
+    <div class="method-overview">
+      <h2>PRINCE2</h2>
+      <div class="mo-desc">PRojects IN Controlled Environments. Metodología basada en procesos, principios y temáticas. Muy utilizada en el sector público de UK y Europa. Define una estructura de governance clara con roles y responsabilidades precisos en cada etapa del proyecto.</div>
+      <div class="mo-pills">
+        <span class="mo-pill" style="background:#FFFBEB;color:#92400E;border-color:#FDE68A">🏛 UK/EU público</span>
+        <span class="mo-pill" style="background:#EFF6FF;color:#1D4ED8;border-color:#BFDBFE">📋 Basado en procesos</span>
+        <span class="mo-pill" style="background:#F0FDF4;color:#166534;border-color:#BBF7D0">💼 Business Case driven</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">1</span> Los 7 Principios de PRINCE2</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="cards">
+          <div class="card"><div class="card-label card-label-pm">1. Business Case</div><div class="card-value">El proyecto debe justificarse continuamente. Si el Business Case deja de ser viable, el proyecto se cierra.</div></div>
+          <div class="card"><div class="card-label card-label-pm">2. Lessons Learned</div><div class="card-value">Aprender de la experiencia — del propio proyecto y de proyectos anteriores.</div></div>
+          <div class="card"><div class="card-label card-label-pm">3. Roles y Responsabilidades</div><div class="card-value">Estructura clara con negocio, usuario y proveedor representados en el Project Board.</div></div>
+          <div class="card"><div class="card-label card-label-pm">4. Gestión por Etapas</div><div class="card-value">El proyecto se divide en etapas (stages) con revisión y autorización entre cada una.</div></div>
+          <div class="card"><div class="card-label card-label-pm">5. Gestión por Excepción</div><div class="card-value">Cada nivel de gestión delega autoridad al nivel inferior dentro de tolerancias predefinidas.</div></div>
+          <div class="card"><div class="card-label card-label-pm">6. Foco en Productos</div><div class="card-value">El proyecto entrega productos (outputs) con calidad definida, no solo actividades.</div></div>
+          <div class="card"><div class="card-label card-label-pm">7. Adaptación</div><div class="card-value">PRINCE2 debe adaptarse al contexto, tamaño y complejidad del proyecto.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">2</span> Las 7 Temáticas (Themes)</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Temática</th><th>Descripción</th><th>Artefacto Clave</th></tr></thead>
+          <tbody>
+            <tr><td>Business Case</td><td>Justificación continua del proyecto</td><td>Business Case document</td></tr>
+            <tr><td>Organisation</td><td>Estructura de roles y responsabilidades</td><td>Project Board, Role Descriptions</td></tr>
+            <tr><td>Quality</td><td>Definir y controlar la calidad de los productos</td><td>Quality Register, Product Description</td></tr>
+            <tr><td>Plans</td><td>Cómo y cuándo se entregarán los productos</td><td>Project Plan, Stage Plans</td></tr>
+            <tr><td>Risk</td><td>Identificar, evaluar y gestionar incertidumbres</td><td>Risk Register</td></tr>
+            <tr><td>Change</td><td>Evaluar y controlar impacto de cambios e issues</td><td>Issue Register, Change Authority</td></tr>
+            <tr><td>Progress</td><td>Monitorizar y controlar el avance hacia los objetivos</td><td>Highlight Reports, Checkpoint Reports</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">3</span> Los 7 Procesos de PRINCE2</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="badges">
+          <div class="badge"><div class="badge-icon">🔍</div><div><span class="badge-label badge-label-pm">SU — Starting Up</span><span class="badge-desc">Pre-project. ¿Vale la pena iniciar este proyecto?</span></div></div>
+          <div class="badge"><div class="badge-icon">📋</div><div><span class="badge-label badge-label-pm">IP — Initiating</span><span class="badge-desc">Crear el PID (Project Initiation Document)</span></div></div>
+          <div class="badge"><div class="badge-icon">🎯</div><div><span class="badge-label badge-label-pm">DP — Directing</span><span class="badge-desc">Project Board toma decisiones. No se para — continuo</span></div></div>
+          <div class="badge"><div class="badge-icon">📐</div><div><span class="badge-label badge-label-pm">SB — Stage Boundary</span><span class="badge-desc">Revisar la etapa actual y planificar la siguiente</span></div></div>
+          <div class="badge"><div class="badge-icon">⚙️</div><div><span class="badge-label badge-label-pm">CS — Controlling Stage</span><span class="badge-desc">Monitorizar y controlar el trabajo de una etapa</span></div></div>
+          <div class="badge"><div class="badge-icon">🔨</div><div><span class="badge-label badge-label-pm">MP — Managing Delivery</span><span class="badge-desc">Team Manager acepta, ejecuta y entrega work packages</span></div></div>
+          <div class="badge"><div class="badge-icon">✅</div><div><span class="badge-label badge-label-pm">CP — Closing</span><span class="badge-desc">Cierre formal. Entrega, evaluación de beneficios y lecciones</span></div></div>
+        </div>
+        <div class="callout callout-pm"><strong>Diferencia clave con PMP:</strong> PRINCE2 es prescriptivo y muy orientado a documentación y governance. PMP es más un estándar de buenas prácticas. En UK/Europa, PRINCE2 es más valorado en sector público; PMP domina el sector privado global.</div>
+      </div>
+    </div>
+  </div><!-- end subpage prince2 -->
+
+
+  <!-- ─── SUB-PAGE: ITIL 4 ─── -->
+  <div class="subpage" id="page-pm-itil">
+    <div class="method-overview">
+      <h2>ITIL 4</h2>
+      <div class="mo-desc">Information Technology Infrastructure Library. Framework de gestión de servicios de TI (ITSM). La versión 4 (2019) actualiza ITIL v3 integrando Agile, DevOps y Lean. Muy relevante para roles en SaaS, operaciones TI y cualquier entorno con un service desk o soporte a producción.</div>
+      <div class="mo-pills">
+        <span class="mo-pill" style="background:#F0FDFA;color:#115E59;border-color:#99F6E4">🛠 ITSM</span>
+        <span class="mo-pill" style="background:#F0FDF4;color:#166534;border-color:#BBF7D0">🔄 Integra Agile + DevOps</span>
+        <span class="mo-pill" style="background:#EFF6FF;color:#1D4ED8;border-color:#BFDBFE">☁️ Clave para SaaS</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">1</span> Service Value System (SVS)</div>
+      <div class="section-desc">El corazón de ITIL 4 — el sistema que crea valor para los clientes.</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="cards">
+          <div class="card"><div class="card-label card-label-pm">Guiding Principles</div><div class="card-value">7 principios que guían decisiones: Focus on value, Start where you are, Progress iteratively, Collaborate, Think holistically, Keep it simple, Optimise & automate</div></div>
+          <div class="card"><div class="card-label card-label-pm">Governance</div><div class="card-value">Cómo la organización dirige y controla el sistema. Políticas, criterios de decisión, rendición de cuentas</div></div>
+          <div class="card"><div class="card-label card-label-pm">Service Value Chain</div><div class="card-value">6 actividades que transforman demanda en valor: Plan, Improve, Engage, Design & Transition, Obtain/Build, Deliver & Support</div></div>
+          <div class="card"><div class="card-label card-label-pm">Practices</div><div class="card-value">34 prácticas ITIL (antiguas "procesos"). Agrupadas en: General, Service Management, Technical Management</div></div>
+          <div class="card"><div class="card-label card-label-pm">Continual Improvement</div><div class="card-value">Mejora continua en todos los niveles. El Continual Improvement Model proporciona estructura para mejorar servicios y prácticas</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">2</span> Prácticas ITIL 4 Más Relevantes</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Práctica</th><th>Descripción</th><th>Relevancia para PM/EM</th></tr></thead>
+          <tbody>
+            <tr><td>Incident Management</td><td>Restaurar el servicio normal lo antes posible tras una interrupción</td><td>Alta — gestión de incidencias post go-live</td></tr>
+            <tr><td>Problem Management</td><td>Identificar y eliminar causas raíz de incidencias recurrentes</td><td>Alta — reducción de defectos sistémicos</td></tr>
+            <tr><td>Change Enablement</td><td>Maximizar el éxito de cambios gestionando riesgos</td><td>Muy alta — change requests, releases</td></tr>
+            <tr><td>Service Request Management</td><td>Gestionar solicitudes predefinidas de bajo riesgo</td><td>Alta — onboarding, permisos, configuraciones</td></tr>
+            <tr><td>Service Level Management</td><td>Definir y gestionar SLAs con clientes internos/externos</td><td>Muy alta — SaaS delivery, contratos</td></tr>
+            <tr><td>Release Management</td><td>Planificar e integrar releases en el entorno productivo</td><td>Alta — go-live y actualizaciones</td></tr>
+            <tr><td>Knowledge Management</td><td>Capturar, analizar y compartir conocimiento del servicio</td><td>Media — lecciones aprendidas, runbooks</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">3</span> Terminología ITIL Clave</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Término</th><th>Definición</th></tr></thead>
+          <tbody>
+            <tr><td>Incident</td><td>Interrupción no planificada o reducción de calidad de un servicio de TI</td></tr>
+            <tr><td>Problem</td><td>Causa o causa potencial de uno o más incidentes</td></tr>
+            <tr><td>Known Error</td><td>Problema con causa raíz identificada y workaround documentado</td></tr>
+            <tr><td>Change</td><td>Adición, modificación o eliminación de cualquier cosa que pueda afectar a los servicios</td></tr>
+            <tr><td>SLA</td><td>Service Level Agreement — acuerdo formal sobre niveles de servicio esperados</td></tr>
+            <tr><td>OLA</td><td>Operational Level Agreement — acuerdo interno entre equipos de TI</td></tr>
+            <tr><td>CMDB</td><td>Configuration Management Database — inventario de Configuration Items (CIs)</td></tr>
+            <tr><td>CAB</td><td>Change Advisory Board — grupo que evalúa cambios de alto riesgo</td></tr>
+          </tbody>
+        </table></div>
+        <div class="callout callout-pm"><strong>Para entrevistas SaaS:</strong> ITIL es crítico cuando gestionas proyectos que van a operaciones. El PM debe entender el proceso de Change Enablement para coordinar go-lives con el equipo de IT Ops, y los SLAs del servicio que está entregando.</div>
+      </div>
+    </div>
+  </div><!-- end subpage itil -->
 
 </div><!-- end page-pm -->
 
@@ -535,7 +1172,7 @@ td:last-child{color:var(--text2)}
       <ul class="blist blist-em">
         <li><strong>Track weekly, not monthly:</strong> Budget overruns compound quickly. Catch them early</li>
         <li><strong>Scope creep is the #1 cause:</strong> Enforce change control from day one, without exception</li>
-        <li><strong>Undocumented requests:</strong> Every verbal agreement must be confirmed in writing. "I'll just do it quickly" is how projects overrun</li>
+        <li><strong>Undocumented requests:</strong> Every verbal agreement must be confirmed in writing</li>
         <li><strong>Time tracking tools:</strong> Enable early detection of effort vs estimate divergence</li>
         <li><strong>Requirements matrix:</strong> Links each requirement to its source, design, test and delivery confirmation</li>
         <li><strong>Lessons learned:</strong> Capture what drove overrun in retrospectives — prevent recurrence on the next programme</li>
@@ -659,7 +1296,7 @@ td:last-child{color:var(--text2)}
         <thead><tr><th>Concept</th><th>Description</th></tr></thead>
         <tbody>
           <tr><td>Prompt Engineering</td><td>Crafting inputs to elicit optimal outputs. Includes system prompts, few-shot examples and chain-of-thought instructions</td></tr>
-          <tr><td>RAG (Retrieval Augmented Generation)</td><td>Augments LLM responses with real-time retrieval from a knowledge base. Reduces hallucinations, keeps answers current</td></tr>
+          <tr><td>RAG</td><td>Retrieval Augmented Generation — augments LLM responses with real-time retrieval from a knowledge base. Reduces hallucinations</td></tr>
           <tr><td>Fine-tuning</td><td>Training a base model on proprietary data to specialise it for a specific domain or task</td></tr>
           <tr><td>Hallucination</td><td>When an LLM generates confident but factually incorrect information. A key risk to manage in enterprise deployments</td></tr>
           <tr><td>Context Window</td><td>Maximum amount of text the model can process in a single call. Ranges from 4K to 1M+ tokens</td></tr>
@@ -809,19 +1446,297 @@ td:last-child{color:var(--text2)}
 
 </div><!-- end page-ai -->
 
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB: MÉTRICAS
+══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-metrics">
+
+  <div class="hero hero-metrics">
+    <div class="hero-label hero-label-metrics">Knowledge Track</div>
+    <h1>Métricas de Rendimiento</h1>
+    <p>Las métricas clave que un Project Manager y un Engagement Manager deben dominar para demostrar valor, identificar problemas de forma temprana y comunicar el estado a stakeholders ejecutivos.</p>
+  </div>
+
+  <!-- ── PM METRICS ── -->
+  <div class="section">
+    <div class="section-title"><span class="num num-metrics">1</span> Métricas del Project Manager</div>
+    <div class="section-desc">Miden la salud del proyecto: coste, tiempo, alcance y calidad.</div>
+    <div class="section-divider"></div>
+
+    <div class="sub">
+      <h3>Métricas de Coste y Cronograma (EVM)</h3>
+      <div class="metric-cards">
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">CPI — Cost Performance Index</div>
+          <div class="metric-formula">CPI = EV / AC</div>
+          <div class="metric-desc">Eficiencia del gasto. CPI = 1.0: en presupuesto. &gt;1.0: bajo presupuesto. &lt;1.0: sobrecoste.</div>
+          <div class="metric-target mt-pm">🎯 Target: ≥ 0.95</div>
+        </div>
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">SPI — Schedule Performance Index</div>
+          <div class="metric-formula">SPI = EV / PV</div>
+          <div class="metric-desc">Eficiencia del cronograma. &gt;1.0: adelantado. &lt;1.0: retrasado. SPI &lt;0.85 = alerta roja.</div>
+          <div class="metric-target mt-pm">🎯 Target: ≥ 0.90</div>
+        </div>
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">EAC — Estimate at Completion</div>
+          <div class="metric-formula">EAC = BAC / CPI</div>
+          <div class="metric-desc">Proyección del coste total del proyecto basada en la tendencia actual de gasto.</div>
+          <div class="metric-target mt-pm">🎯 EAC ≤ BAC</div>
+        </div>
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">VAC — Variance at Completion</div>
+          <div class="metric-formula">VAC = BAC − EAC</div>
+          <div class="metric-desc">Variación presupuestaria proyectada al cierre. Positivo = ahorro. Negativo = sobrecoste.</div>
+          <div class="metric-target mt-pm">🎯 VAC ≥ 0</div>
+        </div>
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">CV — Cost Variance</div>
+          <div class="metric-formula">CV = EV − AC</div>
+          <div class="metric-desc">Diferencia entre el valor ganado y el coste real. Negativo = hemos gastado más de lo que hemos avanzado.</div>
+          <div class="metric-target mt-pm">🎯 CV ≥ 0</div>
+        </div>
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">SV — Schedule Variance</div>
+          <div class="metric-formula">SV = EV − PV</div>
+          <div class="metric-desc">Diferencia entre avance real y planificado. Negativo = vamos por detrás del plan.</div>
+          <div class="metric-target mt-pm">🎯 SV ≥ 0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>Métricas de Entrega y Calidad</h3>
+      <div class="metric-cards">
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">Milestone Adherence Rate</div>
+          <div class="metric-formula">Milestones on time / Total milestones × 100</div>
+          <div class="metric-desc">% de hitos entregados en la fecha comprometida originalmente. Key metric para el Steering Committee.</div>
+          <div class="metric-target mt-pm">🎯 Target: ≥ 85%</div>
+        </div>
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">On-Time Delivery Rate</div>
+          <div class="metric-formula">Projects on time / Total projects × 100</div>
+          <div class="metric-desc">% de proyectos entregados dentro del plazo original o revisado. KPI de portfolio.</div>
+          <div class="metric-target mt-pm">🎯 Target: ≥ 80%</div>
+        </div>
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">Scope Change Rate</div>
+          <div class="metric-formula">Approved CRs value / Original scope value × 100</div>
+          <div class="metric-desc">% del scope original modificado por Change Requests aprobados. Alto = requisitos poco maduros o scope creep.</div>
+          <div class="metric-target mt-pm">🎯 Target: &lt; 15%</div>
+        </div>
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">Defect Rate (UAT)</div>
+          <div class="metric-formula">Defects found / Test cases executed × 100</div>
+          <div class="metric-desc">% de defectos identificados durante UAT. Alta tasa = calidad insuficiente en SIT. Retrasa el go-live.</div>
+          <div class="metric-target mt-pm">🎯 P1/P2 defects = 0 at go-live</div>
+        </div>
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">Resource Utilisation</div>
+          <div class="metric-formula">Actual hours / Available hours × 100</div>
+          <div class="metric-desc">% de capacidad del equipo utilizada. &lt;70%: infrautilización. &gt;90% sostenido: riesgo de burnout.</div>
+          <div class="metric-target mt-pm">🎯 Target: 75–85%</div>
+        </div>
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">Risk Exposure Score</div>
+          <div class="metric-formula">Σ (Probability × Impact) por riesgo activo</div>
+          <div class="metric-desc">Score agregado de exposición al riesgo del proyecto. Evolución semana a semana indica tendencia de salud.</div>
+          <div class="metric-target mt-pm">🎯 Tendencia decreciente</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>Métricas Agile (Scrum/Kanban)</h3>
+      <div class="metric-cards">
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">Velocity</div>
+          <div class="metric-formula">Story Points completados / Sprint</div>
+          <div class="metric-desc">Capacidad media del equipo por sprint. Usar media de últimos 3-5 sprints para forecasting. No usar para presión.</div>
+          <div class="metric-target mt-pm">🎯 Estabilidad, no crecimiento forzado</div>
+        </div>
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">Sprint Burndown</div>
+          <div class="metric-formula">Trabajo restante vs días del sprint</div>
+          <div class="metric-desc">Muestra si el equipo completará el sprint a tiempo. Línea ideal vs real. Escalonada = bloques no detectados.</div>
+          <div class="metric-target mt-pm">🎯 Cerrar a 0 al final del sprint</div>
+        </div>
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">Cycle Time (Kanban)</div>
+          <div class="metric-formula">Fecha done − Fecha in progress</div>
+          <div class="metric-desc">Tiempo real de trabajo en un item. Mide eficiencia del equipo. Reducir cycle time = mayor throughput.</div>
+          <div class="metric-target mt-pm">🎯 Consistente y predecible</div>
+        </div>
+        <div class="metric-card metric-card-pm">
+          <div class="metric-name metric-name-pm">Lead Time (Kanban)</div>
+          <div class="metric-formula">Fecha done − Fecha creación item</div>
+          <div class="metric-desc">Tiempo total desde la solicitud hasta la entrega. Lo que percibe el cliente. Reducir WIP = reducir lead time.</div>
+          <div class="metric-target mt-pm">🎯 Reducción continua</div>
+        </div>
+      </div>
+
+      <div class="callout callout-metrics"><strong>En entrevistas:</strong> "Monitorizaba CPI y SPI semanalmente — no mensualmente. En [proyecto], detecté un CPI de 0.87 en la semana 6 y escalé al sponsor, renegociando alcance antes de que el sobrecoste fuera irreversible."</div>
+    </div>
+  </div>
+
+  <!-- ── EM METRICS ── -->
+  <div class="section">
+    <div class="section-title"><span class="num num-metrics">2</span> Métricas del Engagement Manager</div>
+    <div class="section-desc">Miden la salud de la relación con el cliente, el valor entregado y el impacto comercial.</div>
+    <div class="section-divider"></div>
+
+    <div class="sub">
+      <h3>Satisfacción y Lealtad del Cliente</h3>
+      <div class="metric-cards">
+        <div class="metric-card metric-card-em">
+          <div class="metric-name metric-name-em">CSAT — Customer Satisfaction Score</div>
+          <div class="metric-formula">Suma de puntuaciones / N encuestados</div>
+          <div class="metric-desc">Satisfacción puntual en un hito o fase. Escala 1-5 o 1-10. Medir post-milestone, no solo al cierre.</div>
+          <div class="metric-target mt-em">🎯 Target: ≥ 4.0/5.0 o ≥ 8.0/10</div>
+        </div>
+        <div class="metric-card metric-card-em">
+          <div class="metric-name metric-name-em">NPS — Net Promoter Score</div>
+          <div class="metric-formula">% Promoters − % Detractors</div>
+          <div class="metric-desc">Mide la lealtad del cliente (0-10). 9-10: Promotores. 7-8: Pasivos. 0-6: Detractores. NPS &gt;50 = excelente.</div>
+          <div class="metric-target mt-em">🎯 Target: ≥ 40</div>
+        </div>
+        <div class="metric-card metric-card-em">
+          <div class="metric-name metric-name-em">Account Health Score</div>
+          <div class="metric-formula">Ponderación: CSAT + adopción + tickets + engagement</div>
+          <div class="metric-desc">Score compuesto (verde/ámbar/rojo) que sintetiza la salud de la cuenta. Leading indicator de churn o expansión.</div>
+          <div class="metric-target mt-em">🎯 Target: Verde</div>
+        </div>
+        <div class="metric-card metric-card-em">
+          <div class="metric-name metric-name-em">Executive Engagement Rate</div>
+          <div class="metric-formula">Reuniones ejecutivas realizadas / Planificadas × 100</div>
+          <div class="metric-desc">% de touchpoints de nivel C ejecutados. Baja tasa = riesgo de pérdida de alineación estratégica.</div>
+          <div class="metric-target mt-em">🎯 Target: ≥ 80%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>Métricas de Entrega de Valor</h3>
+      <div class="metric-cards">
+        <div class="metric-card metric-card-em">
+          <div class="metric-name metric-name-em">Time-to-Value (TTV)</div>
+          <div class="metric-formula">Fecha primer valor percibido − Fecha kick-off</div>
+          <div class="metric-desc">Tiempo desde el inicio hasta que el cliente percibe valor real. Reducir TTV = mayor satisfacción y menor churn temprano.</div>
+          <div class="metric-target mt-em">🎯 Reducción continua vs benchmark</div>
+        </div>
+        <div class="metric-card metric-card-em">
+          <div class="metric-name metric-name-em">Go-Live Success Rate</div>
+          <div class="metric-formula">Go-lives sin rollback / Total go-lives × 100</div>
+          <div class="metric-desc">% de go-lives completados sin rollback o crisis mayor. Mide calidad del proceso de cutover y preparación.</div>
+          <div class="metric-target mt-em">🎯 Target: ≥ 95%</div>
+        </div>
+        <div class="metric-card metric-card-em">
+          <div class="metric-name metric-name-em">Issue Resolution Time</div>
+          <div class="metric-formula">Fecha resolución − Fecha apertura issue</div>
+          <div class="metric-desc">Tiempo medio de resolución de issues escalados. P1: &lt;4h. P2: &lt;24h. P3: &lt;72h. KPI de hypercare.</div>
+          <div class="metric-target mt-em">🎯 P1 &lt; 4h, P2 &lt; 24h</div>
+        </div>
+        <div class="metric-card metric-card-em">
+          <div class="metric-name metric-name-em">User Adoption Rate</div>
+          <div class="metric-formula">Usuarios activos / Licencias contratadas × 100</div>
+          <div class="metric-desc">% de adopción de la solución implementada. Baja adopción post go-live = riesgo de no renovación.</div>
+          <div class="metric-target mt-em">🎯 Target: ≥ 70% en 90 días</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>Métricas Comerciales</h3>
+      <div class="metric-cards">
+        <div class="metric-card metric-card-em">
+          <div class="metric-name metric-name-em">Renewal Rate</div>
+          <div class="metric-formula">ARR renovado / ARR total a renovar × 100</div>
+          <div class="metric-desc">% de contratos renovados. La métrica definitiva de satisfacción del cliente en SaaS. &lt;85% = problema sistémico.</div>
+          <div class="metric-target mt-em">🎯 Target: ≥ 90%</div>
+        </div>
+        <div class="metric-card metric-card-em">
+          <div class="metric-name metric-name-em">Upsell / Expansion Revenue</div>
+          <div class="metric-formula">Ingresos nuevos de cuentas existentes / período</div>
+          <div class="metric-desc">Revenue generado desde cuentas actuales. Mide la capacidad del EM de identificar y convertir oportunidades durante delivery.</div>
+          <div class="metric-target mt-em">🎯 Net Revenue Retention &gt;110%</div>
+        </div>
+        <div class="metric-card metric-card-em">
+          <div class="metric-name metric-name-em">Gross Margin %</div>
+          <div class="metric-formula">(Revenue − COGS) / Revenue × 100</div>
+          <div class="metric-desc">Margen bruto del engagement. Un EM debe proteger el margen controlando scope creep y eficiencia del equipo.</div>
+          <div class="metric-target mt-em">🎯 Target: ≥ 35% (varía por sector)</div>
+        </div>
+        <div class="metric-card metric-card-em">
+          <div class="metric-name metric-name-em">Change Request Rate</div>
+          <div class="metric-formula">CRs aprobados / Entregables del SOW × 100</div>
+          <div class="metric-desc">Frecuencia de cambios fuera del SOW. Alta tasa puede indicar scope mal definido o falta de control de cambios.</div>
+          <div class="metric-target mt-em">🎯 Tasa controlada, CRs documentados</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>Marco de Reporte Ejecutivo</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Nivel</th><th>Audiencia</th><th>Frecuencia</th><th>Métricas Clave</th><th>Formato</th></tr></thead>
+        <tbody>
+          <tr><td>Operacional</td><td>Equipo del proyecto</td><td>Diario / Semanal</td><td>Tasks, blockers, WIP, burndown</td><td>Stand-up, Kanban board</td></tr>
+          <tr><td>Táctico</td><td>Managers del cliente</td><td>Semanal</td><td>RAID, milestones, CPI/SPI, issues</td><td>Status Report (RAG)</td></tr>
+          <tr><td>Estratégico</td><td>Steering Committee</td><td>Quincenal / Mensual</td><td>EAC, milestone adherence, risks, CRs</td><td>Executive Dashboard</td></tr>
+          <tr><td>Ejecutivo</td><td>C-Suite / Sponsor</td><td>Mensual / QBR</td><td>NPS, TTV, valor entregado, renewal outlook</td><td>QBR Deck (3 slides)</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="callout callout-metrics"><strong>Regla de oro para el reporte ejecutivo:</strong> 3 bullets — Verde/Ámbar/Rojo + 1 riesgo + 1 decisión necesaria. Los ejecutivos no leen; toman decisiones. Dales exactamente lo que necesitan para decidir.</div>
+    </div>
+  </div>
+
+  <!-- RAG STATUS -->
+  <div class="section">
+    <div class="section-title"><span class="num num-metrics">3</span> RAG Status — Sistema de Semáforo</div>
+    <div class="section-desc">El estándar universal de reporting para proyectos enterprise.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="cards">
+        <div class="card" style="border-top:4px solid #059669"><div class="card-label" style="color:#059669">🟢 GREEN</div><div class="card-value">Proyecto en línea con el plan. CPI y SPI ≥ 0.95. Sin issues críticos abiertos. Sponsor informado y satisfecho.</div></div>
+        <div class="card" style="border-top:4px solid #D97706"><div class="card-label" style="color:#D97706">🟡 AMBER</div><div class="card-value">Riesgo identificado que podría impactar scope, tiempo o coste si no se gestiona. Requiere plan de mitigación activo. Escalación preventiva recomendada.</div></div>
+        <div class="card" style="border-top:4px solid #E11D48"><div class="card-label" style="color:#E11D48">🔴 RED</div><div class="card-value">Impacto crítico en scope, coste o plazo ya materializado. Requiere acción inmediata del sponsor. Escalación obligatoria. Plan de recuperación presentado.</div></div>
+      </div>
+      <div class="callout callout-metrics"><strong>Regla crítica:</strong> Nunca "guardar" un Amber para que parezca que todo está bien. El sponsor debe conocer los problemas antes que el cliente. Un Red comunicado proactivamente con plan de recuperación es preferible a un Red descubierto tarde sin solución.</div>
+    </div>
+  </div>
+
+</div><!-- end page-metrics -->
+
 <script>
+// ─── MAIN TABS ───
 function switchTab(id, btn) {
-  // Hide all pages
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  // Remove active class from all buttons
   document.querySelectorAll('.tab-btn').forEach(b => {
-    b.classList.remove('active-pm','active-em','active-ai');
+    b.classList.remove('active-pm','active-em','active-ai','active-metrics');
   });
-  // Show selected page
   document.getElementById('page-' + id).classList.add('active');
-  // Activate button
   btn.classList.add('active-' + id);
+
+  // Show/hide sub-tab bar
+  var subBar = document.getElementById('subtab-bar-pm');
+  subBar.style.display = (id === 'pm') ? 'flex' : 'none';
 }
+
+// ─── PM METHODOLOGY SUB-TABS ───
+function switchSubTab(id, btn) {
+  document.querySelectorAll('.subpage').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.subtab-btn').forEach(b => b.classList.remove('active-sub'));
+  document.getElementById('page-' + id).classList.add('active');
+  btn.classList.add('active-sub');
+}
+
+// Init: hide sub-bar on non-PM tabs
+document.addEventListener('DOMContentLoaded', function() {
+  // sub-bar already visible since PM is default
+});
 </script>
 </body>
 </html>
