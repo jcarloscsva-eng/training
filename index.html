@@ -38,6 +38,9 @@
   --shmd:    0 2px 8px rgba(0,0,0,.08), 0 8px 24px rgba(0,0,0,.06);
 }
 
+.lang-btn-active{background:var(--blue)!important;color:#fff!important}
+.lang-btn-inactive{background:transparent!important;color:var(--text2)!important}
+[data-lang]{transition:opacity .15s}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6}
 
 /* ── HEADER ── */
@@ -236,7 +239,13 @@ td:last-child{color:var(--text2)}
       <div class="hdr-sub">Knowledge reference · Juan Carlos Castillo</div>
     </div>
   </div>
-  <div class="hdr-tag">Reference Guide</div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <div class="hdr-tag">Reference Guide</div>
+    <div style="display:flex;border:1px solid var(--border);border-radius:20px;overflow:hidden;font-size:11px;font-weight:700">
+      <button id="btn-es" onclick="setLang('es')" style="padding:4px 12px;border:none;background:var(--blue);color:#fff;cursor:pointer;transition:all .2s">ES</button>
+      <button id="btn-en" onclick="setLang('en')" style="padding:4px 12px;border:none;background:transparent;color:var(--text2);cursor:pointer;transition:all .2s">EN</button>
+    </div>
+  </div>
 </div>
 
 <!-- MAIN TAB BAR -->
@@ -1708,107 +1717,6 @@ td:last-child{color:var(--text2)}
     </div>
   </div>
 
-
-  <!-- PMP FORMULAS -->
-  <div class="section">
-    <div class="section-title"><span class="num num-metrics">4</span> PMP Formulas & Reference Metrics</div>
-    <div class="section-desc">EVM, Financial, Schedule, Estimation, Communication, Risk and Procurement formulas. Source: PMI PMBOK.</div>
-    <div class="section-divider"></div>
-
-    <div class="sub">
-      <h3>Earned Value Management (EVM)</h3>
-      <div class="callout callout-metrics"><strong>Regla de oro:</strong> CPI y SPI &gt; 1.0 = bien. &lt; 1.0 = problema. EVM integra scope, schedule y coste en una sola imagen del rendimiento del proyecto.</div>
-      <div class="formula-grid">
-        <div class="formula formula-metrics"><code>PV = Planned % × BAC</code><span>Planned Value — coste presupuestado del trabajo planificado</span></div>
-        <div class="formula formula-metrics"><code>EV = % Complete × BAC</code><span>Earned Value — coste presupuestado del trabajo realizado</span></div>
-        <div class="formula formula-metrics"><code>EAC = AC + (BAC − EV) / CPI</code><span>EAC alternativa — usando eficiencia del trabajo restante</span></div>
-        <div class="formula formula-metrics"><code>ETC = EAC − AC</code><span>Estimate to Complete — coste del trabajo restante</span></div>
-      </div>
-      <div class="callout callout-metrics">Las fórmulas básicas de EVM (CV, SV, CPI, SPI, EAC, VAC) están detalladas en la sección 1 — Métricas del Project Manager.</div>
-
-      <div class="tbl-wrap"><table>
-        <thead><tr><th>Término</th><th>Significado</th></tr></thead>
-        <tbody>
-          <tr><td>PV</td><td>Planned Value — coste presupuestado del trabajo planificado a fecha</td></tr>
-          <tr><td>EV</td><td>Earned Value — coste presupuestado del trabajo realmente completado</td></tr>
-          <tr><td>AC</td><td>Actual Cost — coste real incurrido hasta la fecha</td></tr>
-          <tr><td>BAC</td><td>Budget at Completion — presupuesto total aprobado del proyecto</td></tr>
-          <tr><td>EAC</td><td>Estimate at Completion — coste total proyectado al finalizar</td></tr>
-          <tr><td>ETC</td><td>Estimate to Complete — coste estimado del trabajo que queda</td></tr>
-          <tr><td>VAC</td><td>Variance at Completion — BAC menos EAC</td></tr>
-        </tbody>
-      </table></div>
-    </div>
-
-    <div class="sub">
-      <h3>Financial Metrics</h3>
-      <div class="formula-grid">
-        <div class="formula formula-metrics"><code>ROI = (Net Profit / Investment) × 100</code><span>Return on Investment. Más alto = mayor valor</span></div>
-        <div class="formula formula-metrics"><code>ROE = (Net Income / Equity) × 100</code><span>Return on Equity. Mide la rentabilidad sobre el capital</span></div>
-        <div class="formula formula-metrics"><code>NPV = Σ (Cash Flow / (1 + r)ⁿ)</code><span>Net Present Value. NPV positivo = proyecto viable</span></div>
-        <div class="formula formula-metrics"><code>IRR → where NPV = 0</code><span>Internal Rate of Return. Tasa a la que el VAN = 0</span></div>
-        <div class="formula formula-metrics"><code>Payback = Investment / Annual Cash Inflow</code><span>Período de recuperación de la inversión</span></div>
-        <div class="formula formula-metrics"><code>BCR = PV of Benefits / PV of Costs</code><span>Benefit-Cost Ratio. &gt;1 = beneficios superan costes</span></div>
-      </div>
-    </div>
-
-    <div class="sub">
-      <h3>Schedule & Estimation</h3>
-      <div class="formula-grid">
-        <div class="formula formula-metrics"><code>Float = LS − ES  ó  LF − EF</code><span>Float total — tiempo que puede retrasarse una tarea sin retrasar el proyecto</span></div>
-        <div class="formula formula-metrics"><code>Free Float = ES (sucesora) − EF</code><span>Float libre — retraso sin afectar a la siguiente tarea</span></div>
-        <div class="formula formula-metrics"><code>Triangular = (O + M + P) / 3</code><span>Estimación simple: media de Optimista, Más Probable, Pesimista</span></div>
-        <div class="formula formula-metrics"><code>PERT = (O + 4M + P) / 6</code><span>Media ponderada — mayor peso al valor más probable</span></div>
-        <div class="formula formula-metrics"><code>SD = (P − O) / 6</code><span>Desviación estándar — dispersión del rango estimado</span></div>
-        <div class="formula formula-metrics"><code>Variance = SD²</code><span>Varianza PERT — desviación estándar al cuadrado</span></div>
-      </div>
-      <div class="tbl-wrap"><table>
-        <thead><tr><th>Término</th><th>Significado</th></tr></thead>
-        <tbody>
-          <tr><td>LS / ES</td><td>Late Start / Early Start — fechas de análisis de schedule</td></tr>
-          <tr><td>LF / EF</td><td>Late Finish / Early Finish — fechas de análisis de schedule</td></tr>
-          <tr><td>O / M / P</td><td>Optimista / Más Probable / Pesimista — inputs de estimación</td></tr>
-        </tbody>
-      </table></div>
-    </div>
-
-    <div class="sub">
-      <h3>Communication Channels</h3>
-      <div class="formula-grid">
-        <div class="formula formula-metrics"><code>Channels = n(n − 1) / 2</code><span>Total canales de comunicación con n stakeholders. Ej: 10 personas = 45 canales</span></div>
-      </div>
-      <div class="callout callout-metrics">Con 5 stakeholders hay 10 canales. Con 10 hay 45. Con 20 hay 190. La complejidad de comunicación escala cuadráticamente — por eso el PM debe estructurar los canales desde el inicio.</div>
-    </div>
-
-    <div class="sub">
-      <h3>Risk Financial Metrics</h3>
-      <div class="formula-grid">
-        <div class="formula formula-metrics"><code>EMV = Probability × Impact</code><span>Expected Monetary Value — usado en análisis de árbol de decisión</span></div>
-        <div class="formula formula-metrics"><code>Decision Tree EMV = Σ EMVs</code><span>Suma de todos los EMV de las ramas. Elige el camino con mayor EMV</span></div>
-        <div class="formula formula-metrics"><code>RPN = Severity × Occurrence × Detection</code><span>Risk Priority Number — clasifica riesgos por puntuación combinada</span></div>
-        <div class="formula formula-metrics"><code>SD = √Variance</code><span>Desviación estándar a partir de la varianza</span></div>
-      </div>
-    </div>
-
-    <div class="sub">
-      <h3>Procurement (FPIF) — Fixed Price Incentive Fee</h3>
-      <div class="callout callout-metrics"><strong>Point of Total Assumption (PTA)</strong> — en contratos FPIF, el punto de coste por encima del cual el vendedor asume todo el sobrecoste. Fórmula: <strong>PTA = (Ceiling Price − Target Price) / Buyer's Share Ratio + Target Cost</strong></div>
-      <div class="tbl-wrap"><table>
-        <thead><tr><th>Término</th><th>Definición</th></tr></thead>
-        <tbody>
-          <tr><td>FPIF</td><td>Fixed Price Incentive Fee — contrato de precio fijo con incentivos por rendimiento</td></tr>
-          <tr><td>PTA</td><td>Point of Total Assumption — el vendedor asume el 100% del sobrecoste por encima de este punto</td></tr>
-          <tr><td>Target Cost</td><td>Coste acordado como objetivo del contrato</td></tr>
-          <tr><td>Ceiling Price</td><td>Precio máximo que el comprador pagará bajo cualquier circunstancia</td></tr>
-          <tr><td>Share Ratio</td><td>Porcentaje de sobrecoste/ahorro que asume cada parte (ej: 80/20)</td></tr>
-          <tr><td>EMV</td><td>Expected Monetary Value — probabilidad × impacto monetario</td></tr>
-          <tr><td>BCR</td><td>Benefit-Cost Ratio — PV beneficios / PV costes. &gt;1 = viable</td></tr>
-          <tr><td>RPN</td><td>Risk Priority Number — severity × occurrence × detection</td></tr>
-        </tbody>
-      </table></div>
-    </div>
-  </div>
-
 </div><!-- end page-metrics -->
 
 <script>
@@ -1838,6 +1746,344 @@ function switchSubTab(id, btn) {
 document.addEventListener('DOMContentLoaded', function() {
   // sub-bar already visible since PM is default
 });
+
+// ─── LANGUAGE SYSTEM ───
+const TRANSLATIONS = {
+  // Hero
+  "Métricas & KPIs": "Metrics & KPIs",
+  "El sistema de medición completo para Project Managers y Engagement Managers: KPIs operativos, métricas de cliente y fórmulas de referencia PMP organizadas para uso inmediato.":
+    "The complete measurement system for Project Managers and Engagement Managers: operational KPIs, client metrics and PMP reference formulas organised for immediate use.",
+
+  // Section titles
+  "Métricas del Project Manager": "Project Manager Metrics",
+  "Métricas del Engagement Manager": "Engagement Manager Metrics",
+  "RAG Status — Sistema de Semáforo": "RAG Status — Traffic Light System",
+  "PMP Formulas & Reference Metrics": "PMP Formulas & Reference Metrics",
+
+  // Section descriptions
+  "KPIs operativos esenciales para la gestión diaria de proyectos enterprise.": "Essential operational KPIs for daily enterprise project management.",
+  "Métricas de cliente, comerciales y de entrega para el rol de Engagement Manager.": "Client, commercial and delivery metrics for the Engagement Manager role.",
+  "El estándar universal de reporting para proyectos enterprise.": "The universal reporting standard for enterprise projects.",
+  "EVM, Financial, Schedule, Estimation, Communication, Risk and Procurement formulas. Source: PMI PMBOK.": "EVM, Financial, Schedule, Estimation, Communication, Risk and Procurement formulas. Source: PMI PMBOK.",
+
+  // Metric card names
+  "CPI — Índice de Rendimiento de Coste": "CPI — Cost Performance Index",
+  "SPI — Índice de Rendimiento de Cronograma": "SPI — Schedule Performance Index",
+  "EAC — Estimación a la Conclusión": "EAC — Estimate at Completion",
+  "VAC — Variación a la Conclusión": "VAC — Variance at Completion",
+  "CV — Variación de Coste": "CV — Cost Variance",
+  "SV — Variación de Cronograma": "SV — Schedule Variance",
+  "Milestone Adherence": "Milestone Adherence",
+  "Issue Resolution Time": "Issue Resolution Time",
+  "Resource Utilisation": "Resource Utilisation",
+  "Scope Change Rate": "Scope Change Rate",
+  "Velocity (Agile)": "Velocity (Agile)",
+  "Burndown Variance": "Burndown Variance",
+  "CSAT — Customer Satisfaction Score": "CSAT — Customer Satisfaction Score",
+  "NPS — Net Promoter Score": "NPS — Net Promoter Score",
+  "Executive Engagement Rate": "Executive Engagement Rate",
+  "Time-to-Value (TTV)": "Time-to-Value (TTV)",
+  "Go-Live Success Rate": "Go-Live Success Rate",
+  "User Adoption Rate": "User Adoption Rate",
+  "Renewal Rate": "Renewal Rate",
+  "Upsell / Expansion Revenue": "Upsell / Expansion Revenue",
+  "Gross Margin %": "Gross Margin %",
+  "Change Request Rate": "Change Request Rate",
+
+  // Metric formulas
+  "Coste Real (AC) / Valor Ganado (EV)": "Actual Cost (AC) / Earned Value (EV)",
+  "Valor Ganado (EV) / Valor Planificado (PV)": "Earned Value (EV) / Planned Value (PV)",
+  "Presupuesto Total (BAC) / CPI": "Total Budget (BAC) / CPI",
+  "BAC − EAC": "BAC − EAC",
+  "EV − AC": "EV − AC",
+  "EV − PV": "EV − PV",
+  "Hitos completados a tiempo / Hitos totales × 100": "Milestones completed on time / Total milestones × 100",
+  "Fecha resolución − Fecha apertura issue": "Resolution date − Issue opening date",
+  "Horas trabajadas / Horas disponibles × 100": "Hours worked / Hours available × 100",
+  "CRs aprobados / Entregables del SOW × 100": "Approved CRs / SOW deliverables × 100",
+  "Story points completados / Sprint": "Story points completed / Sprint",
+  "Trabajo restante real vs trabajo restante ideal": "Actual remaining work vs ideal remaining work",
+  "Puntuación 1-5 o 1-10 por fase o hito": "Score 1-5 or 1-10 per phase or milestone",
+  "Promotores (9-10) − Detractores (0-6) / Total × 100": "Promoters (9-10) − Detractors (0-6) / Total × 100",
+  "Reuniones ejecutivas realizadas / Planificadas × 100": "Executive meetings held / Planned × 100",
+  "Fecha primer valor percibido − Fecha kick-off": "Date of first perceived value − Kick-off date",
+  "Go-lives sin rollback / Total go-lives × 100": "Go-lives without rollback / Total go-lives × 100",
+  "Usuarios activos / Licencias contratadas × 100": "Active users / Contracted licences × 100",
+  "ARR renovado / ARR total a renovar × 100": "Renewed ARR / Total ARR up for renewal × 100",
+  "Ingresos nuevos de cuentas existentes / período": "New revenue from existing accounts / period",
+  "(Revenue − COGS) / Revenue × 100": "(Revenue − COGS) / Revenue × 100",
+
+  // Metric descriptions
+  "Eficiencia de coste. CPI > 1 = bajo presupuesto. CPI < 1 = sobrecoste. Es el indicador más predictivo del coste final del proyecto.":
+    "Cost efficiency. CPI > 1 = under budget. CPI < 1 = over budget. Most predictive indicator of final project cost.",
+  "Eficiencia de cronograma. SPI > 1 = adelantado. SPI < 1 = retrasado. Combinado con CPI da una imagen completa del estado del proyecto.":
+    "Schedule efficiency. SPI > 1 = ahead of schedule. SPI < 1 = behind. Combined with CPI gives a complete picture of project status.",
+  "Coste total proyectado al finalizar el proyecto. Si EAC > BAC el proyecto sobrecoste. Recalcular semanalmente.":
+    "Projected total cost at project completion. If EAC > BAC the project is over budget. Recalculate weekly.",
+  "Diferencia entre presupuesto original y coste proyectado. VAC negativo = sobrecoste esperado. Compartir con sponsor proactivamente.":
+    "Difference between original budget and projected cost. Negative VAC = expected overrun. Share proactively with sponsor.",
+  "Desviación de coste en un punto del tiempo. Negativo = gastando más de lo ganado. Trigger para acción correctiva inmediata.":
+    "Cost deviation at a point in time. Negative = spending more than earned. Trigger for immediate corrective action.",
+  "Desviación de cronograma en valor monetario. Negativo = trabajo retrasado vs plan. No sustituye al análisis de la ruta crítica.":
+    "Schedule deviation in monetary value. Negative = work behind plan. Does not replace critical path analysis.",
+  "% de hitos entregados en la fecha comprometida originalmente. Indicador clave de fiabilidad de la planificación.":
+    "% of milestones delivered on the originally committed date. Key indicator of planning reliability.",
+  "Tiempo medio de resolución de issues. P1 crítico: < 4h. P2: < 24h. P3: < 72h. KPI esencial durante hypercare.":
+    "Average issue resolution time. P1 critical: < 4h. P2: < 24h. P3: < 72h. Essential KPI during hypercare.",
+  "% de la capacidad disponible realmente utilizada. Sobre 85% = riesgo de burnout. Bajo 70% = recursos infrautilizados.":
+    "% of available capacity actually used. Above 85% = burnout risk. Below 70% = underutilised resources.",
+  "Frecuencia de cambios fuera del SOW original. Alta tasa = scope mal definido o control de cambios insuficiente.":
+    "Frequency of changes outside the original SOW. High rate = poorly defined scope or insufficient change control.",
+  "Story points completados por sprint. Sirve para forecasting de entrega. Estabilidad > velocidad alta.":
+    "Story points completed per sprint. Used for delivery forecasting. Stability > high velocity.",
+  "Diferencia entre burndown real e ideal. Identifica si el equipo va a completar el sprint según lo planificado.":
+    "Difference between actual and ideal burndown. Identifies whether the team will complete the sprint as planned.",
+  "Satisfacción del cliente por fase o hito. Medir regularmente, no solo al final. Tendencia descendente = señal de alarma.":
+    "Client satisfaction per phase or milestone. Measure regularly, not just at the end. Downward trend = warning signal.",
+  "Probabilidad de recomendación del cliente. 9-10 = Promotores. 7-8 = Pasivos. 0-6 = Detractores. Meta empresarial crítica en SaaS.":
+    "Client recommendation probability. 9-10 = Promoters. 7-8 = Passives. 0-6 = Detractors. Critical business goal in SaaS.",
+  "% de touchpoints de nivel C ejecutados. Baja tasa = riesgo de pérdida de alineación estratégica.":
+    "% of C-level touchpoints executed. Low rate = risk of losing strategic alignment.",
+  "Tiempo desde el inicio hasta que el cliente percibe valor real. Reducir TTV = mayor satisfacción y menor churn temprano.":
+    "Time from kickoff until the client perceives real value. Reducing TTV = higher satisfaction and lower early churn.",
+  "% de go-lives completados sin rollback o crisis mayor. Mide calidad del proceso de cutover y preparación.":
+    "% of go-lives completed without rollback or major crisis. Measures cutover process quality and preparation.",
+  "% de adopción de la solución implementada. Baja adopción post go-live = riesgo de no renovación.":
+    "% adoption of the implemented solution. Low adoption post go-live = renewal risk.",
+  "% de contratos renovados. La métrica definitiva de satisfacción del cliente en SaaS. <85% = problema sistémico.":
+    "% of contracts renewed. The definitive client satisfaction metric in SaaS. <85% = systemic problem.",
+  "Revenue generado desde cuentas actuales. Mide la capacidad del EM de identificar y convertir oportunidades durante delivery.":
+    "Revenue generated from existing accounts. Measures the EM's ability to identify and convert opportunities during delivery.",
+  "Margen bruto del engagement. Un EM debe proteger el margen controlando scope creep y eficiencia del equipo.":
+    "Gross margin of the engagement. An EM must protect margin by controlling scope creep and team efficiency.",
+  "Frecuencia de cambios fuera del SOW. Alta tasa puede indicar scope mal definido o falta de control de cambios.":
+    "Frequency of changes outside the SOW. High rate may indicate poorly defined scope or lack of change control.",
+
+  // Targets
+  "🎯 Target: > 1.0 (idealmente 1.05–1.15)": "🎯 Target: > 1.0 (ideally 1.05–1.15)",
+  "🎯 Target: > 1.0": "🎯 Target: > 1.0",
+  "🎯 EAC ≤ BAC": "🎯 EAC ≤ BAC",
+  "🎯 VAC ≥ 0": "🎯 VAC ≥ 0",
+  "🎯 CV ≥ 0": "🎯 CV ≥ 0",
+  "🎯 SV ≥ 0": "🎯 SV ≥ 0",
+  "🎯 Target: ≥ 90%": "🎯 Target: ≥ 90%",
+  "🎯 P1 < 4h, P2 < 24h": "🎯 P1 < 4h, P2 < 24h",
+  "🎯 70–80% (sostenible)": "🎯 70–80% (sustainable)",
+  "🎯 Tasa controlada con proceso formal": "🎯 Controlled rate with formal process",
+  "🎯 Estable sprint a sprint": "🎯 Stable sprint to sprint",
+  "🎯 Burndown real ≈ Ideal": "🎯 Actual burndown ≈ Ideal",
+  "🎯 Target: ≥ 4.2 / 5": "🎯 Target: ≥ 4.2 / 5",
+  "🎯 Target: ≥ 50 (world class > 70)": "🎯 Target: ≥ 50 (world class > 70)",
+  "🎯 Target: ≥ 80%": "🎯 Target: ≥ 80%",
+  "🎯 Reducción continua vs benchmark": "🎯 Continuous reduction vs benchmark",
+  "🎯 Target: ≥ 95%": "🎯 Target: ≥ 95%",
+  "🎯 Target: ≥ 70% en 90 días": "🎯 Target: ≥ 70% within 90 days",
+  "🎯 Net Revenue Retention >110%": "🎯 Net Revenue Retention >110%",
+  "🎯 Target: ≥ 35% (varía por sector)": "🎯 Target: ≥ 35% (varies by sector)",
+  "🎯 Tasa controlada, CRs documentados": "🎯 Controlled rate, documented CRs",
+
+  // Section headers (h3)
+  "Métricas de Rendimiento del Proyecto": "Project Performance Metrics",
+  "Métricas de Equipo y Recursos": "Team & Resource Metrics",
+  "Métricas de Stakeholders": "Stakeholder Metrics",
+  "Métricas de Satisfacción del Cliente": "Client Satisfaction Metrics",
+  "Métricas de Relación Ejecutiva": "Executive Relationship Metrics",
+  "Métricas de Entrega de Valor": "Value Delivery Metrics",
+  "Métricas Comerciales": "Commercial Metrics",
+  "Marco de Reporte Ejecutivo": "Executive Reporting Framework",
+  "Earned Value Management (EVM)": "Earned Value Management (EVM)",
+  "Financial Metrics": "Financial Metrics",
+  "Schedule & Estimation": "Schedule & Estimation",
+  "Communication Channels": "Communication Channels",
+  "Risk Financial Metrics": "Risk Financial Metrics",
+  "Procurement (FPIF) — Fixed Price Incentive Fee": "Procurement (FPIF) — Fixed Price Incentive Fee",
+
+  // Table headers
+  "Nivel": "Level",
+  "Audiencia": "Audience",
+  "Frecuencia": "Frequency",
+  "Métricas Clave": "Key Metrics",
+  "Formato": "Format",
+  "Término": "Term",
+  "Definición": "Definition",
+  "Significado": "Meaning",
+
+  // Table rows
+  "Operacional": "Operational",
+  "Equipo del proyecto": "Project team",
+  "Diario / Semanal": "Daily / Weekly",
+  "Tasks, blockers, WIP, burndown": "Tasks, blockers, WIP, burndown",
+  "Stand-up, Kanban board": "Stand-up, Kanban board",
+  "Táctico": "Tactical",
+  "Managers del cliente": "Client managers",
+  "Semanal": "Weekly",
+  "RAID, milestones, CPI/SPI, issues": "RAID, milestones, CPI/SPI, issues",
+  "Status Report (RAG)": "Status Report (RAG)",
+  "Estratégico": "Strategic",
+  "Steering Committee": "Steering Committee",
+  "Quincenal / Mensual": "Fortnightly / Monthly",
+  "EAC, milestone adherence, risks, CRs": "EAC, milestone adherence, risks, CRs",
+  "Executive Dashboard": "Executive Dashboard",
+  "Ejecutivo": "Executive",
+  "C-Suite / Sponsor": "C-Suite / Sponsor",
+  "Mensual / QBR": "Monthly / QBR",
+  "NPS, TTV, valor entregado, renewal outlook": "NPS, TTV, value delivered, renewal outlook",
+  "QBR Deck (3 slides)": "QBR Deck (3 slides)",
+
+  // Callouts
+  "Regla de oro para el reporte ejecutivo:": "Golden rule for executive reporting:",
+  "3 bullets — Verde/Ámbar/Rojo + 1 riesgo + 1 decisión necesaria. Los ejecutivos no leen; toman decisiones. Dales exactamente lo que necesitan para decidir.":
+    "3 bullets — Green/Amber/Red + 1 risk + 1 decision needed. Executives don't read; they decide. Give them exactly what they need to make the call.",
+  "Regla crítica:": "Critical rule:",
+  "Nunca "guardar" un Amber para que parezca que todo está bien. El sponsor debe conocer los problemas antes que el cliente. Un Red comunicado proactivamente con plan de recuperación es preferible a un Red descubierto tarde sin solución.":
+    "Never "hold" an Amber to make everything seem fine. The sponsor must know about problems before the client does. A Red communicated proactively with a recovery plan is better than a Red discovered late with no solution.",
+  "Regla de oro:": "Golden rule:",
+  "CPI y SPI > 1.0 = bien. < 1.0 = problema. EVM integra scope, schedule y coste en una sola imagen del rendimiento del proyecto.":
+    "CPI and SPI > 1.0 = good. < 1.0 = problem. EVM integrates scope, schedule and cost into a single project performance picture.",
+  "Las fórmulas básicas de EVM (CV, SV, CPI, SPI, EAC, VAC) están detalladas en la sección 1 — Métricas del Project Manager.":
+    "The basic EVM formulas (CV, SV, CPI, SPI, EAC, VAC) are detailed in section 1 — Project Manager Metrics.",
+  "Con 5 stakeholders hay 10 canales. Con 10 hay 45. Con 20 hay 190. La complejidad de comunicación escala cuadráticamente — por eso el PM debe estructurar los canales desde el inicio.":
+    "With 5 stakeholders there are 10 channels. With 10 there are 45. With 20 there are 190. Communication complexity scales quadratically — which is why the PM must structure channels from the start.",
+
+  // RAG cards
+  "Proyecto en línea con el plan. CPI y SPI ≥ 0.95. Sin issues críticos abiertos. Sponsor informado y satisfecho.":
+    "Project on track with the plan. CPI and SPI ≥ 0.95. No critical issues open. Sponsor informed and satisfied.",
+  "Riesgo identificado que podría impactar scope, tiempo o coste si no se gestiona. Requiere plan de mitigación activo. Escalación preventiva recomendada.":
+    "Identified risk that could impact scope, time or cost if unmanaged. Requires active mitigation plan. Preventive escalation recommended.",
+  "Impacto crítico en scope, coste o plazo ya materializado. Requiere acción inmediata del sponsor. Escalación obligatoria. Plan de recuperación presentado.":
+    "Critical impact on scope, cost or timeline already materialised. Requires immediate sponsor action. Mandatory escalation. Recovery plan presented.",
+
+  // Procurement table
+  "FPIF": "FPIF",
+  "Fixed Price Incentive Fee — contrato de precio fijo con incentivos por rendimiento": "Fixed Price Incentive Fee — fixed price contract with performance incentives",
+  "PTA": "PTA",
+  "Point of Total Assumption — el vendedor asume el 100% del sobrecoste por encima de este punto": "Point of Total Assumption — the seller bears 100% of cost overrun above this point",
+  "Target Cost": "Target Cost",
+  "Coste acordado como objetivo del contrato": "Cost agreed as the contract target",
+  "Ceiling Price": "Ceiling Price",
+  "Precio máximo que el comprador pagará bajo cualquier circunstancia": "Maximum price the buyer will pay under any circumstances",
+  "Share Ratio": "Share Ratio",
+  "Porcentaje de sobrecoste/ahorro que asume cada parte (ej: 80/20)": "Percentage of overrun/saving each party bears (e.g. 80/20)",
+  "EMV": "EMV",
+  "Expected Monetary Value — probabilidad × impacto monetario": "Expected Monetary Value — probability × monetary impact",
+  "BCR": "BCR",
+  "Benefit-Cost Ratio — PV beneficios / PV costes. >1 = viable": "Benefit-Cost Ratio — PV benefits / PV costs. >1 = viable",
+  "RPN": "RPN",
+  "Risk Priority Number — severity × occurrence × detection": "Risk Priority Number — severity × occurrence × detection",
+
+  // EVM table
+  "PV": "PV",
+  "Planned Value — coste presupuestado del trabajo planificado a fecha": "Planned Value — budgeted cost of work scheduled to date",
+  "EV": "EV",
+  "Earned Value — coste presupuestado del trabajo realmente completado": "Earned Value — budgeted cost of work actually completed",
+  "AC": "AC",
+  "Actual Cost — coste real incurrido hasta la fecha": "Actual Cost — actual cost incurred to date",
+  "BAC": "BAC",
+  "Budget at Completion — presupuesto total aprobado del proyecto": "Budget at Completion — total approved project budget",
+  "EAC": "EAC",
+  "Estimate at Completion — coste total proyectado al finalizar": "Estimate at Completion — projected total cost at completion",
+  "ETC": "ETC",
+  "Estimate to Complete — coste estimado del trabajo que queda": "Estimate to Complete — estimated cost of remaining work",
+  "VAC": "VAC",
+  "Variance at Completion — BAC menos EAC": "Variance at Completion — BAC minus EAC",
+  "LS / ES": "LS / ES",
+  "Late Start / Early Start — fechas de análisis de schedule": "Late Start / Early Start — schedule analysis dates",
+  "LF / EF": "LF / EF",
+  "Late Finish / Early Finish — fechas de análisis de schedule": "Late Finish / Early Finish — schedule analysis dates",
+  "O / M / P": "O / M / P",
+  "Optimista / Más Probable / Pesimista — inputs de estimación": "Optimistic / Most Likely / Pessimistic — estimation inputs",
+
+  // Formula spans
+  "Planned Value — coste presupuestado del trabajo planificado": "Planned Value — budgeted cost of planned work",
+  "Earned Value — coste presupuestado del trabajo realizado": "Earned Value — budgeted cost of performed work",
+  "EAC alternativa — usando eficiencia del trabajo restante": "Alternative EAC — using remaining work efficiency",
+  "Estimate to Complete — coste del trabajo restante": "Estimate to Complete — cost of remaining work",
+  "Return on Investment. Más alto = mayor valor": "Return on Investment. Higher = better value",
+  "Return on Equity. Mide la rentabilidad sobre el capital": "Return on Equity. Measures profitability on equity",
+  "Net Present Value. NPV positivo = proyecto viable": "Net Present Value. Positive NPV = viable project",
+  "Internal Rate of Return. Tasa a la que el VAN = 0": "Internal Rate of Return. Rate at which NPV = 0",
+  "Período de recuperación de la inversión": "Investment recovery period",
+  "Benefit-Cost Ratio. >1 = beneficios superan costes": "Benefit-Cost Ratio. >1 = benefits outweigh costs",
+  "Float total — tiempo que puede retrasarse una tarea sin retrasar el proyecto": "Total Float — time a task can delay without delaying the project",
+  "Float libre — retraso sin afectar a la siguiente tarea": "Free Float — delay without affecting the next task",
+  "Estimación simple: media de Optimista, Más Probable, Pesimista": "Simple estimate: average of Optimistic, Most Likely, Pessimistic",
+  "Media ponderada — mayor peso al valor más probable": "Weighted average — greater weight to the most likely value",
+  "Desviación estándar — dispersión del rango estimado": "Standard deviation — spread of the estimated range",
+  "Varianza PERT — desviación estándar al cuadrado": "PERT Variance — standard deviation squared",
+  "Total canales de comunicación con n stakeholders. Ej: 10 personas = 45 canales": "Total communication channels with n stakeholders. E.g. 10 people = 45 channels",
+  "Expected Monetary Value — usado en análisis de árbol de decisión": "Expected Monetary Value — used in decision tree analysis",
+  "Suma de todos los EMV de las ramas. Elige el camino con mayor EMV": "Sum of all branch EMVs. Choose the path with the highest EMV",
+  "Risk Priority Number — clasifica riesgos por puntuación combinada": "Risk Priority Number — ranks risks by combined score",
+  "Desviación estándar a partir de la varianza": "Standard deviation from variance",
+
+  // PTA callout
+  "Point of Total Assumption (PTA)": "Point of Total Assumption (PTA)",
+  "— en contratos FPIF, el punto de coste por encima del cual el vendedor asume todo el sobrecoste. Fórmula:":
+    "— in FPIF contracts, the cost point above which the seller bears all overrun. Formula:",
+};
+
+let currentLang = 'es';
+const originalTexts = new Map();
+
+function collectOriginals(root) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+  let node;
+  while ((node = walker.nextNode())) {
+    const text = node.textContent.trim();
+    if (text && !originalTexts.has(node)) {
+      originalTexts.set(node, text);
+    }
+  }
+}
+
+function applyTranslation(lang) {
+  const metrics = document.getElementById('page-metrics');
+  if (!metrics) return;
+
+  if (lang === 'es') {
+    // Restore originals
+    originalTexts.forEach((original, node) => {
+      if (node.parentNode) node.textContent = original;
+    });
+  } else {
+    // Apply translations
+    originalTexts.forEach((original, node) => {
+      if (!node.parentNode) return;
+      const stripped = original.trim();
+      if (TRANSLATIONS[stripped]) {
+        node.textContent = node.textContent.replace(stripped, TRANSLATIONS[stripped]);
+      }
+    });
+  }
+
+  currentLang = lang;
+
+  // Update buttons
+  document.getElementById('btn-es').style.background = lang === 'es' ? 'var(--blue)' : 'transparent';
+  document.getElementById('btn-es').style.color = lang === 'es' ? '#fff' : 'var(--text2)';
+  document.getElementById('btn-en').style.background = lang === 'en' ? 'var(--blue)' : 'transparent';
+  document.getElementById('btn-en').style.color = lang === 'en' ? '#fff' : 'var(--text2)';
+}
+
+function setLang(lang) {
+  if (lang === currentLang) return;
+
+  // Collect on first use
+  if (originalTexts.size === 0) {
+    const metrics = document.getElementById('page-metrics');
+    if (metrics) collectOriginals(metrics);
+  }
+
+  // If switching to EN from ES, collect fresh originals first
+  if (lang === 'en' && currentLang === 'es') {
+    originalTexts.clear();
+    const metrics = document.getElementById('page-metrics');
+    if (metrics) collectOriginals(metrics);
+  }
+
+  applyTranslation(lang);
+}
+
 </script>
 </body>
 </html>
