@@ -59,6 +59,15 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 .tab-btn.active-em{color:var(--teal);border-bottom-color:var(--teal)}
 .tab-btn.active-ai{color:var(--violet);border-bottom-color:var(--violet)}
 .tab-btn.active-metrics{color:var(--amber);border-bottom-color:var(--amber)}
+.tab-btn.active-sap{color:#BE123C;border-bottom-color:#BE123C}
+.tab-icon-sap{background:#FFF1F2}
+.hero-sap{background:linear-gradient(135deg,#FFF1F2 0%,#FFE4E6 100%);border:1px solid #FECDD3}
+.hero-label-sap{color:#BE123C}
+.num-sap{background:#FFF1F2;color:#BE123C}
+.card-label-sap{color:#BE123C}
+.badge-label-sap{color:#BE123C}
+.callout-sap{background:#FFF1F2;border-left:3px solid #BE123C;color:#7F1D1D}
+.blist-sap li::before{color:#BE123C}
 .tab-icon{width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:10px}
 .tab-icon-pm{background:var(--blue-lt)}
 .tab-icon-em{background:var(--teal-lt)}
@@ -261,6 +270,9 @@ td:last-child{color:var(--text2)}
   </button>
   <button class="tab-btn" onclick="switchTab('metrics',this)" id="btn-metrics">
     <div class="tab-icon tab-icon-metrics">📊</div>Métricas
+  </button>
+  <button class="tab-btn" onclick="switchTab('sap',this)" id="btn-sap">
+    <div class="tab-icon tab-icon-sap">🏢</div>SAP
   </button>
 </div>
 
@@ -922,6 +934,35 @@ td:last-child{color:var(--text2)}
             <tr><td>Data Migration Lead</td><td>Extracción, transformación y carga de datos maestros y transaccionales</td></tr>
           </tbody>
         </table></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span class="num num-pm">4</span> SAP Cloud ALM — Centro de Control</div>
+      <div class="section-desc">La herramienta oficial de SAP para gestionar implementaciones a lo largo de todo el ciclo de vida del proyecto.</div>
+      <div class="section-divider"></div>
+      <div class="sub">
+        <div class="callout callout-pm"><strong>Relación clave:</strong> SAP Activate es la metodología. SAP Cloud ALM es la herramienta donde esa metodología se ejecuta. Son inseparables en proyectos SAP modernos.</div>
+        <h3>¿Qué es SAP Cloud ALM?</h3>
+        <p style="font-size:13px;color:var(--text2);margin-bottom:14px;line-height:1.6">SAP Cloud ALM (Application Lifecycle Management) es la plataforma SaaS de SAP para gestionar proyectos de implementación, testing, operaciones y cambios. Reemplaza a SAP Solution Manager (on-premise) como herramienta estándar para clientes cloud y S/4HANA.</p>
+        <div class="cards">
+          <div class="card"><div class="card-label card-label-pm">Gestión de Implementación</div><div class="card-value">Planificación de tareas siguiendo las fases de SAP Activate. Asignación de responsables. Seguimiento de progreso en tiempo real para todo el equipo.</div></div>
+          <div class="card"><div class="card-label card-label-pm">Gestión de Testing</div><div class="card-value">Casos de prueba vinculados a requisitos. Resultados de UAT y SIT. Defectos encontrados durante pruebas. Todo trazable desde el requisito hasta el test.</div></div>
+          <div class="card"><div class="card-label card-label-pm">Gestión de Cambios</div><div class="card-value">Control de cambios en producción. Aprobaciones, transports y auditoría. Imprescindible para mantener la estabilidad post go-live.</div></div>
+          <div class="card"><div class="card-label card-label-pm">Monitorización Operativa</div><div class="card-value">Una vez en producción, monitoriza el rendimiento del sistema, detecta anomalías y gestiona alertas. Integración nativa con el sistema SAP.</div></div>
+        </div>
+        <h3>Ventaja diferencial vs Jira / MS Project</h3>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Dimensión</th><th>SAP Cloud ALM</th><th>Jira / MS Project</th></tr></thead>
+          <tbody>
+            <tr><td>Precargado con tareas</td><td>✅ Tareas de SAP Activate listas por tipo de proyecto</td><td>❌ Empieza desde cero</td></tr>
+            <tr><td>Trazabilidad</td><td>✅ Requisito → Configuración → Test → Defecto</td><td>Parcial — requiere integración manual</td></tr>
+            <tr><td>Integración SAP</td><td>✅ Nativa — conectado al sistema directamente</td><td>❌ Requiere conectores externos</td></tr>
+            <tr><td>Operaciones post go-live</td><td>✅ Monitorización, alertas y cambios</td><td>❌ No aplica</td></tr>
+            <tr><td>Curva de aprendizaje</td><td>Media — específica de ecosistema SAP</td><td>Baja — más generalista</td></tr>
+          </tbody>
+        </table></div>
+        <div class="callout callout-pm"><strong>Para entrevistas SAP:</strong> Mencionar SAP Cloud ALM demuestra que conoces el ecosistema real de trabajo, no solo la metodología en papel. Los PMs en proyectos S/4HANA lo usan a diario para reportar estado, gestionar tareas y documentar decisiones de diseño.</div>
       </div>
     </div>
   </div><!-- end subpage sap -->
@@ -1719,6 +1760,198 @@ td:last-child{color:var(--text2)}
 
 </div><!-- end page-metrics -->
 
+<div class="page" id="page-sap">
+
+  <div class="hero hero-sap">
+    <div class="hero-label hero-label-sap">Knowledge Track</div>
+    <h1>SAP Ecosystem</h1>
+    <p>Reference guide to SAP's key platforms, methodologies and tools. From S/4HANA to SuccessFactors — everything you need to navigate SAP enterprise engagements with confidence.</p>
+  </div>
+
+  <!-- S/4HANA -->
+  <div class="section">
+    <div class="section-title"><span class="num num-sap">1</span> SAP S/4HANA & S/4HANA Cloud</div>
+    <div class="section-desc">El ERP de nueva generación de SAP y sus variantes cloud.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="callout callout-sap"><strong>SAP S/4HANA</strong> es el ERP principal de SAP lanzado en 2015 para reemplazar SAP ECC. Gestiona finanzas, compras, ventas, logística, producción y RRHH sobre la base de datos in-memory SAP HANA, lo que permite procesar datos en tiempo real.</div>
+      <h3>Variantes Cloud</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Variante</th><th>Descripción</th><th>Cuándo elegirla</th></tr></thead>
+        <tbody>
+          <tr><td>S/4HANA Cloud Public Edition</td><td>Sistema estandarizado alojado en SAP. Poca personalización. Actualizaciones automáticas 2×/año. Multi-tenant.</td><td>Empresas que quieren velocidad, coste bajo y procesos estándar</td></tr>
+          <tr><td>S/4HANA Cloud Private Edition</td><td>Alojado en SAP, hyperscaler (AWS/Azure) o CPD del cliente. Mayor flexibilidad y personalización.</td><td>Empresas con procesos complejos, regulaciones estrictas o mucha customización</td></tr>
+          <tr><td>S/4HANA On-Premise</td><td>Instalado en infraestructura propia del cliente. Máximo control y personalización.</td><td>Grandes corporaciones con infraestructura IT propia y requisitos muy específicos</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Implicación para PM/EM</h3>
+      <ul class="blist blist-sap">
+        <li>En <strong>Public Edition</strong> el margen de personalización es limitado por diseño — los conflictos de scope en Fit-to-Standard workshops son más frecuentes</li>
+        <li>En <strong>Private Edition</strong> hay más flexibilidad pero más complejidad técnica y mayor riesgo de sobrecoste</li>
+        <li>La mayoría de proyectos SAP nuevos en Europa son S/4HANA Cloud — dominar SAP Activate es imprescindible</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SAP ACTIVATE -->
+  <div class="section">
+    <div class="section-title"><span class="num num-sap">2</span> SAP Activate</div>
+    <div class="section-desc">La metodología oficial de SAP para implementaciones. Combina Agile con Best Practices predefinidas.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="callout callout-sap"><strong>Principio central — Fit-to-Standard:</strong> Adaptar los procesos del cliente a las Best Practices de SAP, no al revés. Cada desviación (gap) tiene un coste que debe documentarse, aprobarse y gestionarse como cambio.</div>
+      <div class="badges">
+        <div class="badge"><div class="badge-icon">🔍</div><div><span class="badge-label badge-label-sap">Discover</span><span class="badge-desc">Validar el business case. Demos de SAP Best Practices. Value Assessment.</span></div></div>
+        <div class="badge"><div class="badge-icon">🛠</div><div><span class="badge-label badge-label-sap">Prepare</span><span class="badge-desc">Constitución del proyecto. Setup del entorno. Formación del equipo. Project Charter.</span></div></div>
+        <div class="badge"><div class="badge-icon">🗺</div><div><span class="badge-label badge-label-sap">Explore</span><span class="badge-desc">Fit-to-Standard workshops. Identificar gaps entre Best Practice y requisitos del cliente.</span></div></div>
+        <div class="badge"><div class="badge-icon">⚙️</div><div><span class="badge-label badge-label-sap">Realise</span><span class="badge-desc">Configuración iterativa (sprints Agile). Desarrollo de gaps. Integración. Testing.</span></div></div>
+        <div class="badge"><div class="badge-icon">🚀</div><div><span class="badge-label badge-label-sap">Deploy</span><span class="badge-desc">Cutover planning y ejecución. UAT final. Formación a usuarios. Go-live.</span></div></div>
+        <div class="badge"><div class="badge-icon">🔄</div><div><span class="badge-label badge-label-sap">Run</span><span class="badge-desc">Hypercare (4-8 semanas). Estabilización. Transición a soporte. Project closure.</span></div></div>
+      </div>
+      <h3>Artefactos clave</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Artefacto</th><th>Fase</th><th>Descripción</th></tr></thead>
+        <tbody>
+          <tr><td>Project Charter</td><td>Prepare</td><td>Alcance, equipo, presupuesto, cronograma y sponsor</td></tr>
+          <tr><td>Fit-Gap Analysis</td><td>Explore</td><td>Matriz de Best Practices vs requisitos. Identifica gaps que requieren desarrollo</td></tr>
+          <tr><td>Solution Design Document</td><td>Explore → Realise</td><td>Cómo el sistema satisface los requisitos</td></tr>
+          <tr><td>Test Plan / Scripts</td><td>Realise</td><td>Casos de prueba por proceso. SIT + UAT</td></tr>
+          <tr><td>Cutover Plan</td><td>Deploy</td><td>Plan detallado de migración de datos y go-live</td></tr>
+          <tr><td>Hypercare Plan</td><td>Run</td><td>Soporte elevado post go-live. SLAs y escalación</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- SAP CLOUD ALM -->
+  <div class="section">
+    <div class="section-title"><span class="num num-sap">3</span> SAP Cloud ALM</div>
+    <div class="section-desc">Application Lifecycle Management — el centro de control oficial para gestionar implementaciones SAP.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="callout callout-sap"><strong>Relación clave:</strong> SAP Activate es la metodología. SAP Cloud ALM es la herramienta donde esa metodología se ejecuta. Reemplaza a SAP Solution Manager (on-premise) como estándar para clientes cloud.</div>
+      <div class="cards">
+        <div class="card"><div class="card-label card-label-sap">Gestión de Implementación</div><div class="card-value">Tareas del proyecto precargadas con SAP Activate. Asignación de responsables. Seguimiento de progreso en tiempo real.</div></div>
+        <div class="card"><div class="card-label card-label-sap">Gestión de Testing</div><div class="card-value">Casos de prueba vinculados a requisitos. Resultados de UAT y SIT. Defectos trazables desde el requisito hasta el test.</div></div>
+        <div class="card"><div class="card-label card-label-sap">Gestión de Cambios</div><div class="card-value">Control de cambios en producción. Aprobaciones, transports y auditoría post go-live.</div></div>
+        <div class="card"><div class="card-label card-label-sap">Monitorización Operativa</div><div class="card-value">Monitoriza rendimiento del sistema en producción. Detecta anomalías y gestiona alertas. Integración nativa con SAP.</div></div>
+      </div>
+      <div class="callout callout-sap"><strong>Para entrevistas SAP:</strong> Mencionar Cloud ALM demuestra que conoces el ecosistema real de trabajo, no solo la metodología en papel. Los PMs en proyectos S/4HANA lo usan a diario para reportar estado y documentar decisiones de diseño.</div>
+    </div>
+  </div>
+
+  <!-- SAP CENTRAL BUSINESS CONFIGURATION -->
+  <div class="section">
+    <div class="section-title"><span class="num num-sap">4</span> SAP Central Business Configuration (CBC)</div>
+    <div class="section-desc">Centro de configuración centralizado para implementaciones S/4HANA Cloud.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="callout callout-sap"><strong>Qué es:</strong> Herramienta cloud donde el equipo define y configura los procesos de negocio de forma guiada, como un "cuestionario inteligente" que traduce decisiones de negocio en configuración del sistema automáticamente.</div>
+      <ul class="blist blist-sap">
+        <li>Se usa en las fases <strong>Explore y Realise</strong> de SAP Activate</li>
+        <li>En <strong>Explore</strong> responde preguntas sobre procesos (monedas, plan de cuentas, pedidos) y genera la configuración base</li>
+        <li>En <strong>Realise</strong> esa configuración se refina y se activa en el sistema</li>
+        <li>A diferencia de SAP Cloud ALM (que gestiona el proyecto), CBC gestiona <em>qué</em> se configura</li>
+        <li>Específico para <strong>S/4HANA Cloud Public Edition</strong> — no aplica a implementaciones on-premise</li>
+      </ul>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Herramienta</th><th>Para qué sirve</th></tr></thead>
+        <tbody>
+          <tr><td>SAP Central Business Configuration</td><td>Definir y configurar QUÉ procesos de negocio implementar</td></tr>
+          <tr><td>SAP Cloud ALM</td><td>Gestionar CÓMO se ejecuta el proyecto (tareas, testing, cambios)</td></tr>
+          <tr><td>SAP Activate</td><td>La metodología que une ambas herramientas en un marco de trabajo</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- SAP SUITE PRODUCTS -->
+  <div class="section">
+    <div class="section-title"><span class="num num-sap">5</span> Suite de Productos SAP</div>
+    <div class="section-desc">Los principales productos SAP más allá del ERP central.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="cards">
+        <div class="card"><div class="card-label card-label-sap">SAP SuccessFactors</div><div class="card-value">Suite de RRHH en la nube. Gestiona todo el ciclo del empleado: contratación, onboarding, rendimiento, formación, compensación y nómina. Compite con Workday.</div></div>
+        <div class="card"><div class="card-label card-label-sap">SAP Sales Cloud</div><div class="card-value">CRM de ventas. Gestiona pipeline, leads, oportunidades, actividad de comerciales y previsiones. Parte de SAP Customer Experience. Compite con Salesforce Sales Cloud.</div></div>
+        <div class="card"><div class="card-label card-label-sap">SAP Service Cloud</div><div class="card-value">Atención al cliente y gestión de servicios post-venta. Tickets, casos, garantías, visitas técnicas y contratos de servicio. Compite con Salesforce Service Cloud y Zendesk.</div></div>
+        <div class="card"><div class="card-label card-label-sap">SAP Ariba</div><div class="card-value">Gestión de compras y cadena de suministro. Sourcing, proveedores, contratos, pedidos y facturas. Incluye Ariba Network (4M+ empresas conectadas). Compite con Coupa.</div></div>
+        <div class="card"><div class="card-label card-label-sap">SAP BTP</div><div class="card-value">Business Technology Platform. Plataforma de extensiones, integraciones y desarrollo de aplicaciones sobre el ecosistema SAP. Base técnica para conectar todos los productos SAP entre sí.</div></div>
+        <div class="card"><div class="card-label card-label-sap">SAP Joule</div><div class="card-value">Asistente de IA generativa de SAP embebido en toda la suite. Permite interactuar con los sistemas SAP en lenguaje natural para obtener insights, automatizar tareas y tomar decisiones.</div></div>
+      </div>
+
+      <h3>Cómo encajan entre sí</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Área de negocio</th><th>Producto SAP</th><th>Compite con</th></tr></thead>
+        <tbody>
+          <tr><td>ERP / Finanzas / Operaciones</td><td>S/4HANA</td><td>Oracle ERP, Microsoft Dynamics</td></tr>
+          <tr><td>Recursos Humanos</td><td>SuccessFactors</td><td>Workday, Oracle HCM</td></tr>
+          <tr><td>Ventas / CRM</td><td>SAP Sales Cloud</td><td>Salesforce, HubSpot</td></tr>
+          <tr><td>Servicio al Cliente</td><td>SAP Service Cloud</td><td>Salesforce Service, Zendesk</td></tr>
+          <tr><td>Compras / Procurement</td><td>SAP Ariba</td><td>Coupa, Jaggaer</td></tr>
+          <tr><td>Plataforma técnica</td><td>SAP BTP</td><td>MuleSoft, Azure Integration</td></tr>
+          <tr><td>IA embebida</td><td>SAP Joule</td><td>Microsoft Copilot, Salesforce Einstein</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- KEY ROLES -->
+  <div class="section">
+    <div class="section-title"><span class="num num-sap">6</span> Roles en Proyectos SAP</div>
+    <div class="section-desc">Quién hace qué en una implementación SAP enterprise.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Rol</th><th>Responsabilidad</th></tr></thead>
+        <tbody>
+          <tr><td>Project Manager (SAP)</td><td>Gestión global: scope, tiempo, coste y calidad. Usa SAP Cloud ALM como herramienta central</td></tr>
+          <tr><td>Engagement Manager</td><td>Relación ejecutiva con el cliente, gestión comercial, escalaciones y pre-sales</td></tr>
+          <tr><td>Solution Architect</td><td>Diseño de la solución técnica y decisiones de arquitectura</td></tr>
+          <tr><td>Business Process Expert</td><td>Experto funcional del cliente en cada módulo (FI, MM, SD, HCM, etc.)</td></tr>
+          <tr><td>Integration Consultant</td><td>Integración con sistemas terceros. APIs, middleware, IDocs</td></tr>
+          <tr><td>Change Manager</td><td>Gestión del cambio organizativo. Formación y adopción</td></tr>
+          <tr><td>Data Migration Lead</td><td>Extracción, transformación y carga de datos maestros y transaccionales</td></tr>
+          <tr><td>Basis / Technical Consultant</td><td>Infraestructura SAP, transports, seguridad y rendimiento del sistema</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- GLOSSARY -->
+  <div class="section">
+    <div class="section-title"><span class="num num-sap">7</span> Glosario SAP</div>
+    <div class="section-desc">Términos esenciales para moverse con fluidez en entornos SAP.</div>
+    <div class="section-divider"></div>
+    <div class="sub">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Término</th><th>Significado</th></tr></thead>
+        <tbody>
+          <tr><td>ERP</td><td>Enterprise Resource Planning — sistema integrado que gestiona los procesos centrales de una empresa</td></tr>
+          <tr><td>SAP HANA</td><td>Base de datos in-memory de SAP que permite procesamiento de datos en tiempo real</td></tr>
+          <tr><td>SAP ECC</td><td>ERP Central Component — el ERP anterior a S/4HANA, que S/4HANA reemplaza</td></tr>
+          <tr><td>Fit-to-Standard</td><td>Principio de adaptar los procesos del cliente a las Best Practices de SAP, no al revés</td></tr>
+          <tr><td>Best Practices</td><td>Configuraciones predefinidas por SAP basadas en las mejores prácticas de cada industria</td></tr>
+          <tr><td>Gap / Fit-Gap</td><td>Diferencia entre lo que ofrece el estándar SAP y lo que necesita el cliente</td></tr>
+          <tr><td>Transport</td><td>Mecanismo para mover configuración entre entornos SAP (DEV → QA → PRD)</td></tr>
+          <tr><td>SIT</td><td>System Integration Testing — pruebas de integración entre módulos y sistemas</td></tr>
+          <tr><td>UAT</td><td>User Acceptance Testing — validación por parte del cliente antes del go-live</td></tr>
+          <tr><td>Cutover</td><td>Proceso de migración de datos y actividades para pasar del sistema antiguo al nuevo</td></tr>
+          <tr><td>Hypercare</td><td>Período de soporte intensivo (4-8 semanas) inmediatamente después del go-live</td></tr>
+          <tr><td>IDocs</td><td>Intermediate Documents — formato estándar SAP para intercambio de datos con sistemas externos</td></tr>
+          <tr><td>BAPI</td><td>Business Application Programming Interface — APIs estándar de SAP para integraciones</td></tr>
+          <tr><td>Fiori</td><td>Interfaz de usuario moderna y responsive de SAP que reemplaza a las transacciones clásicas</td></tr>
+          <tr><td>S/4HANA Rise</td><td>Paquete "todo en uno" de SAP que incluye licencia, infraestructura cloud y servicios de transformación</td></tr>
+          <tr><td>SAP BTP</td><td>Business Technology Platform — plataforma de extensiones e integraciones del ecosistema SAP</td></tr>
+          <tr><td>Módulos SAP</td><td>FI (Finanzas), CO (Controlling), MM (Materiales), SD (Ventas), PP (Producción), HCM (RRHH), PM (Mantenimiento)</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+</div><!-- end page-sap -->
+
+
 <script>
 // ─── MAIN TABS ───
 function switchTab(id, btn) {
@@ -1747,26 +1980,19 @@ document.addEventListener('DOMContentLoaded', function() {
   // sub-bar already visible since PM is default
 });
 
-// ─── LANGUAGE SYSTEM ───
-const TRANSLATIONS = {
-  // Hero
-  "Métricas & KPIs": "Metrics & KPIs",
-  "El sistema de medición completo para Project Managers y Engagement Managers: KPIs operativos, métricas de cliente y fórmulas de referencia PMP organizadas para uso inmediato.":
-    "The complete measurement system for Project Managers and Engagement Managers: operational KPIs, client metrics and PMP reference formulas organised for immediate use.",
 
-  // Section titles
+// ─── LANGUAGE SYSTEM v2 ───
+const TRANS = {
+  "Métricas & KPIs": "Metrics & KPIs",
+  "El sistema de medición completo para Project Managers y Engagement Managers: KPIs operativos, métricas de cliente y fórmulas de referencia PMP organizadas para uso inmediato.": "The complete measurement system for Project Managers and Engagement Managers: operational KPIs, client metrics and PMP reference formulas organised for immediate use.",
   "Métricas del Project Manager": "Project Manager Metrics",
   "Métricas del Engagement Manager": "Engagement Manager Metrics",
   "RAG Status — Sistema de Semáforo": "RAG Status — Traffic Light System",
   "PMP Formulas & Reference Metrics": "PMP Formulas & Reference Metrics",
-
-  // Section descriptions
   "KPIs operativos esenciales para la gestión diaria de proyectos enterprise.": "Essential operational KPIs for daily enterprise project management.",
   "Métricas de cliente, comerciales y de entrega para el rol de Engagement Manager.": "Client, commercial and delivery metrics for the Engagement Manager role.",
   "El estándar universal de reporting para proyectos enterprise.": "The universal reporting standard for enterprise projects.",
   "EVM, Financial, Schedule, Estimation, Communication, Risk and Procurement formulas. Source: PMI PMBOK.": "EVM, Financial, Schedule, Estimation, Communication, Risk and Procurement formulas. Source: PMI PMBOK.",
-
-  // Metric card names
   "CPI — Índice de Rendimiento de Coste": "CPI — Cost Performance Index",
   "SPI — Índice de Rendimiento de Cronograma": "SPI — Schedule Performance Index",
   "EAC — Estimación a la Conclusión": "EAC — Estimate at Completion",
@@ -1789,8 +2015,6 @@ const TRANSLATIONS = {
   "Upsell / Expansion Revenue": "Upsell / Expansion Revenue",
   "Gross Margin %": "Gross Margin %",
   "Change Request Rate": "Change Request Rate",
-
-  // Metric formulas
   "Coste Real (AC) / Valor Ganado (EV)": "Actual Cost (AC) / Earned Value (EV)",
   "Valor Ganado (EV) / Valor Planificado (PV)": "Earned Value (EV) / Planned Value (PV)",
   "Presupuesto Total (BAC) / CPI": "Total Budget (BAC) / CPI",
@@ -1812,54 +2036,28 @@ const TRANSLATIONS = {
   "ARR renovado / ARR total a renovar × 100": "Renewed ARR / Total ARR up for renewal × 100",
   "Ingresos nuevos de cuentas existentes / período": "New revenue from existing accounts / period",
   "(Revenue − COGS) / Revenue × 100": "(Revenue − COGS) / Revenue × 100",
-
-  // Metric descriptions
-  "Eficiencia de coste. CPI > 1 = bajo presupuesto. CPI < 1 = sobrecoste. Es el indicador más predictivo del coste final del proyecto.":
-    "Cost efficiency. CPI > 1 = under budget. CPI < 1 = over budget. Most predictive indicator of final project cost.",
-  "Eficiencia de cronograma. SPI > 1 = adelantado. SPI < 1 = retrasado. Combinado con CPI da una imagen completa del estado del proyecto.":
-    "Schedule efficiency. SPI > 1 = ahead of schedule. SPI < 1 = behind. Combined with CPI gives a complete picture of project status.",
-  "Coste total proyectado al finalizar el proyecto. Si EAC > BAC el proyecto sobrecoste. Recalcular semanalmente.":
-    "Projected total cost at project completion. If EAC > BAC the project is over budget. Recalculate weekly.",
-  "Diferencia entre presupuesto original y coste proyectado. VAC negativo = sobrecoste esperado. Compartir con sponsor proactivamente.":
-    "Difference between original budget and projected cost. Negative VAC = expected overrun. Share proactively with sponsor.",
-  "Desviación de coste en un punto del tiempo. Negativo = gastando más de lo ganado. Trigger para acción correctiva inmediata.":
-    "Cost deviation at a point in time. Negative = spending more than earned. Trigger for immediate corrective action.",
-  "Desviación de cronograma en valor monetario. Negativo = trabajo retrasado vs plan. No sustituye al análisis de la ruta crítica.":
-    "Schedule deviation in monetary value. Negative = work behind plan. Does not replace critical path analysis.",
-  "% de hitos entregados en la fecha comprometida originalmente. Indicador clave de fiabilidad de la planificación.":
-    "% of milestones delivered on the originally committed date. Key indicator of planning reliability.",
-  "Tiempo medio de resolución de issues. P1 crítico: < 4h. P2: < 24h. P3: < 72h. KPI esencial durante hypercare.":
-    "Average issue resolution time. P1 critical: < 4h. P2: < 24h. P3: < 72h. Essential KPI during hypercare.",
-  "% de la capacidad disponible realmente utilizada. Sobre 85% = riesgo de burnout. Bajo 70% = recursos infrautilizados.":
-    "% of available capacity actually used. Above 85% = burnout risk. Below 70% = underutilised resources.",
-  "Frecuencia de cambios fuera del SOW original. Alta tasa = scope mal definido o control de cambios insuficiente.":
-    "Frequency of changes outside the original SOW. High rate = poorly defined scope or insufficient change control.",
-  "Story points completados por sprint. Sirve para forecasting de entrega. Estabilidad > velocidad alta.":
-    "Story points completed per sprint. Used for delivery forecasting. Stability > high velocity.",
-  "Diferencia entre burndown real e ideal. Identifica si el equipo va a completar el sprint según lo planificado.":
-    "Difference between actual and ideal burndown. Identifies whether the team will complete the sprint as planned.",
-  "Satisfacción del cliente por fase o hito. Medir regularmente, no solo al final. Tendencia descendente = señal de alarma.":
-    "Client satisfaction per phase or milestone. Measure regularly, not just at the end. Downward trend = warning signal.",
-  "Probabilidad de recomendación del cliente. 9-10 = Promotores. 7-8 = Pasivos. 0-6 = Detractores. Meta empresarial crítica en SaaS.":
-    "Client recommendation probability. 9-10 = Promoters. 7-8 = Passives. 0-6 = Detractors. Critical business goal in SaaS.",
-  "% de touchpoints de nivel C ejecutados. Baja tasa = riesgo de pérdida de alineación estratégica.":
-    "% of C-level touchpoints executed. Low rate = risk of losing strategic alignment.",
-  "Tiempo desde el inicio hasta que el cliente percibe valor real. Reducir TTV = mayor satisfacción y menor churn temprano.":
-    "Time from kickoff until the client perceives real value. Reducing TTV = higher satisfaction and lower early churn.",
-  "% de go-lives completados sin rollback o crisis mayor. Mide calidad del proceso de cutover y preparación.":
-    "% of go-lives completed without rollback or major crisis. Measures cutover process quality and preparation.",
-  "% de adopción de la solución implementada. Baja adopción post go-live = riesgo de no renovación.":
-    "% adoption of the implemented solution. Low adoption post go-live = renewal risk.",
-  "% de contratos renovados. La métrica definitiva de satisfacción del cliente en SaaS. <85% = problema sistémico.":
-    "% of contracts renewed. The definitive client satisfaction metric in SaaS. <85% = systemic problem.",
-  "Revenue generado desde cuentas actuales. Mide la capacidad del EM de identificar y convertir oportunidades durante delivery.":
-    "Revenue generated from existing accounts. Measures the EM's ability to identify and convert opportunities during delivery.",
-  "Margen bruto del engagement. Un EM debe proteger el margen controlando scope creep y eficiencia del equipo.":
-    "Gross margin of the engagement. An EM must protect margin by controlling scope creep and team efficiency.",
-  "Frecuencia de cambios fuera del SOW. Alta tasa puede indicar scope mal definido o falta de control de cambios.":
-    "Frequency of changes outside the SOW. High rate may indicate poorly defined scope or lack of change control.",
-
-  // Targets
+  "Eficiencia de coste. CPI > 1 = bajo presupuesto. CPI < 1 = sobrecoste. Es el indicador más predictivo del coste final del proyecto.": "Cost efficiency. CPI > 1 = under budget. CPI < 1 = over budget. Most predictive indicator of final project cost.",
+  "Eficiencia de cronograma. SPI > 1 = adelantado. SPI < 1 = retrasado. Combinado con CPI da una imagen completa del estado del proyecto.": "Schedule efficiency. SPI > 1 = ahead of schedule. SPI < 1 = behind. Combined with CPI gives a complete picture of project status.",
+  "Coste total proyectado al finalizar el proyecto. Si EAC > BAC el proyecto sobrecoste. Recalcular semanalmente.": "Projected total cost at project completion. If EAC > BAC the project is over budget. Recalculate weekly.",
+  "Diferencia entre presupuesto original y coste proyectado. VAC negativo = sobrecoste esperado. Compartir con sponsor proactivamente.": "Difference between original budget and projected cost. Negative VAC = expected overrun. Share proactively with sponsor.",
+  "Desviación de coste en un punto del tiempo. Negativo = gastando más de lo ganado. Trigger para acción correctiva inmediata.": "Cost deviation at a point in time. Negative = spending more than earned. Trigger for immediate corrective action.",
+  "Desviación de cronograma en valor monetario. Negativo = trabajo retrasado vs plan. No sustituye al análisis de la ruta crítica.": "Schedule deviation in monetary value. Negative = work behind plan. Does not replace critical path analysis.",
+  "% de hitos entregados en la fecha comprometida originalmente. Indicador clave de fiabilidad de la planificación.": "% of milestones delivered on the originally committed date. Key indicator of planning reliability.",
+  "Tiempo medio de resolución de issues. P1 crítico: < 4h. P2: < 24h. P3: < 72h. KPI esencial durante hypercare.": "Average issue resolution time. P1 critical: < 4h. P2: < 24h. P3: < 72h. Essential KPI during hypercare.",
+  "% de la capacidad disponible realmente utilizada. Sobre 85% = riesgo de burnout. Bajo 70% = recursos infrautilizados.": "% of available capacity actually used. Above 85% = burnout risk. Below 70% = underutilised resources.",
+  "Frecuencia de cambios fuera del SOW original. Alta tasa = scope mal definido o control de cambios insuficiente.": "Frequency of changes outside the original SOW. High rate = poorly defined scope or insufficient change control.",
+  "Story points completados por sprint. Sirve para forecasting de entrega. Estabilidad > velocidad alta.": "Story points completed per sprint. Used for delivery forecasting. Stability > high velocity.",
+  "Diferencia entre burndown real e ideal. Identifica si el equipo va a completar el sprint según lo planificado.": "Difference between actual and ideal burndown. Identifies whether the team will complete the sprint as planned.",
+  "Satisfacción del cliente por fase o hito. Medir regularmente, no solo al final. Tendencia descendente = señal de alarma.": "Client satisfaction per phase or milestone. Measure regularly, not just at the end. Downward trend = warning signal.",
+  "Probabilidad de recomendación del cliente. 9-10 = Promotores. 7-8 = Pasivos. 0-6 = Detractores. Meta empresarial crítica en SaaS.": "Client recommendation probability. 9-10 = Promoters. 7-8 = Passives. 0-6 = Detractors. Critical business goal in SaaS.",
+  "% de touchpoints de nivel C ejecutados. Baja tasa = riesgo de pérdida de alineación estratégica.": "% of C-level touchpoints executed. Low rate = risk of losing strategic alignment.",
+  "Tiempo desde el inicio hasta que el cliente percibe valor real. Reducir TTV = mayor satisfacción y menor churn temprano.": "Time from kickoff until the client perceives real value. Reducing TTV = higher satisfaction and lower early churn.",
+  "% de go-lives completados sin rollback o crisis mayor. Mide calidad del proceso de cutover y preparación.": "% of go-lives completed without rollback or major crisis. Measures cutover process quality and preparation.",
+  "% de adopción de la solución implementada. Baja adopción post go-live = riesgo de no renovación.": "% adoption of the implemented solution. Low adoption post go-live = renewal risk.",
+  "% de contratos renovados. La métrica definitiva de satisfacción del cliente en SaaS. <85% = problema sistémico.": "% of contracts renewed. The definitive client satisfaction metric in SaaS. <85% = systemic problem.",
+  "Revenue generado desde cuentas actuales. Mide la capacidad del EM de identificar y convertir oportunidades durante delivery.": "Revenue generated from existing accounts. Measures the EM's ability to identify and convert opportunities during delivery.",
+  "Margen bruto del engagement. Un EM debe proteger el margen controlando scope creep y eficiencia del equipo.": "Gross margin of the engagement. An EM must protect margin by controlling scope creep and team efficiency.",
+  "Frecuencia de cambios fuera del SOW. Alta tasa puede indicar scope mal definido o falta de control de cambios.": "Frequency of changes outside the SOW. High rate may indicate poorly defined scope or lack of change control.",
   "🎯 Target: > 1.0 (idealmente 1.05–1.15)": "🎯 Target: > 1.0 (ideally 1.05–1.15)",
   "🎯 Target: > 1.0": "🎯 Target: > 1.0",
   "🎯 EAC ≤ BAC": "🎯 EAC ≤ BAC",
@@ -1881,8 +2079,6 @@ const TRANSLATIONS = {
   "🎯 Net Revenue Retention >110%": "🎯 Net Revenue Retention >110%",
   "🎯 Target: ≥ 35% (varía por sector)": "🎯 Target: ≥ 35% (varies by sector)",
   "🎯 Tasa controlada, CRs documentados": "🎯 Controlled rate, documented CRs",
-
-  // Section headers (h3)
   "Métricas de Rendimiento del Proyecto": "Project Performance Metrics",
   "Métricas de Equipo y Recursos": "Team & Resource Metrics",
   "Métricas de Stakeholders": "Stakeholder Metrics",
@@ -1897,8 +2093,6 @@ const TRANSLATIONS = {
   "Communication Channels": "Communication Channels",
   "Risk Financial Metrics": "Risk Financial Metrics",
   "Procurement (FPIF) — Fixed Price Incentive Fee": "Procurement (FPIF) — Fixed Price Incentive Fee",
-
-  // Table headers
   "Nivel": "Level",
   "Audiencia": "Audience",
   "Frecuencia": "Frequency",
@@ -1907,8 +2101,6 @@ const TRANSLATIONS = {
   "Término": "Term",
   "Definición": "Definition",
   "Significado": "Meaning",
-
-  // Table rows
   "Operacional": "Operational",
   "Equipo del proyecto": "Project team",
   "Diario / Semanal": "Daily / Weekly",
@@ -1929,31 +2121,17 @@ const TRANSLATIONS = {
   "Mensual / QBR": "Monthly / QBR",
   "NPS, TTV, valor entregado, renewal outlook": "NPS, TTV, value delivered, renewal outlook",
   "QBR Deck (3 slides)": "QBR Deck (3 slides)",
-
-  // Callouts
   "Regla de oro para el reporte ejecutivo:": "Golden rule for executive reporting:",
-  "3 bullets — Verde/Ámbar/Rojo + 1 riesgo + 1 decisión necesaria. Los ejecutivos no leen; toman decisiones. Dales exactamente lo que necesitan para decidir.":
-    "3 bullets — Green/Amber/Red + 1 risk + 1 decision needed. Executives don't read; they decide. Give them exactly what they need to make the call.",
+  "3 bullets — Verde/Ámbar/Rojo + 1 riesgo + 1 decisión necesaria. Los ejecutivos no leen; toman decisiones. Dales exactamente lo que necesitan para decidir.": "3 bullets — Green/Amber/Red + 1 risk + 1 decision needed. Executives don't read; they decide. Give them exactly what they need to make the call.",
   "Regla crítica:": "Critical rule:",
-  "Nunca "guardar" un Amber para que parezca que todo está bien. El sponsor debe conocer los problemas antes que el cliente. Un Red comunicado proactivamente con plan de recuperación es preferible a un Red descubierto tarde sin solución.":
-    "Never "hold" an Amber to make everything seem fine. The sponsor must know about problems before the client does. A Red communicated proactively with a recovery plan is better than a Red discovered late with no solution.",
+  "Nunca \"guardar\" un Amber para que parezca que todo está bien. El sponsor debe conocer los problemas antes que el cliente. Un Red comunicado proactivamente con plan de recuperación es preferible a un Red descubierto tarde sin solución.": "Never \"hold\" an Amber to make everything seem fine. The sponsor must know about problems before the client does. A Red communicated proactively with a recovery plan is better than a Red discovered late with no solution.",
   "Regla de oro:": "Golden rule:",
-  "CPI y SPI > 1.0 = bien. < 1.0 = problema. EVM integra scope, schedule y coste en una sola imagen del rendimiento del proyecto.":
-    "CPI and SPI > 1.0 = good. < 1.0 = problem. EVM integrates scope, schedule and cost into a single project performance picture.",
-  "Las fórmulas básicas de EVM (CV, SV, CPI, SPI, EAC, VAC) están detalladas en la sección 1 — Métricas del Project Manager.":
-    "The basic EVM formulas (CV, SV, CPI, SPI, EAC, VAC) are detailed in section 1 — Project Manager Metrics.",
-  "Con 5 stakeholders hay 10 canales. Con 10 hay 45. Con 20 hay 190. La complejidad de comunicación escala cuadráticamente — por eso el PM debe estructurar los canales desde el inicio.":
-    "With 5 stakeholders there are 10 channels. With 10 there are 45. With 20 there are 190. Communication complexity scales quadratically — which is why the PM must structure channels from the start.",
-
-  // RAG cards
-  "Proyecto en línea con el plan. CPI y SPI ≥ 0.95. Sin issues críticos abiertos. Sponsor informado y satisfecho.":
-    "Project on track with the plan. CPI and SPI ≥ 0.95. No critical issues open. Sponsor informed and satisfied.",
-  "Riesgo identificado que podría impactar scope, tiempo o coste si no se gestiona. Requiere plan de mitigación activo. Escalación preventiva recomendada.":
-    "Identified risk that could impact scope, time or cost if unmanaged. Requires active mitigation plan. Preventive escalation recommended.",
-  "Impacto crítico en scope, coste o plazo ya materializado. Requiere acción inmediata del sponsor. Escalación obligatoria. Plan de recuperación presentado.":
-    "Critical impact on scope, cost or timeline already materialised. Requires immediate sponsor action. Mandatory escalation. Recovery plan presented.",
-
-  // Procurement table
+  "CPI y SPI > 1.0 = bien. < 1.0 = problema. EVM integra scope, schedule y coste en una sola imagen del rendimiento del proyecto.": "CPI and SPI > 1.0 = good. < 1.0 = problem. EVM integrates scope, schedule and cost into a single project performance picture.",
+  "Las fórmulas básicas de EVM (CV, SV, CPI, SPI, EAC, VAC) están detalladas en la sección 1 — Métricas del Project Manager.": "The basic EVM formulas (CV, SV, CPI, SPI, EAC, VAC) are detailed in section 1 — Project Manager Metrics.",
+  "Con 5 stakeholders hay 10 canales. Con 10 hay 45. Con 20 hay 190. La complejidad de comunicación escala cuadráticamente — por eso el PM debe estructurar los canales desde el inicio.": "With 5 stakeholders there are 10 channels. With 10 there are 45. With 20 there are 190. Communication complexity scales quadratically — which is why the PM must structure channels from the start.",
+  "Proyecto en línea con el plan. CPI y SPI ≥ 0.95. Sin issues críticos abiertos. Sponsor informado y satisfecho.": "Project on track with the plan. CPI and SPI ≥ 0.95. No critical issues open. Sponsor informed and satisfied.",
+  "Riesgo identificado que podría impactar scope, tiempo o coste si no se gestiona. Requiere plan de mitigación activo. Escalación preventiva recomendada.": "Identified risk that could impact scope, time or cost if unmanaged. Requires active mitigation plan. Preventive escalation recommended.",
+  "Impacto crítico en scope, coste o plazo ya materializado. Requiere acción inmediata del sponsor. Escalación obligatoria. Plan de recuperación presentado.": "Critical impact on scope, cost or timeline already materialised. Requires immediate sponsor action. Mandatory escalation. Recovery plan presented.",
   "FPIF": "FPIF",
   "Fixed Price Incentive Fee — contrato de precio fijo con incentivos por rendimiento": "Fixed Price Incentive Fee — fixed price contract with performance incentives",
   "PTA": "PTA",
@@ -1970,8 +2148,6 @@ const TRANSLATIONS = {
   "Benefit-Cost Ratio — PV beneficios / PV costes. >1 = viable": "Benefit-Cost Ratio — PV benefits / PV costs. >1 = viable",
   "RPN": "RPN",
   "Risk Priority Number — severity × occurrence × detection": "Risk Priority Number — severity × occurrence × detection",
-
-  // EVM table
   "PV": "PV",
   "Planned Value — coste presupuestado del trabajo planificado a fecha": "Planned Value — budgeted cost of work scheduled to date",
   "EV": "EV",
@@ -1992,8 +2168,6 @@ const TRANSLATIONS = {
   "Late Finish / Early Finish — fechas de análisis de schedule": "Late Finish / Early Finish — schedule analysis dates",
   "O / M / P": "O / M / P",
   "Optimista / Más Probable / Pesimista — inputs de estimación": "Optimistic / Most Likely / Pessimistic — estimation inputs",
-
-  // Formula spans
   "Planned Value — coste presupuestado del trabajo planificado": "Planned Value — budgeted cost of planned work",
   "Earned Value — coste presupuestado del trabajo realizado": "Earned Value — budgeted cost of performed work",
   "EAC alternativa — usando eficiencia del trabajo restante": "Alternative EAC — using remaining work efficiency",
@@ -2015,73 +2189,59 @@ const TRANSLATIONS = {
   "Suma de todos los EMV de las ramas. Elige el camino con mayor EMV": "Sum of all branch EMVs. Choose the path with the highest EMV",
   "Risk Priority Number — clasifica riesgos por puntuación combinada": "Risk Priority Number — ranks risks by combined score",
   "Desviación estándar a partir de la varianza": "Standard deviation from variance",
-
-  // PTA callout
   "Point of Total Assumption (PTA)": "Point of Total Assumption (PTA)",
-  "— en contratos FPIF, el punto de coste por encima del cual el vendedor asume todo el sobrecoste. Fórmula:":
-    "— in FPIF contracts, the cost point above which the seller bears all overrun. Formula:",
+  "— en contratos FPIF, el punto de coste por encima del cual el vendedor asume todo el sobrecoste. Fórmula:": "— in FPIF contracts, the cost point above which the seller bears all overrun. Formula:"
 };
 
 let currentLang = 'es';
-const originalTexts = new Map();
 
-function collectOriginals(root) {
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
-  let node;
-  while ((node = walker.nextNode())) {
-    const text = node.textContent.trim();
-    if (text && !originalTexts.has(node)) {
-      originalTexts.set(node, text);
-    }
-  }
-}
+function setLang(lang) {
+  if (lang === currentLang) return;
 
-function applyTranslation(lang) {
   const metrics = document.getElementById('page-metrics');
   if (!metrics) return;
 
-  if (lang === 'es') {
-    // Restore originals
-    originalTexts.forEach((original, node) => {
-      if (node.parentNode) node.textContent = original;
+  const walker = document.createTreeWalker(
+    metrics,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode: function(node) {
+        const parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        const tag = parent.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE') return NodeFilter.FILTER_REJECT;
+        return node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      }
+    }
+  );
+
+  const nodes = [];
+  let node;
+  while ((node = walker.nextNode())) nodes.push(node);
+
+  if (lang === 'en') {
+    nodes.forEach(function(node) {
+      const text = node.textContent.trim();
+      if (TRANS[text]) {
+        node._esOriginal = node.textContent;
+        node.textContent = node.textContent.replace(text, TRANS[text]);
+      }
     });
   } else {
-    // Apply translations
-    originalTexts.forEach((original, node) => {
-      if (!node.parentNode) return;
-      const stripped = original.trim();
-      if (TRANSLATIONS[stripped]) {
-        node.textContent = node.textContent.replace(stripped, TRANSLATIONS[stripped]);
+    nodes.forEach(function(node) {
+      if (node._esOriginal !== undefined) {
+        node.textContent = node._esOriginal;
+        delete node._esOriginal;
       }
     });
   }
 
   currentLang = lang;
 
-  // Update buttons
   document.getElementById('btn-es').style.background = lang === 'es' ? 'var(--blue)' : 'transparent';
   document.getElementById('btn-es').style.color = lang === 'es' ? '#fff' : 'var(--text2)';
   document.getElementById('btn-en').style.background = lang === 'en' ? 'var(--blue)' : 'transparent';
   document.getElementById('btn-en').style.color = lang === 'en' ? '#fff' : 'var(--text2)';
-}
-
-function setLang(lang) {
-  if (lang === currentLang) return;
-
-  // Collect on first use
-  if (originalTexts.size === 0) {
-    const metrics = document.getElementById('page-metrics');
-    if (metrics) collectOriginals(metrics);
-  }
-
-  // If switching to EN from ES, collect fresh originals first
-  if (lang === 'en' && currentLang === 'es') {
-    originalTexts.clear();
-    const metrics = document.getElementById('page-metrics');
-    if (metrics) collectOriginals(metrics);
-  }
-
-  applyTranslation(lang);
 }
 
 </script>
